@@ -27,6 +27,7 @@
                 function createCityBoxSection1(city, index, sidebarId, mapInstance) {
                     var cityBox = document.createElement('div');
                     cityBox.className = 'city-box';
+                    cityBox.id = 'city-box-' + index; // Assign an ID for each city box
                     cityBox.innerHTML = `
                         <h3>${city.name}</h3>
                         <p>${city.description}</p>
@@ -46,17 +47,25 @@
                                 '</div>'
                             )
                             .addTo(mapInstance);
+               
+                        // Highlight the corresponding city box when clicked
+                        if (previouslyHighlighted) {
+                            previouslyHighlighted.style.backgroundColor = ''; // Reset the previous highlighted box
+                        }
+                        cityBox.style.backgroundColor = '#80CBC4'; // Highlight the new box
+                        previouslyHighlighted = cityBox; // Update the track of highlighted box
                     });
                     document.getElementById(sidebarId).appendChild(cityBox);
                 }
-
+               
                 // Add city points to the map and create city boxes for Section 1
+                var previouslyHighlighted = null; // Track the previously highlighted city box
                 cities.forEach(function(city, index) {
                     // Create a marker for each city
                     var marker = new mapboxgl.Marker()
                         .setLngLat(city.coordinates)
                         .addTo(map);
-
+               
                     // Attach click event to each marker
                     marker.getElement().addEventListener('click', function() {
                         map.flyTo({
@@ -73,12 +82,16 @@
                                 '</div>'
                             )
                             .addTo(map);
-
-                        // Scroll to the corresponding city box
-                        scrollToCityBox(index, 'sidebar');
+               
+                        // Highlight the corresponding city box when marker is clicked
+                        var cityBox = document.getElementById('city-box-' + index);
+                        if (previouslyHighlighted) {
+                            previouslyHighlighted.style.backgroundColor = ''; // Reset the previous highlighted box
+                        }
+                        cityBox.style.backgroundColor = '#80CBC4'; // Highlight the new box
+                        previouslyHighlighted = cityBox; // Update the track of highlighted box
                     });
 
-                    // Create a city box for Section 1
                     createCityBoxSection1(city, index, 'sidebar', map);
                 });
 // Initialize the second map with satellite imagery style
