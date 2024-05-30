@@ -83,6 +83,12 @@ main section {
     font-family: Georgia, 'Times New Roman', Times, sans-serif;
 }
 
+@media only screen and (max-width: 768px) {
+    main section {
+      width:95%;
+    }
+}
+
 main section h2 {
     margin-top: 0;
 }
@@ -91,6 +97,11 @@ main section h2 {
     display: flex;
 }
 
+@media only screen and (max-width: 768px) {
+    #section2 {
+      width:100%;
+    }
+}
 #sidebar2 {
     flex: 3;
     width: 75%;
@@ -111,13 +122,16 @@ main section h2 {
 .city-box {
     border: 1px solid #333;
     padding: 10px;
-    margin-bottom: 10px;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 40px;
     background-color: #3a3a3a;
 }
 
 .city-box img {
-    width: 100%;
-    height: auto;
+    position: absolute;
+    max-width: 100%;
+    display: block;
 }
 
 .city-box h3, .city-box p {
