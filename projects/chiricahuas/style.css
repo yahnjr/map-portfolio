@@ -77,6 +77,10 @@ main section {
     padding: 20px;
     border: 1px solid #333;
     background-color: #1e1e1e;
+    margin: 0 auto;
+    width: 60%;
+    line-height: 1.8;
+    font-family: Georgia, 'Times New Roman', Times, sans-serif;
 }
 
 main section h2 {

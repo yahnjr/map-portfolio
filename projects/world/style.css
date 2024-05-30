@@ -77,29 +77,14 @@ main section {
     padding: 20px;
     border: 1px solid #333;
     background-color: #1e1e1e;
+    margin: 0 auto;
+    width: 60%;
+    line-height: 1.8;
+    font-family: Georgia, 'Times New Roman', Times, sans-serif;
 }
 
 main section h2 {
     margin-top: 0;
-}
-
-#section1 {
-    display: flex;
-}
-
-#map {
-    flex: 1;
-    height: 500px;
-}
-
-#sidebar {
-    width: 300px;
-    max-height: 500px;
-    overflow-y: auto;
-    border: 1px solid #333;
-    padding: 10px;
-    margin-left: 20px;
-    background-color: #2b2b2b;
 }
 
 #section2 {
@@ -143,6 +128,10 @@ main section h2 {
 #about {
     background-color: #1e1e1e;
     border: 1px solid #333;
+    margin: 0 auto;
+    width: 60%;
+    line-height: 1.8;
+    font-family: Georgia, 'Times New Roman', Times, sans-serif;
 }
 
 footer {

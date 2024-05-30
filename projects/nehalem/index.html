@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Web Page</title>
-    <link href="style.css">
+    <title>Europe</title>
+    <link rel="stylesheet" href="style.css">
     <!-- Include Mapbox GL JS and CSS -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
@@ -17,20 +17,20 @@
     
     <nav>
         <ul>
-            <li><a href="../">Home</a></li>
+            <li><a href="../../">Home</a></li>
             <li class="dropdown">
                 <a href="javascript:void(0)">Project Pages</a>
                 <div class="dropdown-content">
-                    <a href="/projects/nehalem">Nehalem Basin</a>
-                    <a href="/projects/ppgis">Tallahassee</a>
-                    <a href="/projects/lakeoswego">Lake Oswego</a>
-                    <a href="/projects/northcoast">North Coast</a>
-                    <a href="/projects/monterey">Monterey Bay</a>
-                    <a href="/projects/pccrockcreek">PCC Rock Creek</a>
-                    <a href="/projects/chiricahuas">Chiricahua Mountains</a>
-                    <a href="/projects/taiwan">Columbia River</a>
-                    <a href="/projects/europe">Willamette Valley</a>
-                    <a href="/projects/world">Willamette Valley</a>
+                    <a href="../nehalem">Nehalem Basin</a>
+                    <a href="../ppgis">Tallahassee</a>
+                    <a href="../lakeoswego">Lake Oswego</a>
+                    <a href="../pccrockcreek">PCC Rock Creek</a>
+                    <a href="../northcoast">North Coast</a>
+                    <a href="../monterey">Monterey Bay</a>
+                    <a href="../chiricahuas">Chiricahua Mountains</a>
+                    <a href="../taiwan">Taiwan</a>
+                    <a href="../europe">Europe</a>
+                    <a href="../world">Global</a>
                 </div>
             </li>
             <li><a href="#image">Image</a></li>
@@ -41,19 +41,20 @@
 
     <main>
         <section id="section1">
-            <h2>Fauntastic Chiricahua Mountains</h2>
-            <p>The Upper Nehalem Watershed Council, in partnership with a similar organization in the lower watershed, aims to implement the Nehalem Strategic Action Plan to protect the endangered "evolutionary unit" of Coho salmon living along the coast of Oregon. As an intern working with them, I worked alongside environmentalists and other GIS professionals from state government agencies and non-profits to collect, analyze, and summarize data about the watershed- from things like forest characteristics, environmental variables, human interactions, and private timber sales. I created an organized database to allow the data to be utilized and updated by future salmon conservationists in the area. I also worked with the data to produce usable products, including dam models, site maps, and a web map showing the breakdown of watershed characteristics into sub-basins. I also worked with Terrain Works' NetMap model, which is a set of water resource tools created for ArcMap. </p>
+            <h2>Protecting Coho Salmon in the Nehalem Watershed</h2>
+            <p>My efforts, along with a  web application  for the viewing and querying of data, are presented in the story map below. </p>
             <p>Several maps I created for the partnership include: </p>
             <ul>
-                <li><a href="individualmaps/beaver">Beaver habitat analysis in "Beaver Enhancement Area"</a></li>
-                <li><a href="individualmaps/dam">Potential dam location modelling</a></li>
-                <li><a href="individualmaps/riparian">Riparian project site mapping</a></li>
-                <li><a href="individualmaps/wetland">Wetland re-connection flow line modelling</a></li>
-                <li><a href="individualmaps/rba">Rapid Bio Assessment (RBA) mapping</a></li>
-              </ul>              
-            <p>My efforts, along with a  web application  for the viewing and querying of data, are presented in the story map below.  </p>
-            <p><b>Skills used:</b> Database management, application development, data communication, hydrological analysis, conservation and management, climate modelling, stakeholder interactions. </p>
-            <iframe src="https://storymaps.arcgis.com/stories/7544cb264d8447f69ef7b6c1a1e7cab8?header" width="100%" height="UTF-8" frameborder="0" allowfullscreen allow="geolocation"></iframe>
+                <li><a href="/individualmaps/beaver">Beaver habitat analysis in "Beaver Enhancement Area"</a></li>
+                <li><a href="/individualmaps/dams">Potential dam location modelling</a></li>
+                <li><a href="/individualmaps/riparian">Riparian project site mapping</a></li>
+                <li><a href="/individualmaps/wetland">Wetland re-connection flow line modelling</a></li>
+                <li><a href="/individualmaps/rba">Rapid Bio Assessment (RBA) mapping</a></li>
+              </ul>
+            <p>My efforts, along with a  web application  for the viewing and querying of data, are presented in the story map below. </p>
+            <p><b>Skills used:</b> database management, application development, data communication, hydrological analysis, conservation and management, climate modelling, stakeholder interactions.  </p>
+            <iframe src="https://storymaps.arcgis.com/stories/7544cb264d8447f69ef7b6c1a1e7cab8?header" width="100%" height="600px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
+
         </section>
         <section id="section2">
             <div id="map2" class="map-container"></div>
@@ -61,12 +62,15 @@
         </section>
         <section id="about">
             <h2>About Me</h2>
-            <p>Content about me...</p>
+            <p>My name is Ian Maher. I am a recent graduate of the GIS Certificate Program at Portland Community College. I studied Zoology at Oregon State University for my undergraduate degree. I am passionate about the outdoors and our natural environment. I have many hobbies including scuba diving, <a href="https://github.com/yahnjr">coding</a>, <a href="https://soundcloud.com/snailzorz">making music</a>, hiking, reading, and <a href="https://iformaher.wixsite.com/yahnkui">traveling</a>. I recently moved back into the United States after living abroad for several years and I am ready to begin a career as a GIS specialist. I love making maps and engaging with mapping projects in my free time. Mapping is a powerful tool for visualizing data and discovering patterns, as well as communicating messages effectively. I hope you enjoy some of the maps I have made. </p>
         </section>
     </main>
     
     <footer>
-        <p>Footer Section</p>
+        <p>Contact information</p>
+        <p>Email: </p>
+        <p>Phone:</p>
+        <p>Linked-in: </p>
     </footer>
     <script type="text/javascript" src="script.js"></script>
 </body>
