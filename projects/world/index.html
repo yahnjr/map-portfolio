@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Web Page</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="style.css">
     <!-- Include Mapbox GL JS and CSS -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
@@ -17,7 +17,7 @@
     
     <nav>
         <ul>
-            <li><a href="#section1">Map</a></li>
+            <li><a href="../">Home</a></li>
             <li class="dropdown">
                 <a href="javascript:void(0)">Project Pages</a>
                 <div class="dropdown-content">
@@ -33,22 +33,23 @@
                     <a href="/projects/world">Willamette Valley</a>
                 </div>
             </li>
+            <li><a href="#image">Image</a></li>
+            <li><a href="#section2">Map Navigation</a></li>
             <li><a href="#about">About Me</a></li>
         </ul>
     </nav>
 
     <main>
         <section id="section1">
-            <div id="map" class="map-container"></div>
-            <div id="sidebar" class="sidebar"></div>
+            <h2>Global Trust in Health Infographic</h2>
+            <p>An attempt at a full magazine spread-style infographic I made for my Cartography course. I always enjoyed maps that were dense with information and invited the reader to get closer and explore. I also wanted to try working with a global dataset to fine tune my symbolization and labeling skills, as larger maps present different challenges than ones with smaller geographic extents. I pulled data from the Wellcome Global Monitor's 2018 international poll. Pollsters visited 178 countries, interviewing 1,000 participants in each location, and asked a series of 20 questions to determine how much people trust doctors, scientists, governments, and other entities when it comes to public health and healthcare decisions. Although this format of data was certainly difficult to work with, I found many interesting results and tried to highlight some of them throughout the map.  Link to full-size layout.</p>
+            <p><b>Skills used:</b> Global Trust in Health Infographic</p>
+
+            <img src="../pictures/chiricahuas.jpg" alt="Large Map Image" style="width:100%;">
         </section>
         <section id="section2">
             <div id="map2" class="map-container"></div>
             <div id="sidebar2" class="sidebar"></div>
-        </section>
-        <section id="section3">
-            <h2>Section 3</h2>
-            <p>Content for section 3...</p>
         </section>
         <section id="about">
             <h2>About Me</h2>
@@ -59,6 +60,6 @@
     <footer>
         <p>Footer Section</p>
     </footer>
-    <script src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

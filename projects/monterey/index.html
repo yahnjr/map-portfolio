@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Web Page</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="style.css">
     <!-- Include Mapbox GL JS and CSS -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
@@ -17,7 +17,7 @@
     
     <nav>
         <ul>
-            <li><a href="#section1">Map</a></li>
+            <li><a href="../">Home</a></li>
             <li class="dropdown">
                 <a href="javascript:void(0)">Project Pages</a>
                 <div class="dropdown-content">
@@ -33,22 +33,23 @@
                     <a href="/projects/world">Willamette Valley</a>
                 </div>
             </li>
+            <li><a href="#image">Image</a></li>
+            <li><a href="#section2">Map Navigation</a></li>
             <li><a href="#about">About Me</a></li>
         </ul>
     </nav>
 
     <main>
         <section id="section1">
-            <div id="map" class="map-container"></div>
-            <div id="sidebar" class="sidebar"></div>
+            <h2>Potential Dive Sites in the Monterey Bay Area</h2>
+            <p>I created this map as part of a final project for my Geospatial Analysis course. I chose this topic because of my own personal interest in scuba diving, as well as a connection with the region. Some of the first maps I became aware of were my uncle's maps of the bathymetry of the Monterey Bay. After determining suitable parameters, including the correct depth, distance from shore, and attractive features, used several datasets to determine the most promising sites to dive in the region. I looked at species diversity in the region by using vector layers supplied by the California Department of Fish & Wildlife, as well as layers detailing local kelp concentrations. I also looked at ocean depth using NOAA's global bathymetric DEM layer. Finally, I used a sand deposit layer from the USGS to find sites that were accessible from the shore.  Link to full-size layout.  </p>
+            <p><b>Skills used:</b> suitability analysis, cartography, combined vector and raster analysis</p>
+
+            <img src="../pictures/monterey.jpg" alt="Large Map Image" style="width:100%;">
         </section>
         <section id="section2">
             <div id="map2" class="map-container"></div>
             <div id="sidebar2" class="sidebar"></div>
-        </section>
-        <section id="section3">
-            <h2>Section 3</h2>
-            <p>Content for section 3...</p>
         </section>
         <section id="about">
             <h2>About Me</h2>
@@ -59,6 +60,6 @@
     <footer>
         <p>Footer Section</p>
     </footer>
-    <script src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

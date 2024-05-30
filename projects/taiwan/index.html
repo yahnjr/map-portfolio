@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Web Page</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="style.css">
     <!-- Include Mapbox GL JS and CSS -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
@@ -17,7 +17,7 @@
     
     <nav>
         <ul>
-            <li><a href="#section1">Map</a></li>
+            <li><a href="../">Home</a></li>
             <li class="dropdown">
                 <a href="javascript:void(0)">Project Pages</a>
                 <div class="dropdown-content">
@@ -33,22 +33,23 @@
                     <a href="/projects/world">Willamette Valley</a>
                 </div>
             </li>
+            <li><a href="#image">Image</a></li>
+            <li><a href="#section2">Map Navigation</a></li>
             <li><a href="#about">About Me</a></li>
         </ul>
     </nav>
 
     <main>
         <section id="section1">
-            <div id="map" class="map-container"></div>
-            <div id="sidebar" class="sidebar"></div>
+            <h2>Slowing Down the Inevitable</h2>
+            <p>Continuing on a <a href="https://academic.oup.com/ee/article-abstract/51/4/798/6596202"> research paper</a> I published in 2022, I wanted to look further into the changing temperatures on the island of Taiwan. For such a small country, Taiwan hosts sunning diversity in both human and natural landscapes. In an area less that 1/7 the size of Oregon, 23 million people live in some of the most densely packed cities in the world. Short distances away, jungle-cloaked mountains tower up to 12,967 ft (3,952 m) above the surrounding land. I used temperature data that dated back to 1960, as well as data on elevation obtained from the Japanese ALOS program and vegetation data obtained from Landsat to perform an analysis on whether these factors would affect the rate of change for temperatures here over time. Because of the large quantity of the data, which was over 670 layers per point, I needed to integrate Python automation into my analysis. I was not able to find a strong correlation, however, I think this analysis highlights some interesting things about the interactions of factors in our environment. I was able to present my findings at the GIS in Action Conference in April 2023, and was granted an award by the ASPRS Cascadia Region.  Link to full-size layout.</p>
+            <p><b>Skills used:</b> raster analysis, data management, Python, statistics, presentation</p>
+
+            <img src="../pictures/chiricahuas.jpg" alt="Large Map Image" style="width:100%;">
         </section>
         <section id="section2">
             <div id="map2" class="map-container"></div>
             <div id="sidebar2" class="sidebar"></div>
-        </section>
-        <section id="section3">
-            <h2>Section 3</h2>
-            <p>Content for section 3...</p>
         </section>
         <section id="about">
             <h2>About Me</h2>
@@ -59,6 +60,6 @@
     <footer>
         <p>Footer Section</p>
     </footer>
-    <script src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

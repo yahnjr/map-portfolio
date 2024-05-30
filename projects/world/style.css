@@ -72,11 +72,34 @@ main {
     padding: 20px;
 }
 
-section#section1 {
-  margin-bottom: 1em; /* Or use display: block; */
-  font-family: "Open Sans", sans-serif;
-  line-height: 2;
-  padding: 0 calc(20% - 1em);
+main section {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #333;
+    background-color: #1e1e1e;
+}
+
+main section h2 {
+    margin-top: 0;
+}
+
+#section1 {
+    display: flex;
+}
+
+#map {
+    flex: 1;
+    height: 500px;
+}
+
+#sidebar {
+    width: 300px;
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid #333;
+    padding: 10px;
+    margin-left: 20px;
+    background-color: #2b2b2b;
 }
 
 #section2 {
