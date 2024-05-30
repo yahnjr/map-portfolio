@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Web Page</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="style.css">
     <!-- Include Mapbox GL JS and CSS -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
@@ -41,18 +41,23 @@
 
     <main>
         <section id="section1">
-            <h2>Welcome to My Map Portfolio</h2>
-            <p>In the summer of 2016, I completed a three month internship at the Southwest Research Station, operated by the Smithsonian Museum, in the Chiricahua Mountains of southeastern Arizona. I found one of the most fascinating places I had ever been to. This mountain range, which juts suddenly out of the surrounding Sonoran Desert, creates a so-called "sky island" which attracts animals from several of the surrounding ecoregions together into one of the most biodiverse places in the contiguous United States. I decided to create a map to show just how special this place is, especially for avid birders for whom the spot is often near the top of their "must go" list. I wanted to experiment with different mapping software, and I chose QGIS to create this map as I am a supporter of their open-source model. The data used is compiled from confirmed species observations made on the iNaturalist platform, which is widely used by both visitors to and inhabitants of the mountains, many of whom are retired professors . Link to full-size layout.</p>
-            <p>Skills used: QGIS, open sourced software, self-led project</p>
-            <img src="../pictures/chiricahuas.jpg" alt="Large Map Image" style="width:100%;">
+            <h2>Fauntastic Chiricahua Mountains</h2>
+            <p>The Upper Nehalem Watershed Council, in partnership with a similar organization in the lower watershed, aims to implement the Nehalem Strategic Action Plan to protect the endangered "evolutionary unit" of Coho salmon living along the coast of Oregon. As an intern working with them, I worked alongside environmentalists and other GIS professionals from state government agencies and non-profits to collect, analyze, and summarize data about the watershed- from things like forest characteristics, environmental variables, human interactions, and private timber sales. I created an organized database to allow the data to be utilized and updated by future salmon conservationists in the area. I also worked with the data to produce usable products, including dam models, site maps, and a web map showing the breakdown of watershed characteristics into sub-basins. I also worked with Terrain Works' NetMap model, which is a set of water resource tools created for ArcMap. </p>
+            <p>Several maps I created for the partnership include: </p>
+            <ul>
+                <li><a href="individualmaps/beaver">Beaver habitat analysis in "Beaver Enhancement Area"</a></li>
+                <li><a href="individualmaps/dam">Potential dam location modelling</a></li>
+                <li><a href="individualmaps/riparian">Riparian project site mapping</a></li>
+                <li><a href="individualmaps/wetland">Wetland re-connection flow line modelling</a></li>
+                <li><a href="individualmaps/rba">Rapid Bio Assessment (RBA) mapping</a></li>
+              </ul>              
+            <p>My efforts, along with a  web application  for the viewing and querying of data, are presented in the story map below.  </p>
+            <p><b>Skills used:</b> Database management, application development, data communication, hydrological analysis, conservation and management, climate modelling, stakeholder interactions. </p>
+            <iframe src="https://storymaps.arcgis.com/stories/7544cb264d8447f69ef7b6c1a1e7cab8?header" width="100%" height="UTF-8" frameborder="0" allowfullscreen allow="geolocation"></iframe>
         </section>
         <section id="section2">
             <div id="map2" class="map-container"></div>
             <div id="sidebar2" class="sidebar"></div>
-        </section>
-        <section id="section3">
-            <h2>Section 3</h2>
-            <p>Content for section 3...</p>
         </section>
         <section id="about">
             <h2>About Me</h2>
@@ -63,6 +68,6 @@
     <footer>
         <p>Footer Section</p>
     </footer>
-    <script src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
