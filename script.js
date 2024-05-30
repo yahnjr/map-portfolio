@@ -62,40 +62,52 @@
 
  // Add city points to the second map and create city boxes for Section 2
  cities.forEach(function(city, index) {
-     // Create a marker for each city
-     var marker = new mapboxgl.Marker()
-         .setLngLat(city.coordinates)
-         .addTo(map2);
+  // Create a marker for each city
+  var marker = new mapboxgl.Marker()
+      .setLngLat(city.coordinates)
+      .addTo(map2);
 
-     // Attach click event to each marker
-     marker.getElement().addEventListener('click', function() {
-         map2.flyTo({
-             center: city.coordinates,
-             zoom: 10,
-             essential: true // This animation is considered essential with respect to prefers-reduced-motion
-         });
-         if (window.currentPopup) { // Close previous popup if it exists
-             window.currentPopup.remove();
-         }
-         var popup = new mapboxgl.Popup({ offset: 25, maxWidth: '300px' })
-             .setLngLat(city.coordinates)
-             .setHTML(
-                 '<div style="text-align:center;">' +
-                 '<h3>' + city.name + '</h3>' +
-                 '<p>' + city.description + '</p>' +
-                 '</div>'
-             )
-             .addTo(map2);
-         window.currentPopup = popup; // Store reference to the current popup
+  // Attach click event to each marker
+  marker.getElement().addEventListener('click', function() {
+    map2.flyTo({
+      center: city.coordinates,
+      zoom: 10,
+      essential: true // This animation is considered essential with respect to prefers-reduced-motion
+    });
+    if (window.currentPopup) { // Close previous popup if it exists
+      window.currentPopup.remove();
+    }
+    var popup = new mapboxgl.Popup({ offset: 25, maxWidth: '300px' })
+      .setLngLat(city.coordinates)
+      .setHTML(
+        '<div style="text-align:center;">' +
+          '<h3>' + city.name + '</h3>' +
+          '<p>' + city.description + '</p>' +
+        '</div>'
+      )
+      .addTo(map2);
+    window.currentPopup = popup; // Store reference to the current popup
 
-         // Scroll to the corresponding city box
-         scrollToCityBox(index, 'sidebar2');
-         highlightCityBox(document.querySelectorAll('.city-box')[index]);
-     });
+    // Scroll to the corresponding city box (function call)
+    scrollToCityBox(index, 'sidebar2');
 
-     // Create a city box for Section 2
-     createCityBoxSection2(city, index, 'sidebar2', map2);
- });
+    // Highlight the corresponding city box (function call)
+    highlightCityBox(document.querySelectorAll('.city-box')[index], 'dullTeal');
+  });
+
+  // Create a city box for Section 2 (function call)
+  createCityBoxSection2(city, index, 'sidebar2', map2);
+});
+
+// Function to scroll to the city box with a given index in a sidebar with a specific ID
+function scrollToCityBox(index, sidebarId) {
+  // ... (implementation of scrollToCityBox logic)
+}
+
+// Function to highlight city box with a specific color (already defined above)
+function highlightCityBox(cityBoxElement, highlightColor) {
+  // ... (implementation of highlightCityBox logic)
+}
 
  // Add scroll event listener to sidebar2 to update map center based on the top visible city box
  document.getElementById('sidebar2').addEventListener('scroll', function() {
