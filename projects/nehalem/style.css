@@ -165,6 +165,19 @@ a {
     color: #ffffff;
 }
 
+@media only screen and (max-width: 768px) {
+  .city-box {
+      height: 130px;
+  }
+
+  .city-box h3{
+      font-size: 8;
+  }
+  .city-box p {
+      font-size: 6;
+  }
+}
+
 #about {
     background-color: #1e1e1e;
     border: 1px solid #333;
