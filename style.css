@@ -7,7 +7,9 @@ body {
 }
 
 header, footer {
-  background-color: #333;
+  background-image: url("pictures/banner.png");
+  background-repeat: no-repeat; /* Prevent image tiling */
+  background-size: cover; /* Stretch image to cover the element */
   color: white;
   text-align: center;
   padding: 1rem;
@@ -177,7 +179,7 @@ main {
   z-index: 100;
   font-size: 16pt;
   position: absolute;
-  top: 440px;
+  top: 420px;
   left: 1%;
   color: #ffffff;
   text-shadow: 0px 0px 3px #000000;
@@ -200,7 +202,7 @@ main {
 } 
 
 footer {
-  background-color: #333;
+  background-image: pictures/banner.png;
   color: white;
   text-align: center;
   padding: 1rem;

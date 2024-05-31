@@ -5,7 +5,7 @@
 
  // List of the 10 largest cities in the world with their coordinates, image URLs, and descriptions
  var cities = [
-  { name: 'Nehalem Basin', coordinates: [-123.56341, 45.84511], imageUrl: 'https://yahnjr.github.io/map-portfolio/pictures/nehalem.png', description: 'Efforts to protect and restore Coho Salmon habitat in the Coast Range. Click picture to read more.', title: 'Protecting Coho Salmon in the Nehalem Watershed', zoomLevel: 10, link: 'projects/nehalem' },
+  { name: 'Nehalem Basin', coordinates: [-123.56341, 45.84511], imageUrl: 'https://yahnjr.github.io/map-portfolio/pictures/nehalem.png', description: 'Efforts to protect and restore Coho Salmon habitat in the Coast Range.', title: 'Protecting Coho Salmon in the Nehalem Watershed', zoomLevel: 10, link: 'projects/nehalem' },
   { name: 'Tallahassee', coordinates: [-84.2807, 30.4383], imageUrl: 'https://yahnjr.github.io/map-portfolio/pictures/ppgis.png', description: 'Designing straight-forward apps for the collection of public input.', title: 'Application Development for Public Input', zoomLevel: 12, link: 'projects/ppgis' },
   { name: 'Lake Oswego', coordinates: [-122.69132, 45.41107], imageUrl: 'https://yahnjr.github.io/map-portfolio/pictures/lakeo.png', description: 'A look at Oregon white oaks, a keystone species, in the area.', title: 'Oregon White Oaks in Lake Oswego', zoomLevel: 13, link: 'projects/lakeoswego' },
   { name: 'PCC Rock Creek', coordinates: [-122.85989, 45.56512], imageUrl: 'https://yahnjr.github.io/map-portfolio/pictures/rockcreek.jpg', description: 'A drone mapping workflow from start to finish.', title: 'Drone Mapping of PCC Rock Creek Learning Garden', zoomLevel: 18, link: 'projects/pccrockcreek' },
