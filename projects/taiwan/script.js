@@ -43,7 +43,7 @@
          });
 
          setTimeout(function() {
-            window.location.href = "../" + city.link;
+            window.location.href = "../../" + city.link;
           }, 2000); // Delay for 3 seconds to watch zoom animation
 
      });

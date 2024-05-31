@@ -41,6 +41,11 @@
              zoom: city.zoomLevel, // Use the zoomLevel attribute from the city variable
              essential: true // This animation is considered essential with respect to prefers-reduced-motion
          });
+
+         setTimeout(function() {
+            window.location.href = "../../" + city.link;
+          }, 2000); // Delay for 3 seconds to watch zoom animation
+          
      });
      document.getElementById(sidebarId).appendChild(cityBox);
  }
