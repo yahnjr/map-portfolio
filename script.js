@@ -93,7 +93,8 @@ function scrollToCityBox(cityName, sidebarId) {
    // Use a combination of smooth scrolling and easing for smoother effect
    var sidebarTop = sidebar.scrollTop;
    var boxTop = targetCityBox.offsetTop;
-   var distance = boxTop - sidebarTop;
+   
+   var distance = boxTop - (sidebarTop + 250);
    var duration = 600; // Duration in milliseconds
    var startTime = null;
 

@@ -140,6 +140,10 @@ main section h2 {
 }
 
 @media only screen and (max-width: 768px) {
+    .city-box {
+        height: 130px;
+    }
+
     .city-box h3{
         font-size: 10;
     }
