@@ -176,6 +176,7 @@ main {
 
 .city-box:hover::after {
   opacity: 0;
+  max-height: 1px;
 }
 
 .city-box img {

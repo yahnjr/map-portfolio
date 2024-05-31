@@ -154,7 +154,7 @@ main section h2 {
 
 @media only screen and (max-width: 768px) {
     .city-box {
-        height: 130px;
+        height: 150px;
     }
 
     .city-box h3{
