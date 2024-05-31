@@ -93,6 +93,25 @@ main section h2 {
     margin-top: 0;
 }
 
+a {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Style the image preview box */
+  .img-preview {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    width: 200px; /* Adjust as needed */
+    height: auto;
+  }
+  
+  /* Show the image preview box when hovering over the image box */
+  a:hover .img-preview {
+    display: block;
+  }
+
 #section2 {
     display: flex;
 }

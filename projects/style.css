@@ -7,11 +7,13 @@ body {
 }
 
 header, footer {
-    background-color: #333;
+    background-image: url("pictures/banner.png");
+    background-repeat: no-repeat; /* Prevent image tiling */
+    background-size: cover; /* Stretch image to cover the element */
     color: white;
     text-align: center;
     padding: 1rem;
-}
+  }
 
 nav {
     background-color: #1f1f1f;
@@ -137,6 +139,15 @@ main section h2 {
     color: #ffffff;
 }
 
+@media only screen and (max-width: 768px) {
+    .city-box h3{
+        font-size: 10;
+    }
+    .city-box p {
+        font-size: 8;
+    }
+}
+
 #about {
     background-color: #1e1e1e;
     border: 1px solid #333;
@@ -144,6 +155,12 @@ main section h2 {
     width: 60%;
     line-height: 1.8;
     font-family: Georgia, 'Times New Roman', Times, sans-serif;
+}
+
+@media only screen and (max-width: 768px) {
+    #about {
+      width: 90%;
+    }
 }
 
 footer {

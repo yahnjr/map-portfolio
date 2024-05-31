@@ -192,6 +192,23 @@ main {
   color: #ffffff;
 }
 
+@media only screen and (max-width: 768px) {
+  .city-box {
+    height: 300px;
+  }
+  .city-box img {
+    min-height: auto;
+  }
+  .city-box p {
+    font-size: 12pt;
+    position: absolute;
+    top: 270px;
+    left: 1%;
+    color: #ffffff;
+    text-shadow: 0px 0px 3px #000000;
+  }
+}
+
 #about {
   background-color: #1e1e1e;
   border: 1px solid #333;
@@ -200,6 +217,12 @@ main {
   line-height: 1.8;
   font-family: Georgia, 'Times New Roman', Times, sans-serif;
 } 
+
+@media only screen and (max-width: 768px) {
+  #about {
+    width:100%;
+  }
+}
 
 footer {
   background-image: pictures/banner.png;
