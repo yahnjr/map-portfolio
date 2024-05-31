@@ -15,6 +15,13 @@ header, footer {
     padding: 1rem;
   }
 
+  @media (max-width: 768px) {
+    header, footer {
+      padding: 0.2rem; /* Reduce padding for mobile */
+      font-size: 0.6em; /* Reduce font size slightly (optional) */
+    }
+  }
+
 nav {
     background-color: #1f1f1f;
     padding: 1rem;

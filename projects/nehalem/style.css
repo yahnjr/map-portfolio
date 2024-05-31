@@ -7,11 +7,20 @@ body {
 }
 
 header, footer {
-    background-color: #333;
+    background-image: url("pictures/banner.png");
+    background-repeat: no-repeat; /* Prevent image tiling */
+    background-size: cover; /* Stretch image to cover the element */
     color: white;
     text-align: center;
     padding: 1rem;
-}
+  }
+
+@media (max-width: 768px) {
+    header, footer {
+      padding: 0.2rem; /* Reduce padding for mobile */
+      font-size: 0.6em; /* Reduce font size slightly (optional) */
+    }
+  }
 
 nav {
     background-color: #1f1f1f;
