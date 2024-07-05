@@ -8,8 +8,8 @@ body {
 
 header, footer {
     background-image: url("pictures/banner.png");
-    background-repeat: no-repeat; /* Prevent image tiling */
-    background-size: cover; /* Stretch image to cover the element */
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -17,8 +17,8 @@ header, footer {
 
 @media (max-width: 768px) {
     header, footer {
-      padding: 0.2rem; /* Reduce padding for mobile */
-      font-size: 0.6em; /* Reduce font size slightly (optional) */
+      padding: 0.2rem;
+      font-size: 0.6em; 
     }
   }
 
@@ -60,21 +60,21 @@ nav ul li a:hover {
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #212529; /* Dark background color */
-    min-width: 250px; /* Wider dropdown content */
+    background-color: #212529;
+    min-width: 250px; 
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
   
   .dropdown-content a {
-    color: #fff; /* Light text color for dark background */
+    color: #fff; 
     padding: 12px 16px;
     text-decoration: none;
     display: block;
   }
   
-  .dropdown-content a:hover { /* Adjusted hover effect */
-    background-color: #343a40; /* Slightly lighter shade on hover */
+  .dropdown-content a:hover { 
+    background-color: #343a40; 
   }  
 
 main {
@@ -113,16 +113,16 @@ a {
     display: inline-block;
   }
   
-  /* Style the image preview box */
+
   .img-preview {
     display: none;
     position: absolute;
     z-index: 1;
-    width: 200px; /* Adjust as needed */
+    width: 200px; 
     height: auto;
   }
   
-  /* Show the image preview box when hovering over the image box */
+
   a:hover .img-preview {
     display: block;
   }
