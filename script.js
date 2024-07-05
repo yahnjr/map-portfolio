@@ -16,19 +16,18 @@ var cities = [
  { name: 'Global', coordinates: [0, 0], imageUrl: 'https://yahnjr.github.io/map-portfolio/pictures/world.jpg', description: 'Infographic exploring the Wellcome Global Monitor\'s poll data on trust in science and medical institutions.', title: 'Global Trust in Health Infographic', zoomLevel: 2, link: 'projects/world' }
 ];
 
-// Initialize the map with satellite imagery style with labels (hybrid)
 var map2 = new mapboxgl.Map({
     container: 'map2',
-    style: 'mapbox://styles/mapbox/satellite-streets-v11', // Changed to satellite map with labels
-    center: [0, 20], // Starting position [lng, lat]
-    zoom: 1.5 // Starting zoom level
+    style: 'mapbox://styles/mapbox/satellite-streets-v11',
+    center: [0, 20], 
+    zoom: 1.5 
 });
 
-// Function to create city box elements
+// Function to create boxes for projects. called "city boxes" due to early build focus on cities.
 function createCityBoxSection2(city, index, sidebarId, mapInstance) {
     var cityBox = document.createElement('div');
     cityBox.className = 'city-box';
-    cityBox.setAttribute('name', city.name); // Add name attribute for scrolling
+    cityBox.setAttribute('name', city.name); 
     cityBox.innerHTML = `
         <h3>${city.title}</h3>
         <a href = "${city.link}"> <img src="${city.imageUrl}" alt="${city.name}"> </a>
@@ -37,7 +36,7 @@ function createCityBoxSection2(city, index, sidebarId, mapInstance) {
     cityBox.addEventListener('click', function() {
         mapInstance.flyTo({
             center: city.coordinates,
-            zoom: city.zoomLevel, // Use the zoomLevel attribute from the city variable
+            zoom: city.zoomLevel, // Use the zoomLevel attribute for each project based on extent
             essential: true 
         });
 
@@ -45,9 +44,9 @@ function createCityBoxSection2(city, index, sidebarId, mapInstance) {
     document.getElementById(sidebarId).appendChild(cityBox);
 }
 
-// Add project points to the  map and create city boxes 
+// Add project points to the map and created boxes for projects
 cities.forEach(function(city, index) {
- // Create a marker for each city
+ // Create a map pin for project
  var marker = new mapboxgl.Marker()
    .setLngLat(city.coordinates)
    .addTo(map2);
@@ -63,10 +62,8 @@ cities.forEach(function(city, index) {
    // Scroll to the corresponding city box (function call)
    scrollToCityBox(city.name, 'sidebar2'); // Pass city name and sidebar ID
 
-   // Removed popup logic
  });
 
- // Create a city box for Section
  createCityBoxSection2(city, index, 'sidebar2', map2);
 });
 
@@ -74,7 +71,6 @@ cities.forEach(function(city, index) {
 // Function to scroll to the city box with a given index in a sidebar with a specific ID when marker is clicked
 
 function scrollToCityBox(cityName, sidebarId) {
- // Get the sidebar element
  var sidebar = document.getElementById(sidebarId);
  
  // Find the city box element with a matching 'name' attribute
@@ -95,7 +91,7 @@ function scrollToCityBox(cityName, sidebarId) {
    var boxTop = targetCityBox.offsetTop;
    
    var distance = boxTop - (sidebarTop + 250);
-   var duration = 600; // Duration in milliseconds
+   var duration = 600; // Slow down animation for smooth appearance. 
    var startTime = null;
 
    function smoothScroll(currentTime) {
@@ -111,12 +107,11 @@ function scrollToCityBox(cityName, sidebarId) {
 
    requestAnimationFrame(smoothScroll);
  } else {
-   // Handle potential case where no matching city box is found (log or display message)
    console.warn("City box not found for name:", cityName);
  }
 }
 
-// Add scroll event listener to sidebar2 to update map center based on the top visible city box
+// Add scroll event listener to sidebar2 to update map center based on the top visible project box
 document.getElementById('sidebar2').addEventListener('scroll', function() {
     var sidebar = this;
     var cityBoxes = sidebar.getElementsByClassName('city-box');

@@ -1,9 +1,6 @@
- // Your Mapbox access token
+ // Mapbox public access token
  mapboxgl.accessToken = 'pk.eyJ1IjoiaWZvcm1haGVyIiwiYSI6ImNsaHBjcnAwNDF0OGkzbnBzZmUxM2Q2bXgifQ.fIyIgSwq1WWVk9CKlXRXiQ';
 
- // Initialize the map with satellite imagery style
-
- // List of the 10 largest cities in the world with their coordinates, image URLs, and descriptions
  var cities = [
   { name: 'Nehalem Basin', coordinates: [-123.56341, 45.84511], imageUrl: 'https://yahnjr.github.io/map-portfolio/pictures/nehalem.png', description: 'Efforts to protect and restore Coho Salmon habitat in the Coast Range. Click picture to read more.', title: 'Protecting Coho Salmon in the Nehalem Watershed', zoomLevel: 10, link: 'projects/nehalem' },
   { name: 'Tallahassee', coordinates: [-84.2807, 30.4383], imageUrl: 'https://yahnjr.github.io/map-portfolio/pictures/ppgis.png', description: 'Designing straight-forward apps for the collection of public input.', title: 'Application Development for Public Input', zoomLevel: 12, link: 'projects/ppgis' },
@@ -17,17 +14,14 @@
   { name: 'Global', coordinates: [0, 0], imageUrl: 'https://yahnjr.github.io/map-portfolio/pictures/world.jpg', description: 'Infographic exploring the Wellcome Global Monitor\'s poll data on trust in science and medical institutions.', title: 'Global Trust in Health Infographic', zoomLevel: 2, link: 'projects/world' }
  ];
 
- // Add city points to the map and create city boxes for Section 1
 
-// Initialize the second map with satellite imagery style
  var map2 = new mapboxgl.Map({
      container: 'map2',
-     style: 'mapbox://styles/mapbox/satellite-streets-v11', // Changed to satellite map with labels
-     center: [0, 20], // Starting position [lng, lat]
-     zoom: 1.5 // Starting zoom level
+     style: 'mapbox://styles/mapbox/satellite-streets-v11', 
+     center: [0, 20], 
+     zoom: 1.5,
  });
 
- // Function to create city box elements for Section 2
  function createCityBoxSection2(city, index, sidebarId, mapInstance) {
      var cityBox = document.createElement('div');
      cityBox.className = 'city-box';
@@ -44,30 +38,27 @@
 
          setTimeout(function() {
             window.location.href = "../../" + city.link;
-          }, 2000); // Delay for 3 seconds to watch zoom animatio
+          }, 2000); // Delay for 3 seconds to watch re-center and zoom animation
 
 
      });
      document.getElementById(sidebarId).appendChild(cityBox);
  }
 
- // Add city points to the second map and create city boxes for Section 2
+
  cities.forEach(function(city, index) {
-  // Create a marker for each city
   var marker = new mapboxgl.Marker()
       .setLngLat(city.coordinates)
       .addTo(map2);
 
-  // Attach click event to each marker
   marker.getElement().addEventListener('click', function() {
     map2.flyTo({
       center: city.coordinates,
       zoom: 10,
-      essential: true // This animation is considered essential with respect to prefers-reduced-motion
+      essential: true
     });
 
 
-    // Scroll to the corresponding city box (function call)
     scrollToCityBox(index, 'sidebar2');
   });
 
@@ -75,12 +66,7 @@
   createCityBoxSection2(city, index, 'sidebar2', map2);
 });
 
-// Function to scroll to the city box with a given index in a sidebar with a specific ID
-function scrollToCityBox(index, sidebarId) {
-  // ... (implementation of scrollToCityBox logic)
-}
-
- // Add scroll event listener to sidebar2 to update map center based on the top visible city box
+ // Add scroll event listener to sidebar2 to update map center based on the top visible project box
  document.getElementById('sidebar2').addEventListener('scroll', function() {
      var sidebar = this;
      var cityBoxes = sidebar.getElementsByClassName('city-box');
