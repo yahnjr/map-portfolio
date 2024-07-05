@@ -101,6 +101,7 @@ main {
   flex: 3;
   width: 70%;
   height: 100%;
+}
 
 #sidebar2 {
   flex: 2;
@@ -248,5 +249,4 @@ footer {
   text-align: center;
   padding: 1rem;
   
-}
 }
