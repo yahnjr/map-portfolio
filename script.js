@@ -70,45 +70,85 @@ cities.forEach(function(city, index) {
 
 // Function to scroll to the city box with a given index in a sidebar with a specific ID when marker is clicked
 
+function logCityBoxPositions(sidebarId) {
+  var sidebar = document.getElementById(sidebarId);
+  var cityBoxes = sidebar.getElementsByClassName('city-box');
+  
+  console.log("Sidebar scrollTop:", sidebar.scrollTop);
+  console.log("Sidebar clientHeight:", sidebar.clientHeight);
+  console.log("Sidebar scrollHeight:", sidebar.scrollHeight);
+
+  for (var i = 0; i < cityBoxes.length; i++) {
+    var box = cityBoxes[i];
+    console.log("Box " + i + " (" + box.getAttribute('name') + "):");
+    console.log("  offsetTop:", box.offsetTop);
+    console.log("  clientHeight:", box.clientHeight);
+    console.log("  Total height (including margin):", box.clientHeight + 120);
+    console.log("  getBoundingClientRect():", box.getBoundingClientRect());
+  }
+}
+
 function scrollToCityBox(cityName, sidebarId) {
- var sidebar = document.getElementById(sidebarId);
- 
- // Find the city box element with a matching 'name' attribute
- var cityBoxes = sidebar.getElementsByClassName('city-box');
- var targetCityBox = null;
- for (var i = 0; i < cityBoxes.length; i++) {
-   var box = cityBoxes[i];
-   if (box.getAttribute('name') === cityName) {
-     targetCityBox = box;
-     break;
-   }
- }
+  var sidebar = document.getElementById(sidebarId);
+  var cityBoxes = sidebar.getElementsByClassName('city-box');
+  var targetIndex = -1;
 
- // If a matching city box is found, scroll the sidebar to bring it into view
- if (targetCityBox) {
-   // Use a combination of smooth scrolling and easing for smoother effect
-   var sidebarTop = sidebar.scrollTop;
-   var boxTop = targetCityBox.offsetTop;
-   
-   var distance = boxTop - (sidebarTop + 250);
-   var duration = 600; // Slow down animation for smooth appearance. 
-   var startTime = null;
+  for (var i = 0; i < cityBoxes.length; i++) {
+    if (cityBoxes[i].getAttribute('name') === cityName) {
+      targetIndex = i;
+      break;
+    }
+  }
 
-   function smoothScroll(currentTime) {
-     if (startTime === null) startTime = currentTime;
-     var timeElapsed = currentTime - startTime;
-     var progress = Math.min(timeElapsed / duration, 1);
-     var ease = progress < 0.5 ? 2 * progress * progress : -1 + (4 - 2 * progress) * progress;
-     sidebar.scrollTop = sidebarTop + distance * ease;
-     if (timeElapsed < duration) {
-       requestAnimationFrame(smoothScroll);
-     }
-   }
+  if (targetIndex !== -1) {
+    var positions = [237, 859, 1481, 2103, 2725, 3347, 3969, 4591, 5213, 5835];
+    var targetScrollTop = positions[targetIndex];
+    
+    var sidebarHeight = sidebar.clientHeight;
+    var boxHeight = 500;
 
-   requestAnimationFrame(smoothScroll);
- } else {
-   console.warn("City box not found for name:", cityName);
- }
+    targetScrollTop = Math.max(0, targetScrollTop - 237); // offset equal to the top box
+
+    console.log("Target Index:", targetIndex);
+    console.log("Target Scroll Top:", targetScrollTop);
+    console.log("Current Scroll Top:", sidebar.scrollTop);
+
+    // Try native smooth scrolling first
+    if ('scrollBehavior' in document.documentElement.style) {
+      sidebar.scrollTo({
+        top: targetScrollTop,
+        behavior: 'smooth'
+      });
+    } else {
+      // Fall back to JavaScript animation
+      smoothScrollTo(sidebar, targetScrollTop, 500); // 500ms duration
+    }
+  } else {
+    console.warn("City box not found for name:", cityName);
+  }
+}
+
+function smoothScrollTo(element, targetScrollTop, duration) {
+  var start = element.scrollTop;
+  var change = targetScrollTop - start;
+  var startTime = performance.now();
+
+  function animateScroll(currentTime) {
+    var elapsedTime = currentTime - startTime;
+    var progress = Math.min(elapsedTime / duration, 1);
+    var easeProgress = easeInOutCubic(progress);
+    element.scrollTop = start + change * easeProgress;
+
+    if (progress < 1) {
+      requestAnimationFrame(animateScroll);
+    }
+  }
+
+  requestAnimationFrame(animateScroll);
+}
+
+function easeInOutCubic(t) {
+  return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
 }
 
 // Add scroll event listener to sidebar2 to update map center based on the top visible project box
