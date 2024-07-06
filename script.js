@@ -101,14 +101,26 @@ function scrollToCityBox(cityName, sidebarId) {
   }
 
   if (targetIndex !== -1) {
-    var positions = [237, 859, 1481, 2103, 2725, 3347, 3969, 4591, 5213, 5835];
+    var isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+    var desktopPositions = [237, 859, 1481, 2103, 2725, 3347, 3969, 4591, 5213, 5835];
+    var mobilePositions = [];
+
+    // Calculate mobile positions
+    for (var i = 0; i < 10; i++) {
+      mobilePositions.push(i * (300 + 60)); // 300px height + 60px margin
+    }
+
+    var positions = isMobile ? mobilePositions : desktopPositions;
     var targetScrollTop = positions[targetIndex];
-    
+   
     var sidebarHeight = sidebar.clientHeight;
-    var boxHeight = 500;
+    var boxHeight = isMobile ? 300 : 500;
+    var offset = isMobile ? mobilePositions[0] : 237;
 
-    targetScrollTop = Math.max(0, targetScrollTop - 237); // offset equal to the top box
+    targetScrollTop = Math.max(0, targetScrollTop - offset);
 
+    console.log("Is Mobile:", isMobile);
     console.log("Target Index:", targetIndex);
     console.log("Target Scroll Top:", targetScrollTop);
     console.log("Current Scroll Top:", sidebar.scrollTop);
