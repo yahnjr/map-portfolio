@@ -7,7 +7,7 @@ body {
 }
 
 header, footer {
-    background-image: url("pictures/banner.png");
+    background-image: url("../pictures/banner.png");
     background-repeat: no-repeat; /* Prevent image tiling */
     background-size: cover; /* Stretch image to cover the element */
     color: white;
@@ -171,6 +171,7 @@ main section h2 {
     margin: 0 auto;
     width: 60%;
     line-height: 1.8;
+    padding-top: 30px;
     font-family: Georgia, 'Times New Roman', Times, sans-serif;
 }
 
