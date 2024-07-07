@@ -2,7 +2,7 @@
  mapboxgl.accessToken = 'pk.eyJ1IjoiaWZvcm1haGVyIiwiYSI6ImNsaHBjcnAwNDF0OGkzbnBzZmUxM2Q2bXgifQ.fIyIgSwq1WWVk9CKlXRXiQ';
 
 
- // List of the 10 largest cities in the world with their coordinates, image URLs, and descriptions
+ // Establish Project variables
  var cities = [
   { name: 'Nehalem Basin', coordinates: [-123.56341, 45.84511], imageUrl: 'https://yahnjr.github.io/map-portfolio/pictures/nehalem.png', description: 'Efforts to protect and restore Coho Salmon habitat in the Coast Range. Click picture to read more.', title: 'Protecting Coho Salmon in the Nehalem Watershed', zoomLevel: 10, link: 'projects/nehalem' },
   { name: 'Tallahassee', coordinates: [-84.2807, 30.4383], imageUrl: 'https://yahnjr.github.io/map-portfolio/pictures/ppgis.png', description: 'Designing straight-forward apps for the collection of public input.', title: 'Application Development for Public Input', zoomLevel: 12, link: 'projects/ppgis' },

@@ -130,24 +130,24 @@ main {
 @media only screen and (max-width: 768px) {
   #section2 {
     display: flex;
-    flex-direction: column-reverse; 
-    width:100%;
+    flex-direction: column-reverse;
+    width: 100%;
     height: 80vh;
   }
 
   #map2 {
-    flex: none; 
-    width: 100%; 
-    height: 50%; 
+    width: 100%;
+    height: 50%;
   }
 
   #sidebar2 {
-    flex: none; 
-    width: 100%; 
-    height: 50%; 
-    margin: 0; 
+    position: static;
+    width: 100%;
+    height: 50%;
+    margin: 0;
     padding: 0px;
-    border: none; 
+    border: none;
+    overflow-y: scroll;
   }
 }
 
