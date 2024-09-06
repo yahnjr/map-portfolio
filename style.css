@@ -105,18 +105,19 @@ footer {
 .nav-button {
   display: flex;
   align-items: center;
-  width: 250px;
+  width: 300px;
   height: 20px;
   border-radius: 15%;
-  color: black;
+  color: white;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 7px;
   margin: 50px;
-  background-color: #1f1f1f ;
+  background-color: #3b3b3b ;
   cursor: point;
   transition: transform 0.3s ease-in-out;
   transform: translateX(105%);
+  border-color: white;
 }
 
 .fade-in {
@@ -131,10 +132,46 @@ footer {
     margin-right: 30px;
 }
 
-@media only screen and (max-width: 768px) {
-  main {
-    padding-top: 100vh; /* Keep the same padding for mobile */
-  }
+.dropdown-button {
+  background-color: #3b3b3b;
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height:20px;
+  border-radius: 15%;
+  color: white;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 7px;
+  margin: 50px;
+  background-color: #3b3b3b ;
+  cursor: point;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(105%);
+  border-color: white;
+}
+
+.dropdown-button:hover {
+  transform: translateX(50%);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #3b3b3b;
+  min-width: 160px;
+  z-index: 10;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: teal;
 }
 
 #section2 {
@@ -185,16 +222,16 @@ footer {
 
   #map2 {
     width: 100%;
-    height: 50%;
+    height: 80vh;
   }
 
   #sidebar2 {
-    position: static;
-    width: 100%;
-    height: 50%;
-    margin: 0;
+    width: 60%;
+    height: 30vh;
+    margin: 0 auto;
     padding: 0px;
     border: none;
+    bottom: 0;
     overflow-y: scroll;
   }
 }
@@ -263,7 +300,8 @@ footer {
 
 @media only screen and (max-width: 768px) {
   .project-box {
-    height: 300px;
+    height: 200px;
+    width: 250px;
     margin-bottom: 60px;
   }
   .project-box img {
@@ -271,7 +309,7 @@ footer {
     margin-top: 15px;
   }
   .project-box p {
-    font-size: 12pt;
+    font-size: 10pt;
     position: absolute;
     top: 230px;
     left: 1%;
