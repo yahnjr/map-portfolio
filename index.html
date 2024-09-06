@@ -8,52 +8,54 @@
     <!-- Include Mapbox GL JS and CSS -->
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header style= "text-align: center; padding: 20px;">
-        <h1 style="font-size: 2em; font-weight: bold;">Map Portfolio</h1>
-        <p style="font-size: 1em; font-weight: normal;">Ian Maher</p>
-    </header>
+    <div id="globe-container">
+        <iframe src="globe/index.html"></iframe>
+        <div class="header" id="header">
+            <h2>Map Portfolio</h2>
+            <p>Ian Maher</p>
+        </div>
+    </div>
     
-    <nav>
-        <ul>
-            <li><a href="#section1">Map</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)">Project Pages</a>
-                <div class="dropdown-content">
-                    <a href="projects/nehalem">Nehalem Basin</a>
-                    <a href="projects/ppgis">Tallahassee</a>
-                    <a href="projects/lakeoswego">Lake Oswego</a>
-                    <a href="projects/map2midi/">Map to Music</a>
-                    <a href="projects/northcoast">North Coast</a>
-                    <a href="projects/monterey">Monterey Bay</a>
-                    <a href="projects/pccrockcreek">PCC Rock Creek</a>
-                    <a href="projects/chiricahuas">Chiricahua Mountains</a>
-                    <a href="projects/taiwan">Taiwan</a>
-                    <a href="projects/europe">Europe</a>
-                    <a href="projects/world">Global</a>
-                </div>
-            </li>
-            <li><a href="#about">About Me</a></li>
-        </ul>
-    </nav>
+    <div class="nav-bar">
+        <a href="#globe-container">
+          <div class="nav-button">
+            <i class="fa fa-globe" style="font-size:36px;color:white"></i>
+            <span class="text">Globe</span>
+          </div>
+        </a>
+        <a href="#section2">
+          <div class="nav-button">
+            <i class="fa fa-map" style="font-size:36px;color:white"></i>
+            <span class="text">Projects</span>
+          </div>
+        </a>
+        <a href="#about">
+          <div class="nav-button">
+            <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
+            <span class="text">About Me</span>
+          </div>
+        </a>
+      </div>
 
-    <main>
-        <section id="section2">
+    <section id="section2">     
+        <div id="map2" class="map-container">
             <div id="sidebar2" class="sidebar"></div>
-            <div id="map2" class="map-container"></div>
-        </section>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>My name is Ian Maher. I am a recent graduate of the GIS Certificate Program at Portland Community College. I studied Zoology at Oregon State University for my undergraduate degree. I am passionate about the outdoors and our natural environment. I have many hobbies including scuba diving, <a href="https://github.com/yahnjr">coding</a>, <a href="https://soundcloud.com/snailzorz">making music</a>, hiking, reading, and <a href="https://iformaher.wixsite.com/yahnkui">traveling</a>. I recently moved back into the United States after living abroad for several years and I am ready to begin a career as a GIS specialist. I love making maps and engaging with mapping projects in my free time. Mapping is a powerful tool for visualizing data and discovering patterns, as well as communicating messages effectively. I hope you enjoy some of the maps I have made. </p>
-        </section>
-    </main>
+        </div>
+    </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>My name is Ian Maher. I am a recent graduate of the GIS Certificate Program at Portland Community College. I studied Zoology at Oregon State University for my undergraduate degree. I am passionate about the outdoors and our natural environment. I have many hobbies including scuba diving, <a href="https://github.com/yahnjr">coding</a>, <a href="https://soundcloud.com/snailzorz">making music</a>, hiking, reading, and <a href="https://iformaher.wixsite.com/yahnkui">traveling</a>. I recently moved back into the United States after living abroad for several years and I am ready to begin a career as a GIS specialist. I love making maps and engaging with mapping projects in my free time. Mapping is a powerful tool for visualizing data and discovering patterns, as well as communicating messages effectively. I hope you enjoy some of the maps I have made. </p>
+    </section>
     
     <footer>
         <p>Contact information</p>
         <p>Email: iformaher@gmail.com</p>
         <p>Phone: (971) 387-6991</p>
     </footer>
-    <script src="script.js"></script>
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>
