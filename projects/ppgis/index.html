@@ -4,39 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PPGIS</title>
-    <link rel="stylesheet" href="../style.css">
-    <!-- Include Mapbox GL JS and CSS -->
+    <link rel="stylesheet" href="../headnav.css">
+    <link rel="stylesheet" href="../../footer.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        main {
+            margin-top: 12vh;
+        }
+    </style>
 </head>
 <body>
-    <header style= "text-align: center; padding: 20px;">
-        <h1 style="font-size: 2em; font-weight: bold;">Map Portfolio</h1>
-        <p style="font-size: 1em; font-weight: normal;">Ian Maher</p>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="../../">Home</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)">Project Pages</a>
-                <div class="dropdown-content">
-                    <a href="../nehalem">Nehalem Basin</a>
-                    <a href="../ppgis">Tallahassee</a>
-                    <a href="../lakeoswego">Lake Oswego</a>
-                    <a href="../map2midi/">Map to Music</a>
-                    <a href="../northcoast">North Coast</a>
-                    <a href="../monterey">Monterey Bay</a>
-                    <a href="../pccrockcreek">PCC Rock Creek</a>
-                    <a href="../taiwan">Taiwan</a>
-                    <a href="../europe">Europe</a>
-                    <a href="../world">Global</a>
-                </div>
-            </li>
-            <li><a href="#section2">Map Navigation</a></li>
-            <li><a href="#about">About Me</a></li>
-        </ul>
-    </nav>
+    <div class="header" id="header">
+        <div id="header-atmosphere"></div>
+        <div class="star-background"></div>
+        <div class="header-content">
+            <h1>Map Portfolio</h1>
+            <p>Ian Maher</p>
+        </div>
+    </div>
+    <div class="nav-bar">
+        <a href="../../index.html">
+            <button class="nav-button" id="globe-button">
+                <i class="fa fa-globe" style="font-size:36px;color:white"></i>
+                <span class="text">Globe</span>
+            </button>
+        </a>
+        <div class="dropdown">
+            <button class="dropdown-button">
+                <i class="fa fa-map" style="font-size:36px;color:white"></i>
+                <span class="text">Projects</span>
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <ul class="dropdown-content">
+                <a href="../nehalem">Nehalem Basin</a>
+                <a href="../ppgis">Tallahassee</a>
+                <a href="../lakeoswego">Lake Oswego</a>
+                <a href="../map2midi/">Map to Music</a>
+                <a href="../northcoast">North Coast</a>
+                <a href="../pccrockcreek">PCC Rock Creek</a>
+                <a href="../chiricahuas">Chiricahua Mountains</a>
+                <a href="../taiwan">Taiwan</a>
+                <a href="../europe">Europe</a>
+                <a href="../global">Global</a>
+            </ul>
+        </div>
+        <button class="nav-button">
+            <a href="#about">
+                <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
+                <span class="text">About Me</span>
+            </a>
+        </button>
+    </div>
+    <div class="info-box" id="infoBox">
+        <h2>Potential Dive Sites in the Monterey Bay Area</h2>
+        <p><b>Skills used:</b> Suitability analysis, cartography, combined vector and raster analysis</p>
+        <p>I created this map as part of a final project for my Geospatial Analysis course. I chose this topic because of my own personal interest in scuba diving, as well as a connection with the region. Some of the first maps I became aware of were my uncle's maps of the bathymetry of the Monterey Bay. After determining suitable parameters, including the correct depth, distance from shore, and attractive features, used several datasets to determine the most promising sites to dive in the region. I looked at species diversity in the region by using vector layers supplied by the California Department of Fish & Wildlife, as well as layers detailing local kelp concentrations. I also looked at ocean depth using NOAA's global bathymetric DEM layer. Finally, I used a sand deposit layer from the USGS to find sites that were accessible from the shore. A full sized, undistorted version of the map <a href="../../resources/pictures/monterey.jpg" target="_blank">can be found here</a></p>
+    </div>
+    <button class="info-button" id="infoButton">
+        <i class="fa fa-info-circle" style="font-size:24px;"></i>
+    </button>
 
     <main>
         <section id="section1">
@@ -45,21 +73,42 @@
             <p><b>Skills used:</b> front-end development, Javascript, HTML, real-time data monitoring and quality assurance, app development, PPGIS (public participation GIS). </p>
             <iframe src="https://orange-art-6719.on.fleek.co/Tallahassee_app.html" width=100% height="800"></iframe>
         </section>
-        <section id="section2">
-            <div id="map2" class="map-container"></div>
-            <div id="sidebar2" class="sidebar"></div>
-        </section>
         <section id="about">
-            <h2>About Me</h2>
-            <p>My name is Ian Maher. I am a recent graduate of the GIS Certificate Program at Portland Community College. I studied Zoology at Oregon State University for my undergraduate degree. I am passionate about the outdoors and our natural environment. I have many hobbies including scuba diving, <a href="https://github.com/yahnjr">coding</a>, <a href="https://soundcloud.com/snailzorz">making music</a>, hiking, reading, and <a href="https://iformaher.wixsite.com/yahnkui">traveling</a>. I recently moved back into the United States after living abroad for several years and I am ready to begin a career as a GIS specialist. I love making maps and engaging with mapping projects in my free time. Mapping is a powerful tool for visualizing data and discovering patterns, as well as communicating messages effectively. I hope you enjoy some of the maps I have made. </p>
+            <div class="profile-section">
+              <img src="../../resources/pictures/ian1.jpg" alt="Ian Maher" class="profile-image">
+              
+              <div class="button-container">
+                <a href="https://github.com/yahnjr" class="link-button" target="_blank">GitHub</a>
+                <a href="https://soundcloud.com/snailzorz" class="link-button" target="_blank">SoundCloud</a>
+                <a href="https://iformaher.wixsite.com/yahnkui" class="link-button" target="_blank">Travel Blog</a>
+              </div>
+              
+              <div class="bottom-buttons">
+                <a href="#portfolio" class="link-button" target="_blank">Portfolio</a>
+                <a href="#resume" class="link-button" target="_blank">Resume</a>
+              </div>
+            </div>
+        
+            <div class="content-section">
+              <h2 class="about-header">About Me</h2>
+              
+              <div class="about-content">
+                <p>My name is Ian Maher. I am currently working as a GIS Technician with 3J Consulting, a Portland, Oregon based engineering and urban planning firm. I love making maps and analyzing spatial data. I believe all aspects of bringing spatial data to people, including cartography, application development, and communication, are all important aspects of what makes GIS special. </p>
+                
+                <p>My diverse interests include scuba diving, coding, making music, hiking, reading, and traveling. Each of these pursuits has shaped my perspective and approach to geographic information systems and data visualization.</p>
+              </div>
+            </div>
+        
+            <footer class="contact-footer">
+              <p>Get in Touch</p>
+              <p><a href="mailto:iformaher@gmail.com" class="contact-link">iformaher@gmail.com</a></p>
+              <p><a href="tel:9713876991" class="contact-link">(971) 387-6991</a></p>
+            </footer>
+        
         </section>
     </main>
-    
-    <footer>
-        <p>Contact information</p>
-        <p>Email: iformaher@gmail.com</p>
-        <p>Phone: (971) 387-6991</p>
-    </footer>
+
     <script type="text/javascript" src="../script.js"></script>
+    <script src="../../stars.js"></script>
 </body>
 </html>

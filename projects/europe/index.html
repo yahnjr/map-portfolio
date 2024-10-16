@@ -4,64 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Europe</title>
-    <link rel="stylesheet" href="../style.css">
-    <!-- Include Mapbox GL JS and CSS -->
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="../../footer.css">
+    <link rel="stylesheet" href="../headnav.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .section1 {
+            width: 100%;
+            height: 100vh;
+        }
+
+        #map {
+            width: 100%;
+            height: 100vh;
+        }        
+    </style>
 </head>
 <body>
-    <header style= "text-align: center; padding: 20px;">
-        <h1 style="font-size: 2em; font-weight: bold;">Map Portfolio</h1>
-        <p style="font-size: 1em; font-weight: normal;">Ian Maher</p>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="../../">Home</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)">Project Pages</a>
-                <div class="dropdown-content">
-                    <a href="../nehalem">Nehalem Basin</a>
-                    <a href="../ppgis">Tallahassee</a>
-                    <a href="../lakeoswego">Lake Oswego</a>
-                    <a href="../map2midi/">Map to Music</a>
-                    <a href="../northcoast">North Coast</a>
-                    <a href="../monterey">Monterey Bay</a>
-                    <a href="../pccrockcreek">PCC Rock Creek</a>
-                    <a href="../chiricahuas">Chiricahua Mountains</a>
-                    <a href="../taiwan">Columbia River</a>
-                    <a href="../world">Willamette Valley</a>
-                </div>
-            </li>
-            <li><a href="#section2">Map Navigation</a></li>
-            <li><a href="#about">About Me</a></li>
-        </ul>
-    </nav>
-
-    <main>
-        <section id="section1">
-            <h2>European Security Alert Summary</h2>
-            <p>In my work as a Global Intelligence Analyst with Swan Island Networks, I monitored real-time events as they occurred and produced reports on the details and severity of each occurrence. We watched for events of several major categories, including security related events, demonstrations, meteorological events, and traffic incidents. Using our database, I produced a summary poster to highlight some of the trends and major events that occurred in the period between November 2022 and April 2023 in the European region. I showed areas within the continent that received high coverage from our team, as well as breaking down what kinds of events were most prominent in each country. This map was presented to the head of the company for possible use in acquiring new clients.</p>
-            <p><b>Skills used:</b> spatial analysis, charts and data visualization, communication, heat maps, intelligence </p>
-            <a href="../../pictures/europe.jpg">
-            <img src="../../pictures/europe.jpg" alt="Large Map Image" style="width:100%;">
+    <div class="header" id="header">
+        <div id="header-atmosphere"></div>
+        <div class="star-background"></div>
+        <div class="header-content">
+            <h1>Map Portfolio</h1>
+            <p>Ian Maher</p>
+        </div>
+    </div>
+    <div class="nav-bar">
+        <a href="../../index.html">
+            <button class="nav-button" id="globe-button">
+                <i class="fa fa-globe" style="font-size:36px;color:white"></i>
+                <span class="text">Globe</span>
+            </button>
+        </a>
+        <div class="dropdown">
+            <button class="dropdown-button">
+                <i class="fa fa-map" style="font-size:36px;color:white"></i>
+                <span class="text">Projects</span>
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <ul class="dropdown-content">
+                <a href="../nehalem">Nehalem Basin</a>
+                <a href="../ppgis">Tallahassee</a>
+                <a href="../lakeoswego">Lake Oswego</a>
+                <a href="../map2midi/">Map to Music</a>
+                <a href="../monterey">Monterey Bay</a>
+                <a href="../northcoast">North Coast</a>
+                <a href="../pccrockcreek">PCC Rock Creek</a>
+                <a href="../chiricahuas">Chiricahua Mountains</a>
+                <a href="../taiwan">Taiwan</a>
+                <a href="../world">Global</a>
+            </ul>
+        </div>
+        <button class="nav-button">
+            <a href="#about">
+                <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
+                <span class="text">About Me</span>
             </a>
-        </section>
-        <section id="section2">
-            <div id="map2" class="map-container"></div>
-            <div id="sidebar2" class="sidebar"></div>
-        </section>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>My name is Ian Maher. I am a recent graduate of the GIS Certificate Program at Portland Community College. I studied Zoology at Oregon State University for my undergraduate degree. I am passionate about the outdoors and our natural environment. I have many hobbies including scuba diving, <a href="https://github.com/yahnjr">coding</a>, <a href="https://soundcloud.com/snailzorz">making music</a>, hiking, reading, and <a href="https://iformaher.wixsite.com/yahnkui">traveling</a>. I recently moved back into the United States after living abroad for several years and I am ready to begin a career as a GIS specialist. I love making maps and engaging with mapping projects in my free time. Mapping is a powerful tool for visualizing data and discovering patterns, as well as communicating messages effectively. I hope you enjoy some of the maps I have made. </p>
-        </section>
-    </main>
+        </button>
+    </div>
+    <div class="info-box" id="infoBox">
+        <h2>European Security Alert Summary</h2>
+        <p><b>Skills used:</b> Spatial analysis, charts and data visualization, communication, heat maps, intelligence</p>
+        <p>In my work as a Global Intelligence Analyst with Swan Island Networks, I monitored real-time events as they occurred and produced reports on the details and severity of each occurrence. We watched for events of several major categories, including security related events, demonstrations, meteorological events, and traffic incidents. Using our database, I produced a summary poster to highlight some of the trends and major events that occurred in the period between November 2022 and April 2023 in the European region. I showed areas within the continent that received high coverage from our team, as well as breaking down what kinds of events were most prominent in each country. This map was presented to the head of the company for possible use in acquiring new clients. A full sized, undistorted version of the map <a href="../../resources/pictures/europe.jpg" target="_blank">can be found here</a></p>
+    </div>
+    <button class="info-button" id="infoButton">
+        <i class="fa fa-info-circle" style="font-size:24px;"></i>
+    </button>
+    <div id="map"></div>
+
+    <section id="about">
+        <div class="profile-section">
+          <img src="../../resources/pictures/ian1.jpg" alt="Ian Maher" class="profile-image">
+          
+          <div class="button-container">
+            <a href="https://github.com/yahnjr" class="link-button" target="_blank">GitHub</a>
+            <a href="https://soundcloud.com/snailzorz" class="link-button" target="_blank">SoundCloud</a>
+            <a href="https://iformaher.wixsite.com/yahnkui" class="link-button" target="_blank">Travel Blog</a>
+          </div>
+          
+          <div class="bottom-buttons">
+            <a href="#portfolio" class="link-button" target="_blank">Portfolio</a>
+            <a href="#resume" class="link-button" target="_blank">Resume</a>
+          </div>
+        </div>
     
-    <footer>
-        <p>Contact information</p>
-        <p>Email: iformaher@gmail.com</p>
-        <p>Phone: (971) 387-6991</p>
-    </footer>
-    <script type="text/javascript" src="../script.js"></script>
+        <div class="content-section">
+          <h2 class="about-header">About Me</h2>
+          
+          <div class="about-content">
+            <p>My name is Ian Maher. I am currently working as a GIS Technician with 3J Consulting, a Portland, Oregon based engineering and urban planning firm. I love making maps and analyzing spatial data. I believe all aspects of bringing spatial data to people, including cartography, application development, and communication, are all important aspects of what makes GIS special. </p>
+            
+            <p>My diverse interests include scuba diving, coding, making music, hiking, reading, and traveling. Each of these pursuits has shaped my perspective and approach to geographic information systems and data visualization.</p>
+          </div>
+        </div>
+    
+        <footer class="contact-footer">
+          <p>Get in Touch</p>
+          <p><a href="mailto:iformaher@gmail.com" class="contact-link">iformaher@gmail.com</a></p>
+          <p><a href="tel:9713876991" class="contact-link">(971) 387-6991</a></p>
+        </footer>
+      </section>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiaWZvcm1haGVyIiwiYSI6ImNsaHBjcnAwNDF0OGkzbnBzZmUxM2Q2bXgifQ.fIyIgSwq1WWVk9CKlXRXiQ';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/satellite-v9',
+            zoom: 1,
+            bounds: [[-29.74, 19], [52.62, 68]],
+            projection: 'mercator',
+        });
+        map.on('load', () => {
+            map.addSource('europe-map', {
+                'type': 'image',
+                'url': '../../resources/pictures/europe.jpg',
+                'coordinates': [
+                    [-29.68, 64.21], // Top-left
+                    [52.62, 64.28], // Top-right
+                    [52.91, 20.16], // Bottom-right
+                    [-29.74, 20.43]  // Bottom-left
+                ]
+            });
+            map.addLayer({
+                'id': 'europe-map',
+                'type': 'raster',
+                'source': 'europe-map',
+                'paint': {
+                    'raster-opacity': 0
+                }
+            });
+            let opacity = 0;
+            function fadeIn() {
+                opacity += 0.01;
+                if (opacity <= 1) {
+                    map.setPaintProperty('europe-map', 'raster-opacity', opacity);
+                    requestAnimationFrame(fadeIn);
+                }
+            }
+            fadeIn();
+
+            map.on('click', (e) => {
+            // Get the clicked coordinates
+            const lat = e.lngLat.lat;
+            const lng = e.lngLat.lng;
+            
+            // Log the coordinates to console
+            console.log(`Latitude: ${lat}, Longitude: ${lng}`);
+
+            });
+        });
+        const infoButton = document.getElementById('infoButton');
+        const infoBox = document.getElementById('infoBox');
+        infoButton.addEventListener('mouseover', () => {
+            infoBox.classList.add('open');
+        });
+        infoBox.addEventListener('mouseleave', () => {
+            infoBox.classList.remove('open');
+        });
+    </script>
+    <script src="../../stars.js"></script>
 </body>
 </html>

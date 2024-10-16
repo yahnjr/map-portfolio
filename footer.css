@@ -1,0 +1,153 @@
+#about {
+  background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+  border-radius: 16px;
+  padding: 2rem;
+  padding-top: 12vh;
+  max-width: 1000px;
+  margin: 2rem auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+}
+
+  .profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+  .profile-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 15px;
+  object-fit: cover;
+  border: 3px solid #4a90e2;
+}
+
+  .button-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+  .bottom-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+  .link-button {
+  background: rgba(74, 144, 226, 0.1);
+  color: #4a90e2;
+  padding: 0.8rem;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(74, 144, 226, 0.3);
+  font-family: 'Inter', sans-serif;
+}
+
+  .link-button:hover {
+  background: rgba(74, 144, 226, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+}
+
+  .content-section {
+  color: #e0e0e0;
+  font-family: 'Inter', sans-serif;
+}
+
+  .about-header {
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  border-bottom: 2px solid #4a90e2;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+  .about-content {
+  line-height: 1.8;
+}
+
+  .contact-footer {
+  grid-column: span 2;
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+  .contact-link {
+  color: #4a90e2;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+  .contact-link:hover {
+  color: #7eb3f1;
+}
+
+  @media (max-width: 768px) {
+  #about {
+      grid-template-columns: 1fr;
+      padding: 1.5rem;
+}
+
+  .profile-section {
+      max-width: 400px;
+      margin: 0 auto;
+}
+
+  .profile-image {
+      width: 200px;
+      height: 200px;
+}
+
+  .button-container {
+      grid-template-columns: repeat(3, 1fr);
+}
+
+  .bottom-buttons {
+      grid-template-columns: repeat(2, 1fr);
+}
+
+  .content-section {
+      text-align: center;
+}
+
+  .contact-footer {
+      grid-column: 1;
+      margin-top: 1.5rem;
+}
+}
+
+  @media (max-width: 480px) {
+  .about-container {
+      padding: 1rem;
+}
+
+  .button-container {
+      grid-template-columns: 1fr;
+}
+
+  .bottom-buttons {
+      grid-template-columns: 1fr;
+}
+
+  .profile-image {
+      width: 180px;
+      height: 180px;
+}
+
+  .profile-section {
+      gap: 1rem;
+}
+}

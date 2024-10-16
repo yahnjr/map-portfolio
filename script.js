@@ -3,12 +3,54 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiaWZvcm1haGVyIiwiYSI6ImNsaHBjcnAwNDF0OGkzbnBzZ
 
 var map2 = new mapboxgl.Map({
     container: 'map2',
-    style: 'mapbox://styles/mapbox/satellite-streets-v11',
-    center: [0, 20], 
-    zoom: 1.5 
+    style: 'mapbox://styles/mapbox/satellite-v9',
+    projection: 'globe', 
+    zoom: 1.5,
+    center: [-90, 40]
 });
 
-map2.scrollZoom.disable();
+map2.on('style.load', () => {
+  map2.setFog({
+    color: 'rgb(255, 240, 240)', // Lower atmosphere
+    'high-color': 'rgb(200, 255, 255)', // Upper atmosphere
+    'horizon-blend': 0.01, // Atmosphere thickness (default 0.2 at low zooms)
+    'space-color': 'rgb(0, 0, 0)', // Background color
+    'star-intensity': 0.6 // Background star brightness (default 0.35 at low zoooms )
+  });
+});
+
+// Add globe rotation
+const secondsPerRevolution = 120;
+const maxSpinZoom = 3;
+
+let userInteraction = false;
+let spinEnabled = true;
+
+function spinGlobe() {
+  const zoom = map2.getZoom();
+  if(spinEnabled && !userInteraction && zoom < maxSpinZoom) {
+    let distancePerSecond = 360 / secondsPerRevolution;
+    const center = map2.getCenter();
+    center.lng -= distancePerSecond;
+
+    map2.easeTo({center, duration: 1000, easing: (n) => n});
+  }
+
+  requestAnimationFrame(spinGlobe);
+}
+
+map2.on('mousedown', () => {
+  userInteraction = true;
+});
+
+map2.on('mouseup', () => {
+  userInteraction = false;
+  spinGlobe();
+});
+
+map2.on('style.load', () => {
+  spinGlobe();
+});
 
 // Function to create boxes for projects. called "project boxes" due to early build focus on projects.
 function createProjectBoxSection2(project, index, sidebarId, mapInstance) {
@@ -57,6 +99,7 @@ fetch('resources/projects.json')
       });
      
         createProjectBoxSection2(project, index, 'sidebar2', map2);
+        
         document.getElementById('sidebar2').addEventListener('scroll', () => {
             var sidebar = document.getElementById('sidebar2');
             var ProjectBoxes = sidebar.getElementsByClassName('project-box');
@@ -86,21 +129,6 @@ fetch('resources/projects.json')
                 });
             }
         });
-
-        window.addEventListener('scroll', function() {
-          const mapDiv = document.getElementById('map2');
-          const mapPosition = mapDiv.getBoundingClientRect();
-          const sidebar2 = document.getElementById('sidebar2');
-          const fudge = 20;
-
-          if (mapPosition.top >= -fudge && mapPosition.bottom <= this.window.innerHeight + fudge) {
-            map2.scrollZoom.enable();
-            sidebar2.style.pointerEvents = 'auto';
-          } else {
-            map2.scrollZoom.disable();
-            sidebar2.style.pointerEvents = 'none';
-          }
-        });
        
         fadeInFadeOut(document.getElementById('sidebar2'));
     });
@@ -126,8 +154,8 @@ fetch('resources/projects.json')
   
       // Calculate mobile positions
       for (var i = 0; i < 10; i++) {
-        mobilePositions.push(i * (300 + 60)); // 300px height + 60px margin
-        desktopPositions.push(i * (400 + 220));
+        mobilePositions.push(240 + (i * (200 + 60)));
+        desktopPositions.push(600 + (i * (400 + 220)));
       }
   
       var positions = isMobile ? mobilePositions : desktopPositions;
@@ -138,11 +166,6 @@ fetch('resources/projects.json')
       var offset = isMobile ? mobilePositions[0] : 237;
   
       targetScrollTop = Math.max(0, targetScrollTop - offset);
-  
-      console.log("Is Mobile:", isMobile);
-      console.log("Target Index:", targetIndex);
-      console.log("Target Scroll Top:", targetScrollTop);
-      console.log("Current Scroll Top:", sidebar.scrollTop);
   
       // Try native smooth scrolling first
       if ('scrollBehavior' in document.documentElement.style) {
@@ -158,78 +181,6 @@ fetch('resources/projects.json')
       console.warn("project box not found for name:", cityName);
     }
   }
-
-
-// Function to scroll to the project box with a given index in a sidebar with a specific ID when marker is clicked
-
-function logProjectBoxPositions(sidebarId) {
-  var sidebar = document.getElementById(sidebarId);
-  var ProjectBoxes = sidebar.getElementsByClassName('project-box');
-  
-  console.log("Sidebar scrollTop:", sidebar.scrollTop);
-  console.log("Sidebar clientHeight:", sidebar.clientHeight);
-  console.log("Sidebar scrollHeight:", sidebar.scrollHeight);
-
-  for (var i = 0; i < ProjectBoxes.length; i++) {
-    var box = ProjectBoxes[i];
-    console.log("Box " + i + " (" + box.getAttribute('name') + "):");
-    console.log("  offsetTop:", box.offsetTop);
-    console.log("  clientHeight:", box.clientHeight);
-    console.log("  Total height (including margin):", box.clientHeight + 120);
-    console.log("  getBoundingClientRect():", box.getBoundingClientRect());
-  }
-}
-
-// function scrollToProjectBox(projectName, sidebarId) {
-//   var sidebar = document.getElementById(sidebarId);
-//   var ProjectBoxes = sidebar.getElementsByClassName('project-box');
-//   var targetIndex = -1;
-
-//   for (var i = 0; i < ProjectBoxes.length; i++) {
-//     if (ProjectBoxes[i].getAttribute('name') === projectName) {
-//       targetIndex = i;
-//       break;
-//     }
-//   }
-
-//   if (targetIndex !== -1) {
-//     var isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-//     var desktopPositions = [];
-//     var mobilePositions = [];
-
-//     // Calculate mobile positions
-//     for (var i = 0; i < 11; i++) {
-//       mobilePositions.push(i * (300 + 60)); // 300px height + 60px margin
-//       desktopPositions.push(i * (400 + 220));
-//     }
-
-//     var positions = isMobile ? mobilePositions : desktopPositions;
-//     var targetScrollTop = positions[targetIndex];
-   
-//     var offset = isMobile ? mobilePositions[0] : 237;
-
-//     targetScrollTop = Math.max(0, targetScrollTop - offset);
-
-//     console.log("Is Mobile:", isMobile);
-//     console.log("Target Index:", targetIndex);
-//     console.log("Target Scroll Top:", targetScrollTop);
-//     console.log("Current Scroll Top:", sidebar.scrollTop);
-
-//     // Try native smooth scrolling first
-//     if ('scrollBehavior' in document.documentElement.style) {
-//       sidebar.scrollTo({
-//         top: targetScrollTop,
-//         behavior: 'smooth'
-//       });
-//     } else {
-//       // Fall back to JavaScript animation
-//       smoothScrollTo(sidebar, targetScrollTop, 500); // 500ms duration
-//     }
-//   } else {
-//     console.warn("project box not found for name:", projectName);
-//   }
-// }
 
 function smoothScrollTo(element, targetScrollTop, duration) {
   var start = element.scrollTop;
@@ -285,20 +236,31 @@ function fadeInFadeOut(sidebar) {
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById("header");
   const navButtons = document.querySelector('.nav-bar');
+  const sidebar2 = document.getElementById('sidebar2');
 
-  function handleScroll() {
-    const scrollY = window.scrollY;
-    
-    // Toggle visibility based on scroll
-    if (scrollY >= 1) {
+  function handleVisibility() {
+    const sidebarScrolled = sidebar2.scrollTop > 0;
+    const mapZoomed = map2 && map2.getZoom() > 1.5;
+
+    if (sidebarScrolled || mapZoomed) {
       header.classList.add('visible');
       navButtons.classList.add('fade-in');
+      userInteraction = true;
     } else {
       header.classList.remove('visible');
       navButtons.classList.remove('fade-in');
     }
   }
 
-  window.addEventListener('scroll', handleScroll);
-  handleScroll();
+  sidebar2.addEventListener('scroll', handleVisibility);
+
+  map2.on('zoom', handleVisibility);
+
+  handleVisibility();
+});
+
+document.getElementById("globe-button").addEventListener('click', () =>{
+  const sidebar = document.getElementById("sidebar2");
+  map2.setZoom(1);
+  sidebar.scrollTop = 0;
 });

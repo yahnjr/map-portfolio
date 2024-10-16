@@ -6,89 +6,84 @@ body {
   color: #ffffff;
 }
 
-iframe {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  border: none;
-  z-index: 1;
-}
-
-#globe-container {
-  position: sticky;
-  width: 100%;
-  height: 100vh;
-  z-index: 2;
-  top: -90vh;
-  overflow: hidden;
-}
-
 .header {
-  position: sticky;
-  bottom: 0;
-  z-index: 1000;
-  padding: 10px 16px;
-  background: linear-gradient(to bottom, rgba(128, 0, 128, 0.1), rgba(128, 128, 0, 0.7));
-  color: #f1f1f1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 10vh;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+  z-index: 1000;
   opacity: 0;
   height: 10vh;
   width: 100%;
   transition: opacity 1s ease-in-out;
+  overflow: hidden;
+}
+
+.star-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.header-content {
+  position: relative;
+  z-index: 3;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.header-content h1,
+.header-content p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.header-content h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.header-content p {
+  font-size: 1rem;
+}
+
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+}
+
+#header-atmosphere {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  padding: 10px 16px;
+  background: linear-gradient(to top, 
+              rgba(255, 170, 170, 0.4),
+              rgba(255, 220, 170, 0.2),  
+              rgba(200, 255, 255, 0.1));
+  color: #f1f1f1;
+  height: 10vh;
+  width: 100%;
 }
 
 .header.visible {
   opacity: 1;
 }
 
-.sticky-container {
-  position: relative;
-  z-index: 10;
-  height: 10vh;
-}
-
 .content {
   padding: 16px;
   background-color: white;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 10vh;
-  background: linear-gradient(to bottom, rgba(128, 0, 128, 0.1), rgba(128, 128, 0, 0.9));
-  transition: transfor 0.3s ease;
-}
-
-.stickyGlobe {
-  position: sticky;
-  top: -88vh;
-  z-index: inherit;
-  height: 90vh;
-  overflow: hidden;
-}
-
-.sticky + .content + .stickyGlobe {
-  padding-top: 100px;
-}
-
-footer {
-  background-image: url("pictures/banner.png");
-  background-repeat: no-repeat; 
-  background-size: cover; 
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  text-shadow: 0px 0px 3px #000000;
-}
-
-@media (max-width: 768px) {
-  header, footer {
-    padding: 0.2rem; 
-    font-size: 0.6em; 
-    max-height: 50px;
-  }
 }
 
 .nav-bar {
@@ -103,14 +98,15 @@ footer {
 }
 
 .nav-button {
+  background-color: #3b3b3b;
   display: flex;
   align-items: center;
   width: 300px;
-  height: 20px;
-  border-radius: 15%;
+  height:20px;
+  border-radius: 15px;
   color: white;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   padding-left: 7px;
   margin: 50px;
   background-color: #3b3b3b ;
@@ -138,7 +134,7 @@ footer {
   align-items: center;
   width: 300px;
   height:20px;
-  border-radius: 15%;
+  border-radius: 15px;
   color: white;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -155,17 +151,33 @@ footer {
   transform: translateX(50%);
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #3b3b3b;
+  border-radius: 15px;
+  border-color: white;
+  border-radius: 15px;
+  padding: 0;
+  margin: 0;
+  left: 35%;
+  top: -60%;
   min-width: 160px;
   z-index: 10;
 }
 
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
+  color: white;
+  padding: 12px;
   text-decoration: none;
   display: block;
 }
@@ -177,8 +189,7 @@ footer {
 #section2 {
   position: relative;
   width: 100%;
-  height: 90vh;
-  padding-top: 3vh; /* This will position it right under the header */
+  height: 100vh;
   margin-top: 0;
 }
 
@@ -194,12 +205,14 @@ footer {
   width: 35%;
   height: 90vh;
   overflow-x: hidden;
-  padding: 10px 10px 10px 10px;
+  padding: 25vh 10px 10px 10px;
   margin-left: 20px;
   background-color: transparent;
   overflow-y: scroll;
   scrollbar-width: none;
-  pointer-events: none;
+  pointer-events: auto;
+  top: 0;
+  box-sizing: border-box;
 }
 
 #sidebar2::-webkit-scrollbar { 
@@ -212,32 +225,59 @@ footer {
   height: 0px;
 }
 
+
 @media only screen and (max-width: 768px) {
   #section2 {
-    display: flex;
-    flex-direction: column-reverse;
+    position: relative;
     width: 100%;
-    height: 80vh;
+    height: 100vh;
   }
 
   #map2 {
     width: 100%;
-    height: 80vh;
+    height: 100vh;
   }
 
   #sidebar2 {
-    width: 60%;
+    position: absolute;
+    bottom: 10px; /* Adjust as needed */
+    left: 0;
+    width: 100%;
     height: 30vh;
-    margin: 0 auto;
-    padding: 0px;
-    border: none;
-    bottom: 0;
-    overflow-y: scroll;
+    margin: 0;
+    padding: 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  }
+
+  /* Style for the project boxes inside the sidebar */
+  #sidebar2 .project-box {
+    display: inline-block;
+    width: 80%; /* Adjust as needed */
+    min-width: 250px; /* Minimum width for each box */
+    height: 90%;
+    margin-right: 20px;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for contrast */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px;
+    box-sizing: border-box;
   }
 }
 
+#welcome-box {
+  height: 400px;
+  width: 100%;
+  margin-bottom: 200px;
+  background-color: transparent;
+}
+
 .project-box {
-  position:relative;
+  position: relative;
   border: 1px solid #333;
   width: 100%;
   height: 400px;
@@ -257,6 +297,7 @@ footer {
   left: 0;
   width: 100%;
   height: 50%; 
+  z-index: 1000;
   background: linear-gradient(to top, rgba(58,58,58,1) 0%, rgba(58,58,58,0) 100%);
 }
 
@@ -279,13 +320,14 @@ footer {
 .project-box h3, .project-box p, .project-box p1 {
   margin: 0;
   color: #ffffff;
+  z-index: 1002;
 }
 
 .project-box p {
-  z-index: 5;
+  z-index: 1002;
   font-size: 15pt;
   position: absolute;
-  top: 420px;
+  bottom: 5%;
   left: 1%;
   color: #ffffff;
   text-shadow: 0px 0px 3px #000000;
@@ -311,31 +353,9 @@ footer {
   .project-box p {
     font-size: 10pt;
     position: absolute;
-    top: 230px;
+    bottom: 5%;
     left: 1%;
     color: #ffffff;
     text-shadow: 0px 0px 3px #000000;
   }
-}
-
-#about {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
-  margin-top: 30px;
-  width: 60%;
-  line-height: 1.8;
-  font-family: Georgia, 'Times New Roman', Times, sans-serif;
-} 
-
-@media only screen and (max-width: 768px) {
-  #about {
-    width:100%;
-  }
-}
-
-footer {
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  
 }

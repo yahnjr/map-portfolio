@@ -1,14 +1,5 @@
 [
     {
-        "name": "Please scroll through these boxes or click a point on the map to learn more about my projects.",
-        "coordinates": [-0,0],
-        "imageUrl": "",
-        "description": "Please scroll through these boxes or click a point on the map to learn more about my projects.",
-        "title": "Welcome to My Map Portfolio!",
-        "zoomLevel": 1,
-        "link": "projects/nehalem"
-    },
-    {
         "name": "Nehalem Basin",
         "coordinates": [-123.56341, 45.84511],
         "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/nehalem.png",
@@ -57,7 +48,7 @@
         "name": "Northern Oregon Coast",
         "coordinates": [-123.85823, 46.14208],
         "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/northcoast.jpg",
-        "description": "Looking for ways to quantify and reduce wildlife injuries in the Norther Oregon coast.",
+        "description": "Looking for ways to quantify and reduce wildlife injuries in the Northern Oregon coast.",
         "title": "Wildlife Injuries in the North Coast",
         "zoomLevel": 9,
         "link": "projects/northcoast"
