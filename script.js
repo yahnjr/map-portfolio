@@ -78,24 +78,24 @@ fetch('resources/projects.json')
   .then(data => {
     const projects = data;
 
-    // Add project points to the map and created boxes for projects
+    // Add project points to the map and created boxes for projects to sidebar
     projects.forEach(function(project, index) {
       // Create a map pin for project
       var marker = new mapboxgl.Marker()
         .setLngLat(project.coordinates)
         .addTo(map2);
    
-      // Attach click event to each marker
+      // Attach click event to each marker to fly to point and scroll to corresponding box
       marker.getElement().addEventListener('click', function() {
-        map2.flyTo({
-          center: project.coordinates,
-          zoom: 10,
-          essential: true
-        });
+        setTimeout(() => {
+          map2.flyTo({
+            center: project.coordinates,
+            zoom: 10,
+            essential: true
+          });
+        }, 1000);
    
-        // Scroll to the corresponding project box (function call)
-        scrollToProjectBox(project.name, 'sidebar2'); // Pass project name and sidebar ID
-   
+        scrollToProjectBox(project.name, 'sidebar2');
       });
      
         createProjectBoxSection2(project, index, 'sidebar2', map2);
@@ -108,12 +108,6 @@ fetch('resources/projects.json')
             var sidebarMidpoint = sidebarRect.top + sidebarRect.height / 2;
        
             fadeInFadeOut(sidebar);
-
-            if (window.matchMedia("(max-width: 768px)").matches) {
-              console.log('Horizontal scroll position:', sidebar.scrollLeft);
-            } else {
-              console.log('Vertical scroll position:', sidebar.scrollTop);
-            }
        
             var isMobile = window.matchMedia("(max-width: 768px)").matches;
   
@@ -187,8 +181,8 @@ function scrollToProjectBox(projectName, sidebarId) {
 
     if (isMobile) {
       // Calculate horizontal scroll position on mobile
-      targetScrollPos = (targetIndex * boxWidth) + mobileOffset + (sidebarSize/2) - (boxWidth);
-      console.log(targetScrollPos);
+      targetScrollPos = ((targetIndex * boxWidth) + mobileOffset + (sidebarSize/2)) - boxWidth;
+      console.log(`${targetScrollPos} = ((${targetIndex} * ${boxWidth}) + ${mobileOffset} + (${sidebarSize}/2)) - (${boxWidth}/4)`)
       sidebar.scrollTo({
         left: targetScrollPos,
         behavior: 'smooth'
@@ -237,13 +231,11 @@ function fadeInFadeOut(sidebar) {
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById("header");
   const navButtons = document.querySelector('.nav-bar');
-  const sidebar2 = document.getElementById('sidebar2');
 
   function handleVisibility() {
-    const sidebarScrolled = sidebar2.scrollTop > 0;
     const mapZoomed = map2 && map2.getZoom() > 1.5;
 
-    if (sidebarScrolled || mapZoomed) {
+    if (mapZoomed) {
       header.classList.add('visible');
       navButtons.classList.add('fade-in');
       userInteraction = true;
@@ -252,8 +244,6 @@ document.addEventListener('DOMContentLoaded', () => {
       navButtons.classList.remove('fade-in');
     }
   }
-
-  sidebar2.addEventListener('scroll', handleVisibility);
 
   map2.on('zoom', handleVisibility);
 

@@ -75,6 +75,7 @@ body {
   top: 50%;
   right: 20px;
   background: transparent;
+  pointer-events: none;
   transform: translateY(-50%);
   transition: opacity 1s ease-in-out;
 }
@@ -91,7 +92,8 @@ body {
   padding-bottom: 30px;
   padding-left: 7px;
   margin: 50px;
-  cursor: point;
+  cursor: pointer;
+  pointer-events: auto;
   transition: transform 0.3s ease-in-out;
   transform: translateX(105%);
   border-color: white;
@@ -105,50 +107,56 @@ body {
   margin-right: 30px;
 }
 
-.dropdown-button {
+.projects-button {
+  text-decoration: none;
+  position: relative;
   background-color: #3b3b3b;
   display: flex;
   align-items: center;
   width: 300px;
-  height: 20px;
+  height:20px;
   border-radius: 15px;
+  border: 2px solid white;
   color: white;
   padding-top: 30px;
   padding-bottom: 30px;
   padding-left: 7px;
   margin: 50px;
-  cursor: point;
+  background-color: #3b3b3b ;
+  cursor: pointer;
   transition: transform 0.3s ease-in-out;
   transform: translateX(105%);
   border-color: white;
+  pointer-events: auto;
 }
 
-.dropdown-button:hover {
+.projects-button:hover {
   transform: translateX(50%);
 }
 
 .dropdown {
-  position: relative;
   display: inline-block;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
+  top: -50%;
+  right: 100%;
   background-color: #3b3b3b;
   border-radius: 15px;
-  border-color: white;
+  border: 2px solid white;
   border-radius: 15px;
   padding: 0;
   margin: 0;
-  left: 35%;
-  top: -60%;
-  min-width: 160px;
-  z-index: 10;
+  min-width: 300px;
+  z-index: 1010;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
+  display: grid;
 }
 
 .dropdown-content a {
@@ -156,10 +164,27 @@ body {
   padding: 12px;
   text-decoration: none;
   display: block;
+  white-space: nowrap;
 }
 
 .dropdown-content a:hover {
   background-color: teal;
+}
+
+@media screen and (max-width: 768px) {
+  .dropdown-content {
+    grid-template-columns: 1fr;
+    min-width: 160px;
+    top: -150%;
+    right: 80%;
+    padding: 5px;
+  }
+
+  .dropdown-content a {
+    font-size: 14px;
+    padding: 8px;
+    white-space: normal;
+  }
 }
 
 .info-box {
