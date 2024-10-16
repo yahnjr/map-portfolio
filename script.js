@@ -102,22 +102,49 @@ fetch('resources/projects.json')
         
         document.getElementById('sidebar2').addEventListener('scroll', () => {
             var sidebar = document.getElementById('sidebar2');
-            var ProjectBoxes = sidebar.getElementsByClassName('project-box');
+            var projectBoxes = sidebar.getElementsByClassName('project-box');
             var mapCenterIndex = -1;
             var sidebarRect = sidebar.getBoundingClientRect();
             var sidebarMidpoint = sidebarRect.top + sidebarRect.height / 2;
        
             fadeInFadeOut(sidebar);
+
+            if (window.matchMedia("(max-width: 768px)").matches) {
+              console.log('Horizontal scroll position:', sidebar.scrollLeft);
+            } else {
+              console.log('Vertical scroll position:', sidebar.scrollTop);
+            }
        
-            for (var i = 0; i < ProjectBoxes.length; i++) {
-                var box = ProjectBoxes[i];
+            var isMobile = window.matchMedia("(max-width: 768px)").matches;
+  
+            if (isMobile) {
+              // Horizontal scrolling logic
+              var sidebarRect = sidebar.getBoundingClientRect();
+              var sidebarMidpoint = sidebarRect.left + sidebarRect.width / 2;
+
+              for (var i = 0; i < projectBoxes.length; i++) {
+                var box = projectBoxes[i];
                 var boxRect = box.getBoundingClientRect();
-               
-                // Check if the midpoint of the sidebar is between the top and bottom of the box
-                if (boxRect.top <= sidebarMidpoint && boxRect.bottom >= sidebarMidpoint) {
-                    mapCenterIndex = i;
-                    break;
+
+                if (boxRect.left <= sidebarMidpoint && boxRect.right >= sidebarMidpoint) {
+                  mapCenterIndex = i;
+                  break;
                 }
+              }
+            } else {
+              // Vertical scrolling logic
+              var sidebarRect = sidebar.getBoundingClientRect();
+              var sidebarMidpoint = sidebarRect.top + sidebarRect.height / 2;
+
+              for (var i = 0; i < projectBoxes.length; i++) {
+                var box = projectBoxes[i];
+                var boxRect = box.getBoundingClientRect();
+
+                if (boxRect.top <= sidebarMidpoint && boxRect.bottom >= sidebarMidpoint) {
+                  mapCenterIndex = i;
+                  break;
+                }
+              }
             }
        
             if (mapCenterIndex !== -1) {
@@ -134,75 +161,49 @@ fetch('resources/projects.json')
     });
   })
 
-  function scrollToProjectBox(projectName, sidebarId) {
-    var sidebar = document.getElementById(sidebarId);
-    var projectBoxes = sidebar.getElementsByClassName('project-box');
-    var targetIndex = -1;
-  
-    for (var i = 0; i < projectBoxes.length; i++) {
-      if (projectBoxes[i].getAttribute('name') === projectName) {
-        targetIndex = i;
-        break;
-      }
+function scrollToProjectBox(projectName, sidebarId) {
+  var sidebar = document.getElementById(sidebarId);
+  var projectBoxes = sidebar.getElementsByClassName('project-box');
+  var targetIndex = -1;
+
+  // Find the target project box by name
+  for (var i = 0; i < projectBoxes.length; i++) {
+    if (projectBoxes[i].getAttribute('name') === projectName) {
+      targetIndex = i;
+      break;
     }
-  
-    if (targetIndex !== -1) {
-      var isMobile = window.matchMedia("(max-width: 768px)").matches;
-  
-      var desktopPositions = [];
-      var mobilePositions = [];
-  
-      // Calculate mobile positions
-      for (var i = 0; i < 10; i++) {
-        mobilePositions.push(240 + (i * (200 + 60)));
-        desktopPositions.push(600 + (i * (400 + 220)));
-      }
-  
-      var positions = isMobile ? mobilePositions : desktopPositions;
-      var targetScrollTop = positions[targetIndex];
-     
-      var sidebarHeight = sidebar.clientHeight;
-      var boxHeight = isMobile ? 300 : 500;
-      var offset = isMobile ? mobilePositions[0] : 237;
-  
-      targetScrollTop = Math.max(0, targetScrollTop - offset);
-  
-      // Try native smooth scrolling first
-      if ('scrollBehavior' in document.documentElement.style) {
-        sidebar.scrollTo({
-          top: targetScrollTop,
-          behavior: 'smooth'
-        });
-      } else {
-        // Fall back to JavaScript animation
-        smoothScrollTo(sidebar, targetScrollTop, 500); // 500ms duration
-      }
+  }
+
+  if (targetIndex !== -1) {
+    var isMobile = window.matchMedia("(max-width: 768px)").matches;
+    var sidebarSize = isMobile ? sidebar.clientWidth : sidebar.clientHeight;
+    var targetScrollPos;
+    
+    // Define the offset and box dimensions for each layout
+    var mobileOffset = 600;
+    var desktopOffset = 600;
+    var boxWidth = 600;
+    var boxHeight = 600;
+
+    if (isMobile) {
+      // Calculate horizontal scroll position on mobile
+      targetScrollPos = (targetIndex * boxWidth) + mobileOffset + (sidebarSize/2) - (boxWidth);
+      console.log(targetScrollPos);
+      sidebar.scrollTo({
+        left: targetScrollPos,
+        behavior: 'smooth'
+      });
     } else {
-      console.warn("project box not found for name:", cityName);
+      // Calculate vertical scroll position on desktop
+      targetScrollPos = (targetIndex * boxHeight) + desktopOffset + (sidebarSize/2) - (boxHeight/2);
+      sidebar.scrollTo({
+        top: targetScrollPos,
+        behavior: 'smooth'
+      });
     }
+  } else {
+    console.warn("Project box not found for name:", projectName);
   }
-
-function smoothScrollTo(element, targetScrollTop, duration) {
-  var start = element.scrollTop;
-  var change = targetScrollTop - start;
-  var startTime = performance.now();
-
-  function animateScroll(currentTime) {
-    var elapsedTime = currentTime - startTime;
-    var progress = Math.min(elapsedTime / duration, 1);
-    var easeProgress = easeInOutCubic(progress);
-    element.scrollTop = start + change * easeProgress;
-
-    if (progress < 1) {
-      requestAnimationFrame(animateScroll);
-    }
-  }
-
-  requestAnimationFrame(animateScroll);
-}
-
-function easeInOutCubic(t) {
-  return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
 }
 
 function fadeInFadeOut(sidebar) {
@@ -263,4 +264,5 @@ document.getElementById("globe-button").addEventListener('click', () =>{
   const sidebar = document.getElementById("sidebar2");
   map2.setZoom(1);
   sidebar.scrollTop = 0;
+  window.scrollTo(0, 0);
 });

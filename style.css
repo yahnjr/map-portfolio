@@ -88,16 +88,30 @@ body {
 
 .nav-bar {
   position: fixed;
-  z-index: 10000;
+  z-index: 1000;
   top: 50%;
   right: 20px;
   background: transparent;
   transform: translateY(-50%);
   opacity: 0;
+  pointer-events: none;
   transition: opacity 1s ease-in-out;
 }
 
+.nav-bar a {
+  text-decoration: none;
+}
+
+.projects-button a {
+  text-decoration: none;
+}
+
+.text {
+  color: white;
+}
+
 .nav-button {
+  position: relative;
   background-color: #3b3b3b;
   display: flex;
   align-items: center;
@@ -110,14 +124,17 @@ body {
   padding-left: 7px;
   margin: 50px;
   background-color: #3b3b3b ;
-  cursor: point;
+  cursor: pointer;
   transition: transform 0.3s ease-in-out;
   transform: translateX(105%);
   border-color: white;
+  z-index: 1001;
+  pointer-events: auto;
 }
 
 .fade-in {
   opacity: 1;
+  pointer-events: none;
 }
 
 .nav-button:hover {
@@ -128,51 +145,56 @@ body {
     margin-right: 30px;
 }
 
-.dropdown-button {
+.projects-button {
+  text-decoration: none;
+  position: relative;
   background-color: #3b3b3b;
   display: flex;
   align-items: center;
   width: 300px;
   height:20px;
   border-radius: 15px;
+  border: 2px solid white;
   color: white;
   padding-top: 30px;
   padding-bottom: 30px;
   padding-left: 7px;
   margin: 50px;
   background-color: #3b3b3b ;
-  cursor: point;
+  cursor: pointer;
   transition: transform 0.3s ease-in-out;
   transform: translateX(105%);
   border-color: white;
+  pointer-events: auto;
 }
 
-.dropdown-button:hover {
+.projects-button:hover {
   transform: translateX(50%);
 }
 
 .dropdown {
-  position: relative;
   display: inline-block;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
+  top: -50%;
+  right: 100%;
   background-color: #3b3b3b;
   border-radius: 15px;
-  border-color: white;
+  border: 2px solid white;
   border-radius: 15px;
   padding: 0;
   margin: 0;
-  left: 35%;
-  top: -60%;
-  min-width: 160px;
-  z-index: 10;
+  min-width: 300px;
+  z-index: 1010;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
+  display: grid;
 }
 
 .dropdown-content a {
@@ -180,10 +202,27 @@ body {
   padding: 12px;
   text-decoration: none;
   display: block;
+  white-space: nowrap;
 }
 
 .dropdown-content a:hover {
   background-color: teal;
+}
+
+@media screen and (max-width: 768px) {
+  .dropdown-content {
+    grid-template-columns: 1fr;
+    min-width: 160px;
+    top: -150%;
+    right: 80%;
+    padding: 5px;
+  }
+
+  .dropdown-content a {
+    font-size: 14px;
+    padding: 8px;
+    white-space: normal;
+  }
 }
 
 #section2 {
@@ -223,50 +262,6 @@ body {
 #sidebar2::-moz-scrollbar { 
   width: 0px;
   height: 0px;
-}
-
-
-@media only screen and (max-width: 768px) {
-  #section2 {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-  }
-
-  #map2 {
-    width: 100%;
-    height: 100vh;
-  }
-
-  #sidebar2 {
-    position: absolute;
-    bottom: 10px; /* Adjust as needed */
-    left: 0;
-    width: 100%;
-    height: 30vh;
-    margin: 0;
-    padding: 10px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    display: flex;
-    flex-direction: row;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-  }
-
-  /* Style for the project boxes inside the sidebar */
-  #sidebar2 .project-box {
-    display: inline-block;
-    width: 80%; /* Adjust as needed */
-    min-width: 250px; /* Minimum width for each box */
-    height: 90%;
-    margin-right: 20px;
-    flex-shrink: 0;
-    background-color: rgba(255, 255, 255, 0.9); /* Light background for contrast */
-    border-radius: 10px; /* Rounded corners */
-    padding: 10px;
-    box-sizing: border-box;
-  }
 }
 
 #welcome-box {
@@ -341,11 +336,45 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-  .project-box {
-    height: 200px;
-    width: 250px;
-    margin-bottom: 60px;
+  #section2 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
   }
+
+  #map2 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+
+  #sidebar2 {
+    position: absolute;
+    top: 70%;
+    left: 0;
+    width: 100%;
+    height: 30vh;
+    margin: 0;
+    padding: 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .project-box {
+    display: inline-block;
+    width: 80%; 
+    width: 300px;
+    height: 90%;
+    margin-right: 300px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+
   .project-box img {
     min-height: auto;
     margin-top: 15px;
@@ -357,5 +386,11 @@ body {
     left: 1%;
     color: #ffffff;
     text-shadow: 0px 0px 3px #000000;
+    word-wrap: normal;
+  }
+
+  #welcome-box {
+    margin-right: 200px;
+    width: 400px;
   }
 }
