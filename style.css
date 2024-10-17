@@ -151,8 +151,8 @@ body {
   background-color: #3b3b3b;
   display: flex;
   align-items: center;
-  width: 300px;
-  height:20px;
+  max-width: 300px;
+  height: 20px;
   border-radius: 15px;
   border: 2px solid white;
   color: white;
@@ -160,7 +160,6 @@ body {
   padding-bottom: 30px;
   padding-left: 7px;
   margin: 50px;
-  background-color: #3b3b3b ;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
   transform: translateX(105%);
@@ -169,18 +168,22 @@ body {
 }
 
 .projects-button:hover {
-  transform: translateX(50%);
+  transform: translateX(40%);
 }
 
 .dropdown {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   top: -50%;
-  right: 100%;
+  right: 80%;
   background-color: #3b3b3b;
   border-radius: 15px;
   border: 2px solid white;
@@ -369,7 +372,8 @@ body {
 
   .project-box {
     display: inline-block;
-    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
     height: 90%;
     margin-right: 300px;
     flex-shrink: 0;
@@ -393,7 +397,9 @@ body {
 
   #welcome-box {
     margin-right: 200px;
+    height: 90%;
     min-width: 400px;
+    max-width: 400px;
     display: inline-block;
     overflow-wrap: normal;
   }

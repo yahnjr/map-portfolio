@@ -164,7 +164,7 @@ function scrollToProjectBox(projectName, projects, sidebarId) {
     const offset = 600;
     const boxSize = 600;
     const targetScrollPos = isMobile ? 
-      ((targetIndex * boxSize) + offset + (sidebarSize / 2)) - boxSize :
+      ((targetIndex * boxSize) + offset + (sidebarSize / 2)) - (boxSize / 2):
       ((targetIndex * boxSize) + offset + (sidebarSize / 2)) - (boxSize / 2);
 
     sidebar.scrollTo({
@@ -177,8 +177,6 @@ function scrollToProjectBox(projectName, projects, sidebarId) {
       zoom: 10,
       essential: true
     });
-
-    setFlyToCooldown();
   } else {
     console.warn("Project box not found for name:", projectName);
   }
@@ -238,5 +236,6 @@ document.getElementById("globe-button").addEventListener('click', () =>{
   const sidebar = document.getElementById("sidebar2");
   map2.setZoom(1);
   sidebar.scrollTop = 0;
+  sidebar.scrollLeft = 0;
   window.scrollTo(0, 0);
 });
