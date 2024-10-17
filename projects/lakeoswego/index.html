@@ -13,6 +13,76 @@
         main {
             margin-top: 12vh;
         }
+
+        #section1 {
+            display: flex;
+            height: 80vh;
+            width: 100%;
+        }
+
+        #info-box {
+            flex: 1;
+            padding: 10px;
+            height: 100%;
+            margin-left: 10px;
+        }
+
+        #info-box h2, #info-box p {
+            background-color: #545454;
+            padding: 10px;
+            border: 2px solid white;
+            border-radius: 15px;
+            opacity: 0;
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        #info-box h2 {
+            animation-delay: 0.2s;
+        }
+
+        #info-box p:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        #info-box p:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        #info-box p:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        iframe {
+            flex: 2;
+            height: 100%;
+        }
+
+        @media screen and (max-width: 768px) {
+            #section1 {
+                flex-direction: column;
+            }
+
+            #info-box {
+                font-size: smaller;
+                max-height: 30vh;
+                overflow-y: auto;
+            }
+
+            iframe {
+                min-height: 50vh;
+            }
+        }
     </style>
 </head>
 <body>
@@ -31,41 +101,40 @@
                 <span class="text">Globe</span>
             </button>
         </a>
-        <a href="#section2">
-            <div class="projects-button">
-                <li class="dropdown">
-                  <i class="fa fa-map" style="font-size:36px;color:white"></i>
-                  <span class="text">Project Pages</span>
-                  <div class="dropdown-content">
-                      <a href="projects/nehalem">Nehalem Basin</a>
-                      <a href="projects/ppgis">Tallahassee</a>
-                      <a href="projects/lakeoswego">Lake Oswego</a>
-                      <a href="projects/map2midi/">Map to Music</a>
-                      <a href="projects/northcoast">North Coast</a>
-                      <a href="projects/monterey">Monterey Bay</a>
-                      <a href="projects/pccrockcreek">PCC Rock Creek</a>
-                      <a href="projects/chiricahuas">Chiricahua Mountains</a>
-                      <a href="projects/taiwan">Taiwan</a>
-                      <a href="projects/europe">Europe</a>
-                      <a href="projects/world">Global</a>
-                  </div>
-                </li>
-              </div>
-          </a>
-        <button class="nav-button">
-            <a href="#about">
+        <div class="projects-button">
+            <li class="dropdown">
+                <i class="fa fa-map" style="font-size:36px;color:white"></i>
+                <span class="text">Project Pages</span>
+                <div class="dropdown-content">
+                    <a href="../nehalem">Nehalem Basin</a>
+                    <a href="../ppgis">Tallahassee</a>
+                    <a href="../map2midi/">Map to Music</a>
+                    <a href="../northcoast">North Coast</a>
+                    <a href="../monterey">Monterey Bay</a>
+                    <a href="../pccrockcreek">PCC Rock Creek</a>
+                    <a href="../chiricahuas">Chiricahua Mountains</a>
+                    <a href="../taiwan">Taiwan</a>
+                    <a href="../europe">Europe</a>
+                    <a href="../world">Global</a>
+                </div>
+            </li>
+            </div>
+        <a href="#about">
+            <button class="nav-button">
                 <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
                 <span class="text">About Me</span>
-            </a>
-        </button>
+            </button>
+        </a>
     </div>
 
     <main>
         <section id="section1">
-            <h2>Oregon White Oaks in Lake Oswego</h2>
-            <p>A mapping project undertaken in collaboration with the Oswego Lake Watershed Council, examining the Oregon white oaks in the area. A focus was placed on known oak trees that exist in neighborhoods and other green spaces that are not considered parts of continuous oak habitat, and the value they can provide local wildlife and ecology. As part of this project, several different analyses were carried out including establishing connective habitat zones, joining to tax lots to establish address locations for oak trees, habitat suitability surveys for potential unmapped oaks, and oak tree size classification. A web app and story map were created to allow the final products to be used by both members of the council and the public, along with a  Survey123 form  so more oak tree points could be added into the map in real time. </p>
-            <p>The full sized web app can be found <a href="https://experience.arcgis.com/experience/627fd32d40084cbfb94ec5a87d42b6aa">here</a>. The story map, detailing the process and reasoning behind the project, can be found <a href="https://arcg.is/1zSniL1">here</a>. </p>
-            <p><b>Skills used:</b> spatial analysis, supervised classification, ArcGIS Online and application building, MapBox, Survey123, Story Maps creation </p>
+            <div id="info-box">
+                <h2>Oregon White Oaks in Lake Oswego</h2>
+                <p><b>Skills used:</b> spatial analysis, supervised classification, ArcGIS Online and application building, MapBox, Survey123, Story Maps creation </p>
+                <p>A mapping project undertaken in collaboration with the Oswego Lake Watershed Council, examining the Oregon white oaks in the area. A focus was placed on known oak trees that exist in neighborhoods and other green spaces that are not considered parts of continuous oak habitat, and the value they can provide local wildlife and ecology. As part of this project, several different analyses were carried out including establishing connective habitat zones, joining to tax lots to establish address locations for oak trees, habitat suitability surveys for potential unmapped oaks, and oak tree size classification. A web app and story map were created to allow the final products to be used by both members of the council and the public, along with a  Survey123 form  so more oak tree points could be added into the map in real time. </p>
+                <p>The full sized web app can be found <a href="https://experience.arcgis.com/experience/627fd32d40084cbfb94ec5a87d42b6aa">here</a>. The story map, detailing the process and reasoning behind the project, can be found <a href="https://arcg.is/1zSniL1">here</a>. </p>
+            </div>
             <iframe src="https://storymaps.arcgis.com/stories/5ade28d9ba694bd7ad4f3c6d3a344c63" width="100%" height="700px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
         </section>
 

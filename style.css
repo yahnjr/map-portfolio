@@ -269,6 +269,7 @@ body {
   width: 100%;
   margin-bottom: 200px;
   background-color: transparent;
+  overflow-wrap: normal;
 }
 
 .project-box {
@@ -358,7 +359,6 @@ body {
     padding: 10px;
     overflow-x: scroll;
     overflow-y: hidden;
-    white-space: nowrap;
     display: flex;
     flex-direction: row;
     background: linear-gradient(to top, 
@@ -369,7 +369,6 @@ body {
 
   .project-box {
     display: inline-block;
-    width: 80%; 
     width: 300px;
     height: 90%;
     margin-right: 300px;
@@ -389,11 +388,13 @@ body {
     left: 1%;
     color: #ffffff;
     text-shadow: 0px 0px 3px #000000;
-    word-wrap: normal;
+    overflow-wrap: normal;
   }
 
   #welcome-box {
     margin-right: 200px;
-    width: 400px;
+    min-width: 400px;
+    display: inline-block;
+    overflow-wrap: normal;
   }
 }

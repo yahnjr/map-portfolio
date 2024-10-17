@@ -13,6 +13,80 @@
         main {
             margin-top: 12vh;
         }
+
+        #section1 {
+            display: flex;
+            height: 80vh;
+            width: 100%;
+        }
+        
+        #info-box {
+            flex: 1;
+            padding: 10px;
+            height: 100%;
+            margin-left: 10px;
+        }
+
+        #info-box h2, #info-box p {
+            background-color: #545454;
+            padding: 10px;
+            border: 2px solid white;
+            border-radius: 15px;
+            opacity: 0;
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        #info-box h2 {
+            animation-delay: 0.2s;
+        }
+
+        #info-box p:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        #info-box p:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        #info-box p:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+        
+        #info-box p:nth-child(5) {
+            animation-delay: 1s;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        iframe {
+            flex: 2;
+            height: 100%;
+        }
+
+        @media screen and (max-width: 768px) {
+            #section1 {
+                flex-direction: column;
+            }
+
+            #info-box {
+                font-size: smaller;
+                max-height: 30vh;
+                overflow-y: auto;
+            }
+
+            iframe {
+                min-height: 50vh;
+            }
+        }
     </style>
 </head>
 <body>
@@ -31,49 +105,40 @@
                 <span class="text">Globe</span>
             </button>
         </a>
-        <a href="#section2">
-            <div class="projects-button">
-                <li class="dropdown">
-                  <i class="fa fa-map" style="font-size:36px;color:white"></i>
-                  <span class="text">Project Pages</span>
-                  <div class="dropdown-content">
-                      <a href="projects/nehalem">Nehalem Basin</a>
-                      <a href="projects/ppgis">Tallahassee</a>
-                      <a href="projects/lakeoswego">Lake Oswego</a>
-                      <a href="projects/map2midi/">Map to Music</a>
-                      <a href="projects/northcoast">North Coast</a>
-                      <a href="projects/monterey">Monterey Bay</a>
-                      <a href="projects/pccrockcreek">PCC Rock Creek</a>
-                      <a href="projects/chiricahuas">Chiricahua Mountains</a>
-                      <a href="projects/taiwan">Taiwan</a>
-                      <a href="projects/europe">Europe</a>
-                      <a href="projects/world">Global</a>
-                  </div>
-                </li>
-              </div>
-          </a>
-        <button class="nav-button">
-            <a href="#about">
+        <div class="projects-button">
+            <li class="dropdown">
+                <i class="fa fa-map" style="font-size:36px;color:white"></i>
+                <span class="text">Project Pages</span>
+                <div class="dropdown-content">
+                    <a href="../nehalem">Nehalem Basin</a>
+                    <a href="../lakeoswego">Lake Oswego</a>
+                    <a href="../map2midi/">Map to Music</a>
+                    <a href="../northcoast">North Coast</a>
+                    <a href="../monterey">Monterey Bay</a>
+                    <a href="../pccrockcreek">PCC Rock Creek</a>
+                    <a href="../chiricahuas">Chiricahua Mountains</a>
+                    <a href="../taiwan">Taiwan</a>
+                    <a href="../europe">Europe</a>
+                    <a href="../world">Global</a>
+                </div>
+            </li>
+            </div>
+        <a href="#about">
+            <button class="nav-button">
                 <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
                 <span class="text">About Me</span>
-            </a>
-        </button>
+            </button>
+        </a>
     </div>
-    <div class="info-box" id="infoBox">
-        <h2>Potential Dive Sites in the Monterey Bay Area</h2>
-        <p><b>Skills used:</b> Suitability analysis, cartography, combined vector and raster analysis</p>
-        <p>I created this map as part of a final project for my Geospatial Analysis course. I chose this topic because of my own personal interest in scuba diving, as well as a connection with the region. Some of the first maps I became aware of were my uncle's maps of the bathymetry of the Monterey Bay. After determining suitable parameters, including the correct depth, distance from shore, and attractive features, used several datasets to determine the most promising sites to dive in the region. I looked at species diversity in the region by using vector layers supplied by the California Department of Fish & Wildlife, as well as layers detailing local kelp concentrations. I also looked at ocean depth using NOAA's global bathymetric DEM layer. Finally, I used a sand deposit layer from the USGS to find sites that were accessible from the shore. A full sized, undistorted version of the map <a href="../../resources/pictures/monterey.jpg" target="_blank">can be found here</a></p>
-    </div>
-    <button class="info-button" id="infoButton">
-        <i class="fa fa-info-circle" style="font-size:24px;"></i>
-    </button>
 
     <main>
         <section id="section1">
-            <h2>Application Development for Public Input</h2>
-            <p>One of the crucial steps in large urban planning projects such as comprehensive plan updates is the soliciting and integration of public input. There are many ways to go about this- however, I wanted to develop a solution that was simple and easy for everyone to use. After teaching myself some basic HTML, CSS, and Javascript, I created a publicly available app to collect comments from interested members of the public. The basic idea behind this application was for it to be something lightweight that could be deployed anywhere, easily refitted to any jurisdiction, and allow the addition of comments organized into topics by simply double clicking on the map. I did not want a complex back-end, and this use of the ArcGIS API for Javascript allows secure data addition without access to any private data or the need for extra privileges. There is an additional script monitoring the incoming comments hourly for undesirable language.  The code for this application is viewable on <a href="https://github.com/yahnjr/">my Github.</a></p>
-            <p><b>Skills used:</b> front-end development, Javascript, HTML, real-time data monitoring and quality assurance, app development, PPGIS (public participation GIS). </p>
-            <iframe src="https://orange-art-6719.on.fleek.co/Tallahassee_app.html" width=100% height="800"></iframe>
+            <div id="info-box">
+                <h2>Application Development for Public Input</h2>
+                <p><b>Skills used:</b> Front-end development, Javascript, HTML, real-time data monitoring and quality assurance, app development, PPGIS (public participation GIS). </p>
+                <p>One of the crucial steps in large urban planning projects such as comprehensive plan updates is the soliciting and integration of public input. There are many ways to go about this- however, I wanted to develop a solution that was simple and easy for everyone to use. After teaching myself some basic HTML, CSS, and Javascript, I created a publicly available app to collect comments from interested members of the public. The basic idea behind this application was for it to be something lightweight that could be deployed anywhere, easily refitted to any jurisdiction, and allow the addition of comments organized into topics by simply double clicking on the map. I did not want a complex back-end, and this use of the ArcGIS API for Javascript allows secure data addition without access to any private data or the need for extra privileges. There is an additional script monitoring the incoming comments hourly for undesirable language.  The code for this application is viewable on <a href="https://github.com/yahnjr/">my Github.</a></p>
+            </div>
+            <iframe src="https://orange-art-6719.on.fleek.co/Tallahassee_app.html"></iframe>
         </section>
         <section id="about">
             <div class="profile-section">

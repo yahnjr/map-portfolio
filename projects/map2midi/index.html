@@ -13,6 +13,80 @@
         main {
             margin-top: 12vh;
         }
+
+        #section1 {
+            display: flex;
+            height: 80vh;
+            width: 100%;
+        }
+        
+        #info-box {
+            flex: 1;
+            padding: 10px;
+            height: 100%;
+            margin-left: 10px;
+        }
+
+        #info-box h2, #info-box p {
+            background-color: #545454;
+            padding: 10px;
+            border: 2px solid white;
+            border-radius: 15px;
+            opacity: 0;
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        #info-box h2 {
+            animation-delay: 0.2s;
+        }
+
+        #info-box p:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        #info-box p:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        #info-box p:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+        
+        #info-box p:nth-child(5) {
+            animation-delay: 1s;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        iframe {
+            flex: 2;
+            height: 100%;
+        }
+
+        @media screen and (max-width: 768px) {
+            #section1 {
+                flex-direction: column;
+            }
+
+            #info-box {
+                font-size: smaller;
+                max-height: 30vh;
+                overflow-y: auto;
+            }
+
+            iframe {
+                min-height: 50vh;
+            }
+        }
     </style>
 </head>
 <body>
@@ -31,43 +105,42 @@
                 <span class="text">Globe</span>
             </button>
         </a>
-        <a href="#section2">
-            <div class="projects-button">
-                <li class="dropdown">
-                  <i class="fa fa-map" style="font-size:36px;color:white"></i>
-                  <span class="text">Project Pages</span>
-                  <div class="dropdown-content">
-                      <a href="projects/nehalem">Nehalem Basin</a>
-                      <a href="projects/ppgis">Tallahassee</a>
-                      <a href="projects/lakeoswego">Lake Oswego</a>
-                      <a href="projects/map2midi/">Map to Music</a>
-                      <a href="projects/northcoast">North Coast</a>
-                      <a href="projects/monterey">Monterey Bay</a>
-                      <a href="projects/pccrockcreek">PCC Rock Creek</a>
-                      <a href="projects/chiricahuas">Chiricahua Mountains</a>
-                      <a href="projects/taiwan">Taiwan</a>
-                      <a href="projects/europe">Europe</a>
-                      <a href="projects/world">Global</a>
-                  </div>
-                </li>
-              </div>
-          </a>
-        <button class="nav-button">
-            <a href="#about">
+        <div class="projects-button">
+            <li class="dropdown">
+                <i class="fa fa-map" style="font-size:36px;color:white"></i>
+                <span class="text">Project Pages</span>
+                <div class="dropdown-content">
+                    <a href="../nehalem">Nehalem Basin</a>
+                    <a href="../ppgis">Tallahassee</a>
+                    <a href="../lakeoswego">Lake Oswego</a>
+                    <a href="../northcoast">North Coast</a>
+                    <a href="../monterey">Monterey Bay</a>
+                    <a href="../pccrockcreek">PCC Rock Creek</a>
+                    <a href="../chiricahuas">Chiricahua Mountains</a>
+                    <a href="../taiwan">Taiwan</a>
+                    <a href="../europe">Europe</a>
+                    <a href="../world">Global</a>
+                </div>
+            </li>
+            </div>
+        <a href="#about">
+            <button class="nav-button">
                 <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
                 <span class="text">About Me</span>
-            </a>
-        </button>
+            </button>
+        </a>
     </div>
 
     <main>
         <section id="section1">
-            <h2>Turning Geospatial Data into (Questionably) Beautiful Sounds</h2>
-            <p> A personal project exploring the relationship between the fundamental Tobler's First Law of geospatial science and music. In this project, I wanted to see if turning the coordinates geographers are familar with and mapping them to midi files would produce beautiful sounds. The results are interesting, sometimes melodic, and often dischordant and horrifying, but it was a fun tool to create. I first created a script to utilize geopandas to turn the x-coordinate of a spatial point into the timing of a note, and the y-coordinate into the note being played. I added some visualisation tools, includng a world map that shows the note being played in real time, and some various instruments, or soundfonts, to listen to them with. I learned a lot about both spatial data and musical files, as well as many obscure libraries of Python and Javascript (including how hard it is to integrate them into a Conda based environment). </p>
-            <p>The full sized web app can be found <a href="https://yahnjr.github.io/map2midi/">here</a>. </p>
-            <p><b>Skills used:</b> Python, Javascript, web application building, libraries, front and back end (full-stack) development, self-led projects, UI/UX design </p>
+            <div id="info-box">
+                <h2>Turning Geospatial Data into (Questionably) Beautiful Sounds</h2>
+                <p><b>Skills used:</b> Python, Javascript, web application building, libraries, front and back end (full-stack) development, self-led projects, UI/UX design </p>
+                <p> A personal project exploring the relationship between the fundamental Tobler's First Law of geospatial science and music. In this project, I wanted to see if turning the coordinates geographers are familar with and mapping them to midi files would produce beautiful sounds. The results are interesting, sometimes melodic, and often dischordant and horrifying, but it was a fun tool to create. I first created a script to utilize geopandas to turn the x-coordinate of a spatial point into the timing of a note, and the y-coordinate into the note being played. I added some visualisation tools, includng a world map that shows the note being played in real time, and some various instruments, or soundfonts, to listen to them with. I learned a lot about both spatial data and musical files, as well as many obscure libraries of Python and Javascript (including how hard it is to integrate them into a Conda based environment). </p>
+                <p>The full sized web app can be found <a href="https://yahnjr.github.io/map2midi/">here</a>. </p>
+                <p>***features (soon to) come: file upload and addition, additinoal soundfonts, variable tempos, multitrack playing.***</p>
+            </div>
             <iframe src="https://yahnjr.github.io/map2midi/" width="100%" height="700px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
-            <p>***features (soon to) come: file upload and addition, additinoal soundfonts, variable tempos, multitrack playing.***</p>
         </section>
 
         <section id="about">

@@ -27,16 +27,14 @@ let userInteraction = false;
 let spinEnabled = true;
 
 function spinGlobe() {
-  const zoom = map2.getZoom();
-  if(spinEnabled && !userInteraction && zoom < maxSpinZoom) {
+  if (spinEnabled && !userInteraction && map2.getZoom() < maxSpinZoom) {
     let distancePerSecond = 360 / secondsPerRevolution;
     const center = map2.getCenter();
     center.lng -= distancePerSecond;
-
     map2.easeTo({center, duration: 1000, easing: (n) => n});
   }
 
-  requestAnimationFrame(spinGlobe);
+  setTimeout(spinGlobe, 1000);
 }
 
 map2.on('mousedown', () => {
@@ -62,14 +60,7 @@ function createProjectBoxSection2(project, index, sidebarId, mapInstance) {
         <a href = "${project.link}"> <img src="${project.imageUrl}" alt="${project.name}"> </a>
         <p>${project.description}</p>
     `;
-    ProjectBox.addEventListener('click', function() {
-        mapInstance.flyTo({
-            center: project.coordinates,
-            zoom: project.zoomLevel, // Use the zoomLevel attribute for each project based on extent
-            essential: true 
-        });
 
-    });
     document.getElementById(sidebarId).appendChild(ProjectBox);
 }
 
@@ -87,81 +78,80 @@ fetch('resources/projects.json')
    
       // Attach click event to each marker to fly to point and scroll to corresponding box
       marker.getElement().addEventListener('click', function() {
-        setTimeout(() => {
-          map2.flyTo({
-            center: project.coordinates,
-            zoom: 10,
-            essential: true
-          });
-        }, 1000);
-   
-        scrollToProjectBox(project.name, 'sidebar2');
+        scrollToProjectBox(project.name, projects, 'sidebar2');
       });
      
-        createProjectBoxSection2(project, index, 'sidebar2', map2);
-        
-        document.getElementById('sidebar2').addEventListener('scroll', () => {
-            var sidebar = document.getElementById('sidebar2');
-            var projectBoxes = sidebar.getElementsByClassName('project-box');
-            var mapCenterIndex = -1;
-            var sidebarRect = sidebar.getBoundingClientRect();
-            var sidebarMidpoint = sidebarRect.top + sidebarRect.height / 2;
-       
-            fadeInFadeOut(sidebar);
-       
-            var isMobile = window.matchMedia("(max-width: 768px)").matches;
-  
-            if (isMobile) {
-              // Horizontal scrolling logic
-              var sidebarRect = sidebar.getBoundingClientRect();
-              var sidebarMidpoint = sidebarRect.left + sidebarRect.width / 2;
-
-              for (var i = 0; i < projectBoxes.length; i++) {
-                var box = projectBoxes[i];
-                var boxRect = box.getBoundingClientRect();
-
-                if (boxRect.left <= sidebarMidpoint && boxRect.right >= sidebarMidpoint) {
-                  mapCenterIndex = i;
-                  break;
-                }
-              }
-            } else {
-              // Vertical scrolling logic
-              var sidebarRect = sidebar.getBoundingClientRect();
-              var sidebarMidpoint = sidebarRect.top + sidebarRect.height / 2;
-
-              for (var i = 0; i < projectBoxes.length; i++) {
-                var box = projectBoxes[i];
-                var boxRect = box.getBoundingClientRect();
-
-                if (boxRect.top <= sidebarMidpoint && boxRect.bottom >= sidebarMidpoint) {
-                  mapCenterIndex = i;
-                  break;
-                }
-              }
-            }
-       
-            if (mapCenterIndex !== -1) {
-                var targetProject = projects[mapCenterIndex];
-                map2.flyTo({
-                    center: targetProject.coordinates,
-                    zoom: targetProject.zoomLevel,
-                    essential: true
-                });
-            }
-        });
-       
+      createProjectBoxSection2(project, index, 'sidebar2', map2);
+      
+      document.getElementById('sidebar2').addEventListener('scroll', () => {
+        flyToBoxCoord(document.getElementById('sidebar2'), projects);
         fadeInFadeOut(document.getElementById('sidebar2'));
+      });
+
     });
   })
 
-function scrollToProjectBox(projectName, sidebarId) {
-  var sidebar = document.getElementById(sidebarId);
+function flyToBoxCoord(sidebar, projects) {
   var projectBoxes = sidebar.getElementsByClassName('project-box');
-  var targetIndex = -1;
+  var mapCenterIndex = -1;
+  var sidebarRect = sidebar.getBoundingClientRect();
+  var sidebarMidpoint = sidebarRect.top + sidebarRect.height / 2;
+
+  fadeInFadeOut(sidebar);
+
+  var isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+  if (isMobile) {
+    // Horizontal scrolling logic
+    var sidebarRect = sidebar.getBoundingClientRect();
+    var sidebarMidpoint = sidebarRect.left + sidebarRect.width / 2;
+
+    for (var i = 0; i < projectBoxes.length; i++) {
+      var box = projectBoxes[i];
+      var boxRect = box.getBoundingClientRect();
+
+      if (boxRect.left <= sidebarMidpoint && boxRect.right >= sidebarMidpoint) {
+        mapCenterIndex = i;
+        break;
+      }
+    }
+  } else {
+    // Vertical scrolling logic
+    var sidebarRect = sidebar.getBoundingClientRect();
+    var sidebarMidpoint = sidebarRect.top + sidebarRect.height / 2;
+
+    for (var i = 0; i < projectBoxes.length; i++) {
+      var box = projectBoxes[i];
+      var boxRect = box.getBoundingClientRect();
+
+      if (boxRect.top <= sidebarMidpoint && boxRect.bottom >= sidebarMidpoint) {
+        mapCenterIndex = i;
+        break;
+      }
+    }
+  }
+
+  if (mapCenterIndex !== -1) {
+    const targetProject = projects[mapCenterIndex];
+    
+    // isAnimating = true; 
+    map2.stop();
+    map2.flyTo({
+      center: targetProject.coordinates,
+      zoom: targetProject.zoomLevel,
+      essential: true,
+      duration: 1500
+    });
+  }
+}
+
+function scrollToProjectBox(projectName, projects, sidebarId) {
+  const sidebar = document.getElementById(sidebarId);
+  const projectBoxes = sidebar.getElementsByClassName('project-box');
+  let targetIndex = -1;
 
   // Find the target project box by name
-  for (var i = 0; i < projectBoxes.length; i++) {
+  for (let i = 0; i < projectBoxes.length; i++) {
     if (projectBoxes[i].getAttribute('name') === projectName) {
       targetIndex = i;
       break;
@@ -169,32 +159,26 @@ function scrollToProjectBox(projectName, sidebarId) {
   }
 
   if (targetIndex !== -1) {
-    var isMobile = window.matchMedia("(max-width: 768px)").matches;
-    var sidebarSize = isMobile ? sidebar.clientWidth : sidebar.clientHeight;
-    var targetScrollPos;
-    
-    // Define the offset and box dimensions for each layout
-    var mobileOffset = 600;
-    var desktopOffset = 600;
-    var boxWidth = 600;
-    var boxHeight = 600;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const sidebarSize = isMobile ? sidebar.clientWidth : sidebar.clientHeight;
+    const offset = 600;
+    const boxSize = 600;
+    const targetScrollPos = isMobile ? 
+      ((targetIndex * boxSize) + offset + (sidebarSize / 2)) - boxSize :
+      ((targetIndex * boxSize) + offset + (sidebarSize / 2)) - (boxSize / 2);
 
-    if (isMobile) {
-      // Calculate horizontal scroll position on mobile
-      targetScrollPos = ((targetIndex * boxWidth) + mobileOffset + (sidebarSize/2)) - boxWidth;
-      console.log(`${targetScrollPos} = ((${targetIndex} * ${boxWidth}) + ${mobileOffset} + (${sidebarSize}/2)) - (${boxWidth}/4)`)
-      sidebar.scrollTo({
-        left: targetScrollPos,
-        behavior: 'smooth'
-      });
-    } else {
-      // Calculate vertical scroll position on desktop
-      targetScrollPos = (targetIndex * boxHeight) + desktopOffset + (sidebarSize/2) - (boxHeight/2);
-      sidebar.scrollTo({
-        top: targetScrollPos,
-        behavior: 'smooth'
-      });
-    }
+    sidebar.scrollTo({
+      [isMobile ? 'left' : 'top']: targetScrollPos,
+      behavior: 'smooth'
+    });
+
+    map2.flyTo({
+      center: projects[targetIndex].coordinates,
+      zoom: 10,
+      essential: true
+    });
+
+    setFlyToCooldown();
   } else {
     console.warn("Project box not found for name:", projectName);
   }

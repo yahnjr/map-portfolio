@@ -80,6 +80,10 @@ body {
   transition: opacity 1s ease-in-out;
 }
 
+.nav-bar a {
+  text-decoration: none;
+}
+
 .nav-button {
   background-color: #3b3b3b;
   display: flex;
