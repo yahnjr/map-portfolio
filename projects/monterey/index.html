@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monterey Bay</title>
+    <meta name="project-title" content="Monterey Bay">
     <link rel="stylesheet" href="../../footer.css">
     <link rel="stylesheet" href="../headnav.css">
+    <link rel="stylesheet" href="../infobox.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,7 +72,10 @@
     </div>
     <div class="info-box" id="infoBox">
         <h2>Potential Dive Sites in the Monterey Bay Area</h2>
-        <p><b>Skills used:</b> Suitability analysis, cartography, combined vector and raster analysis</p>
+        <p>
+            <b>Skills used:</b>
+            <span id="skillsContainer"></span>
+        </p>
         <p>I created this map as part of a final project for my Geospatial Analysis course. I chose this topic because of my own personal interest in scuba diving, as well as a connection with the region. Some of the first maps I became aware of were my uncle's maps of the bathymetry of the Monterey Bay. After determining suitable parameters, including the correct depth, distance from shore, and attractive features, used several datasets to determine the most promising sites to dive in the region. I looked at species diversity in the region by using vector layers supplied by the California Department of Fish & Wildlife, as well as layers detailing local kelp concentrations. I also looked at ocean depth using NOAA's global bathymetric DEM layer. Finally, I used a sand deposit layer from the USGS to find sites that were accessible from the shore. A full sized, undistorted version of the map <a href="../../resources/pictures/monterey.jpg" target="_blank">can be found here</a></p>
     </div>
     <button class="info-button" id="infoButton">
@@ -158,15 +163,8 @@
 
             });
         });
-        const infoButton = document.getElementById('infoButton');
-        const infoBox = document.getElementById('infoBox');
-        infoButton.addEventListener('mouseover', () => {
-            infoBox.classList.add('open');
-        });
-        infoBox.addEventListener('mouseleave', () => {
-            infoBox.classList.remove('open');
-        });
     </script>
     <script src="../../stars.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>

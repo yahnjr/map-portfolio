@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Northern Oregon Coast</title>
+    <meta name="project-title" content="Northern Oregon Coast">
     <link rel="stylesheet" href="../../footer.css">
     <link rel="stylesheet" href="../headnav.css">
+    <link rel="stylesheet" href="../infobox.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -69,8 +71,11 @@
         </a>
     </div>
     <div class="info-box" id="infoBox">
-        <h2>Wildlife Injuries in the North Coast</h2>
-        <p><b>Skills used:</b> Raster and vector analysis, crime hotspot analysis, project design and leading, policy recommendations</p>
+        <h2>Mapping Wildlife Injuries in the North Coast</h2>
+        <p>
+            <b>Skills used:</b>
+            <span id="skillsContainer"></span>
+        </p>
         <p>In this project, which I led for the PCC GIS Club, we contacted the Wildlife Center of the North Coast in Astoria, OR. They shared their patient intake data. The series of maps looks for areas where a disproportionate amount of animals are being injured through the use of clustering, crime analysis, and creating road segments. The areas surrounding these hot spots were analyzed to find sections of road with surrounding forest or wetland habitat, and several sites for possible wildlife tunnels or bridges were contained. This map was shared with the wildlife center and the local government in the region, and hopefully policies can be implemented to reduce the instances of injured wildlife and keep our natural resources safe. A full sized, undistorted version of the map <a href="../../resources/pictures/northcoast.jpg" target="_blank">can be found here</a></p>
     </div>
     <button class="info-button" id="infoButton">
@@ -158,15 +163,8 @@
 
             });
         });
-        const infoButton = document.getElementById('infoButton');
-        const infoBox = document.getElementById('infoBox');
-        infoButton.addEventListener('mouseover', () => {
-            infoBox.classList.add('open');
-        });
-        infoBox.addEventListener('mouseleave', () => {
-            infoBox.classList.remove('open');
-        });
     </script>
     <script src="../../stars.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>

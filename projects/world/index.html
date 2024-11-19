@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global</title>
+    <meta name="project-title" content="Global">
     <link rel="stylesheet" href="../../footer.css">
     <link rel="stylesheet" href="../headnav.css">
+    <link rel="stylesheet" href="../infobox.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,7 +72,10 @@
     </div>
     <div class="info-box" id="infoBox">
         <h2>Global Trust in Health Infographic</h2>
-        <p><b>Skills used:</b> Cartography, data management, global datasets, science communication </p>
+        <p>
+            <b>Skills used:</b>
+            <span id="skillsContainer"></span>
+        </p>
         <p>An attempt at a full magazine spread-style infographic I made for my Cartography course. I always enjoyed maps that were dense with information and invited the reader to get closer and explore. I also wanted to try working with a global dataset to fine tune my symbolization and labeling skills, as larger maps present different challenges than ones with smaller geographic extents. I pulled data from the Wellcome Global Monitor's 2018 international poll. Pollsters visited 178 countries, interviewing 1,000 participants in each location, and asked a series of 20 questions to determine how much people trust doctors, scientists, governments, and other entities when it comes to public health and healthcare decisions. Although this format of data was certainly difficult to work with, I found many interesting results and tried to highlight some of them throughout the map. A full sized, undistorted version of the map <a href="../../resources/pictures/world.jpg" target="_blank">can be found here</a></p>
     </div>
     <button class="info-button" id="infoButton">
@@ -148,15 +153,8 @@
             }
             fadeIn();
         });
-        const infoButton = document.getElementById('infoButton');
-        const infoBox = document.getElementById('infoBox');
-        infoButton.addEventListener('mouseover', () => {
-            infoBox.classList.add('open');
-        });
-        infoBox.addEventListener('mouseleave', () => {
-            infoBox.classList.remove('open');
-        });
     </script>
     <script src="../../stars.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>

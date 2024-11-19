@@ -4,89 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PPGIS</title>
+    <meta name="project-title" content="Tallahassee">
     <link rel="stylesheet" href="../headnav.css">
+    <link rel="stylesheet" href="../infobox.css">
     <link rel="stylesheet" href="../../footer.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
         main {
             margin-top: 12vh;
         }
 
-        #section1 {
-            display: flex;
-            height: 80vh;
-            width: 100%;
-        }
-        
-        #info-box {
-            flex: 1;
-            padding: 10px;
-            height: 100%;
-            margin-left: 10px;
-            overflow-y: auto;
-        }
-
-        #info-box h2, #info-box p {
-            background-color: #545454;
-            padding: 10px;
-            border: 2px solid white;
-            border-radius: 15px;
-            opacity: 0;
-            animation: slideIn 0.5s ease-out forwards;
-        }
-
-        #info-box h2 {
-            animation-delay: 0.2s;
-        }
-
-        #info-box p:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        #info-box p:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        #info-box p:nth-child(4) {
-            animation-delay: 0.8s;
-        }
-        
-        #info-box p:nth-child(5) {
-            animation-delay: 1s;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-100%);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
         iframe {
-            flex: 2;
-            height: 100%;
+            width: 100%;
+            height: 90vh;
+            border: none;
         }
 
-        @media screen and (max-width: 768px) {
-            #section1 {
-                flex-direction: column;
-            }
-
-            #info-box {
-                font-size: smaller;
-                max-height: 30vh;
-            }
-
-            iframe {
-                min-height: 50vh;
-            }
-        }
     </style>
 </head>
 <body>
@@ -132,14 +73,20 @@
     </div>
 
     <main>
-        <section id="section1">
-            <div id="info-box">
-                <h2>Application Development for Public Input</h2>
-                <p><b>Skills used:</b> Front-end development, Javascript, HTML, real-time data monitoring and quality assurance, app development, PPGIS (public participation GIS). </p>
-                <p>One of the crucial steps in large urban planning projects such as comprehensive plan updates is the soliciting and integration of public input. There are many ways to go about this- however, I wanted to develop a solution that was simple and easy for everyone to use. After teaching myself some basic HTML, CSS, and Javascript, I created a publicly available app to collect comments from interested members of the public. The basic idea behind this application was for it to be something lightweight that could be deployed anywhere, easily refitted to any jurisdiction, and allow the addition of comments organized into topics by simply double clicking on the map. I did not want a complex back-end, and this use of the ArcGIS API for Javascript allows secure data addition without access to any private data or the need for extra privileges. There is an additional script monitoring the incoming comments hourly for undesirable language.  The code for this application is viewable on <a href="https://github.com/yahnjr/">my Github.</a></p>
-            </div>
-            <iframe src="https://orange-art-6719.on.fleek.co/Tallahassee_app.html"></iframe>
-        </section>
+        
+        <div class="info-box" id="infoBox">
+            <h2>Application Development for Public Input</h2>
+            <p>
+                <b>Skills used:</b>
+                <span id="skillsContainer"></span>
+            </p>
+            <p>One of the crucial steps in large urban planning projects such as comprehensive plan updates is the soliciting and integration of public input. There are many ways to go about this- however, I wanted to develop a solution that was simple and easy for everyone to use. After teaching myself some basic HTML, CSS, and Javascript, I created a publicly available app to collect comments from interested members of the public. The basic idea behind this application was for it to be something lightweight that could be deployed anywhere, easily refitted to any jurisdiction, and allow the addition of comments organized into topics by simply double clicking on the map. I did not want a complex back-end, and this use of the ArcGIS API for Javascript allows secure data addition without access to any private data or the need for extra privileges. There is an additional script monitoring the incoming comments hourly for undesirable language.  The code for this application is viewable on <a href="https://github.com/yahnjr/">my Github.</a></p>
+        </div>
+        <button class="info-button" id="infoButton">
+            <i class="fa fa-info-circle" style="font-size:24px;"></i>
+        </button>
+        <iframe src="https://yahnjr.github.io/mapapps/"></iframe>
+
         <section id="about">
             <div class="profile-section">
               <img src="../../resources/pictures/ian1.jpg" alt="Ian Maher" class="profile-image">
@@ -175,7 +122,7 @@
         </section>
     </main>
 
-    <script type="text/javascript" src="../script.js"></script>
     <script src="../../stars.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>

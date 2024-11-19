@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taiwan</title>
+    <meta name="project-title" content="Taiwan">
     <link rel="stylesheet" href="../../footer.css">
     <link rel="stylesheet" href="../headnav.css">
+    <link rel="stylesheet" href="../infobox.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,11 +16,6 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-        }
-
-        .section1 {
-            width: 100%;
-            height: 100vh;
         }
 
         #map {
@@ -70,7 +67,10 @@
     </div>
     <div class="info-box" id="infoBox">
         <h2>Slowing Down the Inevetiable: Can Environmental Factors Counter Rising Temperatures in Taiwan?</h2>
-        <p><b>Skills used:</b> raster analysis, data management, Python, statistics, presentation </p>
+        <p>
+            <b>Skills used:</b>
+            <span id="skillsContainer"></span>
+        </p>
         <p>Continuing on a <a href="https://academic.oup.com/ee/article-abstract/51/4/798/6596202" target="_blank">research paper</a> I published in 2022, I wanted to look further into the changing temperatures on the island of Taiwan. For such a small country, Taiwan hosts sunning diversity in both human and natural landscapes. In an area less that 1/7 the size of Oregon, 23 million people live in some of the most densely packed cities in the world. Short distances away, jungle-cloaked mountains tower up to 12,967 ft (3,952 m) above the surrounding land. I used temperature data that dated back to 1960, as well as data on elevation obtained from the Japanese ALOS program and vegetation data obtained from Landsat to perform an analysis on whether these factors would affect the rate of change for temperatures here over time.</p>
         <p>Because of the large quantity of the data, which was over 670 layers per point, I needed to integrate Python automation into my analysis. I was not able to find a strong correlation, however, I think this analysis highlights some interesting things about the interactions of factors in our environment. I was able to present my findings at the GIS in Action Conference in April 2023, and was granted an award by the ASPRS Cascadia Region. A link to a full-sized, undistorted image <a href="../../resources/pictures/taiwan.png" target="_blank">can be found here</a></p>
     </div>
@@ -150,15 +150,8 @@
             }
             fadeIn();
         });
-        const infoButton = document.getElementById('infoButton');
-        const infoBox = document.getElementById('infoBox');
-        infoButton.addEventListener('mouseover', () => {
-            infoBox.classList.add('open');
-        });
-        infoBox.addEventListener('mouseleave', () => {
-            infoBox.classList.remove('open');
-        });
     </script>
     <script src="../../stars.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>

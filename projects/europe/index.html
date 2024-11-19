@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Europe</title>
+    <meta name="project-title" content="Europe">
     <link rel="stylesheet" href="../../footer.css">
     <link rel="stylesheet" href="../headnav.css">
+    <link rel="stylesheet" href="../infobox.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,7 +72,10 @@
     </div>
     <div class="info-box" id="infoBox">
         <h2>European Security Alert Summary</h2>
-        <p><b>Skills used:</b> Spatial analysis, charts and data visualization, communication, heat maps, intelligence</p>
+        <p>
+            <b>Skills used:</b>
+            <span id="skillsContainer"></span>
+        </p>
         <p>In my work as a Global Intelligence Analyst with Swan Island Networks, I monitored real-time events as they occurred and produced reports on the details and severity of each occurrence. We watched for events of several major categories, including security related events, demonstrations, meteorological events, and traffic incidents. Using our database, I produced a summary poster to highlight some of the trends and major events that occurred in the period between November 2022 and April 2023 in the European region. I showed areas within the continent that received high coverage from our team, as well as breaking down what kinds of events were most prominent in each country. This map was presented to the head of the company for possible use in acquiring new clients. A full sized, undistorted version of the map <a href="../../resources/pictures/europe.jpg" target="_blank">can be found here</a></p>
     </div>
     <button class="info-button" id="infoButton">
@@ -158,15 +163,8 @@
 
             });
         });
-        const infoButton = document.getElementById('infoButton');
-        const infoBox = document.getElementById('infoBox');
-        infoButton.addEventListener('mouseover', () => {
-            infoBox.classList.add('open');
-        });
-        infoBox.addEventListener('mouseleave', () => {
-            infoBox.classList.remove('open');
-        });
     </script>
     <script src="../../stars.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>

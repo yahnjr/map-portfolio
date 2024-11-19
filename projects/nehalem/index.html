@@ -4,117 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nehalem Basin</title>
+    <meta name="project-title" content="Nehalem Basin">
     <link rel="stylesheet" href="../headnav.css">
+    <link rel="stylesheet" href="../infobox.css">
     <link rel="stylesheet" href="../../footer.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
         main {
             margin-top: 12vh;
         }
 
-        #section1 {
-            display: flex;
-            height: 80vh;
-            width: 100%;
-        }
-        
-        #info-box {
-            flex: 1;
-            padding: 10px;
-            height: 100%;
-            margin-left: 10px;
-            position: relative;
-            z-index: 1;
-            overflow-y: auto;
-        }
-
-        #info-box h2, #info-box p, #info-box ul {
-            background-color: #545454;
-            padding: 10px;
-            border: 2px solid white;
-            border-radius: 15px;
-            opacity: 0;
-            animation: slideIn 0.5s ease-out forwards;
-        }
-
-        #info-box ul {
-            padding-left: 50px;
-        }
-
-        #info-box h2 {
-            animation-delay: 0.2s;
-        }
-
-        #info-box p:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        #info-box p:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        #info-box ul {
-            animation-delay: 0.8s;
-        }
-
-        #info-box p:nth-child(4) {
-            animation-delay: 1s;
-        }
-        
-        #info-box p:nth-child(5) {
-            animation-delay: 1.2s;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-100%);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
         iframe {
-            flex: 2;
-            height: 100%;
-        }
-
-        @media screen and (max-width: 768px) {
-            #section1 {
-                flex-direction: column;
-            }
-
-            #info-box {
-                font-size: smaller;
-                max-height: 30vh;
-            }
-
-            iframe {
-                min-height: 50vh;
-            }
-        }
-
-        a {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .img-preview {
-            display: none;
-            position: absolute;
-            z-index: 1000;
-            width: 300px;
-            left: 200px;
-            top: -30px;
-            height: auto;
-        }   
-
-        a:hover .img-preview {
-            display: block;
+            width: 100%;
+            height: 90vh;
+            border: none;
         }
     </style>
 </head>
@@ -139,6 +50,7 @@
             <li class="dropdown">
                 <span class="text">Project Pages</span>
                 <div class="dropdown-content">
+                    <a href="../nehalem">Nehalem Basin</a>
                     <a href="../ppgis">Tallahassee</a>
                     <a href="../lakeoswego">Lake Oswego</a>
                     <a href="../map2midi/">Map to Music</a>
@@ -148,7 +60,6 @@
                     <a href="../chiricahuas">Chiricahua Mountains</a>
                     <a href="../taiwan">Taiwan</a>
                     <a href="../europe">Europe</a>
-                    <a href="../world">Global</a>
                 </div>
             </li>
             </div>
@@ -161,24 +72,29 @@
     </div>
 
     <main>
-        <section id="section1">
-            <div id="info-box">
-                <h2>Protecting Coho Salmon in the Nehalem Watershed</h2>
-                <p><b>Skills used:</b> database management, application development, data communication, hydrological analysis, conservation and management, climate modelling, stakeholder interactions.  </p>
-                <p>My efforts, along with a  web application  for the viewing and querying of data, are presented in the story map below. </p>
-                <p>Several maps I created for the partnership include: </p>
-                <ul>
-                    <li><a href="individualmaps/beaver.jpg">Beaver habitat analysis in "Beaver Enhancement Area"<img src="individualmaps/beaver.jpg" alt="Image" class="img-preview"></a></li>
-                    <li><a href="individualmaps/dams.jpg">Potential dam location modelling<img src="individualmaps/dams.jpg" alt="Image" class="img-preview"></a></li>
-                    <li><a href="individualmaps/riparian.jpg">Riparian project site mapping<img src="individualmaps/riparian.jpg" alt="Image" class="img-preview"></a></li>
-                    <li><a href="individualmaps/wetland.jpg">Wetland re-connection flow line modelling<img src="individualmaps/wetland.jpg" alt="Image" class="img-preview"></a></li>
-                    <li><a href="individualmaps/rba.jpg">Rapid Bio Assessment (RBA) mapping<img src="individualmaps/rba.jpg" alt="Image" class="img-preview"></a></li>
-                </ul>
-                <p>My efforts, along with a  web application  for the viewing and querying of data, are presented in the story map below. </p>
-            </div>
-            <iframe src="https://storymaps.arcgis.com/stories/7544cb264d8447f69ef7b6c1a1e7cab8" width="100%" height="700px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
 
-        </section>
+        <div class="info-box" id="infoBox">
+            <h2>Protecting Coho Salmon in the Nehalem Watershed</h2>
+            <p>
+                <b>Skills used:</b>
+                <span id="skillsContainer"></span>
+            </p>
+            <p>The Upper Nehalem Watershed Council, in partnership with a similar organization in the lower watershed, aims to implement the Nehalem Strategic Action Plan to protect the endangered "evolutionary unit" of Coho salmon living along the coast of Oregon. As an intern working with them, I worked alongside environmentalists and other GIS professionals from state government agencies and non-profits to collect, analyze, and summarize data about the watershed- from things like forest characteristics, environmental variables, human interactions, and private timber sales. I created an organized database to allow the data to be utilized and updated by future salmon conservationists in the area. I also worked with the data to produce usable products, including dam models, site maps, and a web map showing the breakdown of watershed characteristics into sub-basins. I also worked with Terrain Works' NetMap model, which is a set of water resource tools created for ArcMap.  </p>
+            <p>Several maps I created for the partnership include: </p>
+            <ul>
+                <li><a href="individualmaps/beaver.jpg">Beaver habitat analysis in "Beaver Enhancement Area"</a></li>
+                <li><a href="individualmaps/dams.jpg">Potential dam location modelling</a></li>
+                <li><a href="individualmaps/riparian.jpg">Riparian project site mapping</a></li>
+                <li><a href="individualmaps/wetland.jpg">Wetland re-connection flow line modelling</a></li>
+                <li><a href="individualmaps/rba.jpg">Rapid Bio Assessment (RBA) mapping</a></li>
+            </ul>
+            <p>My efforts, along with a  web application  for the viewing and querying of data, are presented in the story map below. </p>
+        </div>
+        <button class="info-button" id="infoButton">
+            <i class="fa fa-info-circle" style="font-size:24px;"></i>
+        </button>
+        <iframe src="https://storymaps.arcgis.com/stories/7544cb264d8447f69ef7b6c1a1e7cab8" width="100%" height="700px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
+
         <section id="about">
             <div class="profile-section">
               <img src="../../resources/pictures/ian1.jpg" alt="Ian Maher" class="profile-image">
@@ -214,7 +130,7 @@
         </section>
     </main>
 
-    <script type="text/javascript" src="script.js"></script>
+    <script src="../script.js"></script>
     <script src="../../stars.js"></script>
 </body>
 </html>
