@@ -7,7 +7,7 @@
         "title": "Protecting Coho Salmon in the Nehalem Watershed",
         "zoomLevel": 10,
         "link": "projects/nehalem",
-        "skills": ["data management", "application development", "data communication and visualization", "spatial analysis", "raster analysis", "conservation", "climate modelling", "stakeholder interactions"]
+        "skills": ["data management", "application development", "data communication and visualization", "spatial analysis", "raster analysis", "Python", "conservation", "climate modelling", "stakeholder interactions", "ArcGIS Online", "ArcGIS Pro"]
     },
     {
         "name": "Tallahassee",
@@ -17,7 +17,7 @@
         "title": "Application Development for Public Input",
         "zoomLevel": 12,
         "link": "projects/ppgis",
-        "skills": ["front-end development", "Javascript", "HTML", "application development", "public data collection", "policy recommendations"]
+        "skills": ["front-end development", "Javascript", "HTML", "application development", "public data collection", "policy recommendations", "ArcGIS Online"]
     },
     {
         "name": "Lake Oswego",
@@ -27,7 +27,7 @@
         "title": "Oregon White Oaks in Lake Oswego",
         "zoomLevel": 13,
         "link": "projects/lakeoswego",
-        "skills": ["spatial analysis", "suitability analysis", "raster analysis", "application development", "public data collection", "data communication and visualization", "conservation"]
+        "skills": ["spatial analysis", "suitability analysis", "raster analysis", "application development", "public data collection", "data communication and visualization", "conservation", "Mapbox", "ArcGIS Pro", "ArcGIS Online", "open source software"]
     },
     {
         "name": "Map to Music",
@@ -40,6 +40,16 @@
         "skills": ["Python", "application development", "Javascript", "HTML", "front-end development", "back end development", "Mapbox", "open source software", "self-led project"]
     },
     {
+        "name": "Monterey Bay",
+        "coordinates": [-121.90715, 36.79893],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/monterey.jpg",
+        "description": "Spatial analysis to determine potential dive sites in the Monterey Bay area in central California.",
+        "title": "Potential Dive Sites in the Monterey Bay Area",
+        "zoomLevel": 9,
+        "link": "projects/monterey",
+        "skills": ["spatial analysis", "suitability analysis", "raster analysis", "cartography", "data communication and visualization", "ArcGIS Pro"]
+    },
+    {
         "name": "PCC Rock Creek",
         "coordinates": [-122.85989, 45.56512],
         "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/rockcreek.jpg",
@@ -47,7 +57,7 @@
         "title": "Drone Mapping of PCC Rock Creek Learning Garden",
         "zoomLevel": 18,
         "link": "projects/pccrockcreek",
-        "skills": ["drone photography", "remote sensing", "data communication and visualization"]
+        "skills": ["drone photography", "remote sensing", "data communication and visualization", "ArcGIS Pro", "DJI"]
     },
     {
         "name": "Northern Oregon Coast",
@@ -57,17 +67,7 @@
         "title": "Wildlife Injuries in the North Coast",
         "zoomLevel": 9,
         "link": "projects/northcoast",
-        "skills": ["spatial analysis", "suitability analysis", "hotspot analysis", "self-led project", "policy recommendations", "conservation"]
-    },
-    {
-        "name": "Monterey Bay",
-        "coordinates": [-121.90715, 36.79893],
-        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/monterey.jpg",
-        "description": "Spatial analysis to determine potential dive sites in the Monterey Bay area in central California.",
-        "title": "Potential Dive Sites in the Monterey Bay Area",
-        "zoomLevel": 9,
-        "link": "projects/monterey",
-        "skills": ["spatial analysis", "suitability analysis", "raster analysis", "cartography", "data communication and visualization"]
+        "skills": ["spatial analysis", "suitability analysis", "hotspot analysis", "self-led project", "policy recommendations", "conservation", "ArcGIS Pro"]
     },
     {
         "name": "Chiricahua Mountains",
@@ -77,7 +77,17 @@
         "title": "Fauntastic Chiricahua Mountains",
         "zoomLevel": 9,
         "link": "projects/chiricahuas",
-        "skills": ["cartography", "open source software", "self-led project"]
+        "skills": ["cartography", "QGIS", "open source software", "self-led project"]
+    },
+    {
+        "name": "Camping",
+        "coordinates": [-120.718, 44.144],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/camping.png",
+        "description": "A new way to view campsites before you choose your nature getaway.",
+        "title": "Campview App",
+        "zoomLevel": 6,
+        "link": "projects/camping",
+        "skills": ["front-end development", "application development", "data management", "Javascript", "HTML", "Mapbox", "open source software", "remote sensing"]
     },
     {
         "name": "Taiwan",
@@ -87,7 +97,7 @@
         "title": "Slowing Down the Inevitable",
         "zoomLevel": 7,
         "link": "projects/taiwan",
-        "skills": ["data management", "raster analysis", "climate modelling", "Python", "data communication and visualization", "cartography"]
+        "skills": ["data management", "raster analysis", "climate modelling", "Python", "data communication and visualization", "cartography", "ArcGIS Pro"]
     },
     {
         "name": "Europe",
@@ -97,7 +107,7 @@
         "title": "European Security Alert Summary",
         "zoomLevel": 4,
         "link": "projects/europe",
-        "skills": ["data management", "hotspot analysis", "spatial analysis", "cartography", "data communication and visualization"]
+        "skills": ["data management", "hotspot analysis", "spatial analysis", "cartography", "data communication and visualization", "ArcGIS Pro"]
     },
     {
         "name": "Global",
@@ -107,7 +117,7 @@
         "title": "Global Trust in Health Infographic",
         "zoomLevel": 2,
         "link": "projects/world",
-        "skills": ["cartography", "data management", "data communication and visualization"]
+        "skills": ["cartography", "data management", "data communication and visualization", "ArcGIS Pro"]
     }
 
 ]
