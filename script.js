@@ -1,4 +1,3 @@
-// public token
 mapboxgl.accessToken = 'pk.eyJ1IjoiaWZvcm1haGVyIiwiYSI6ImNsaHBjcnAwNDF0OGkzbnBzZmUxM2Q2bXgifQ.fIyIgSwq1WWVk9CKlXRXiQ';
 
 var map2 = new mapboxgl.Map({
@@ -13,13 +12,12 @@ map2.on('style.load', () => {
   map2.setFog({
     color: 'rgb(255, 240, 240)', // Lower atmosphere
     'high-color': 'rgb(200, 255, 255)', // Upper atmosphere
-    'horizon-blend': 0.01, // Atmosphere thickness (default 0.2 at low zooms)
+    'horizon-blend': 0.01, // Atmosphere thickness 
     'space-color': 'rgb(0, 0, 0)', // Background color
-    'star-intensity': 0.6 // Background star brightness (default 0.35 at low zoooms )
+    'star-intensity': 0.6 // Background star brightness
   });
 });
 
-// Add globe rotation
 const secondsPerRevolution = 120;
 const maxSpinZoom = 3;
 
@@ -50,7 +48,6 @@ map2.on('style.load', () => {
   spinGlobe();
 });
 
-// Function to create boxes for projects. called "project boxes" due to early build focus on projects.
 function createProjectBoxSection2(project, index, sidebarId, mapInstance) {
     var ProjectBox = document.createElement('div');
     ProjectBox.className = 'project-box';
@@ -69,14 +66,11 @@ fetch('resources/projects.json')
   .then(data => {
     const projects = data;
 
-    // Add project points to the map and created boxes for projects to sidebar
     projects.forEach(function(project, index) {
-      // Create a map pin for project
       var marker = new mapboxgl.Marker()
         .setLngLat(project.coordinates)
         .addTo(map2);
    
-      // Attach click event to each marker to fly to point and scroll to corresponding box
       marker.getElement().addEventListener('click', function() {
         scrollToProjectBox(project.name, projects, 'sidebar2');
       });
@@ -134,7 +128,6 @@ function flyToBoxCoord(sidebar, projects) {
   if (mapCenterIndex !== -1) {
     const targetProject = projects[mapCenterIndex];
     
-    // isAnimating = true; 
     map2.stop();
     map2.flyTo({
       center: targetProject.coordinates,
@@ -150,7 +143,6 @@ function scrollToProjectBox(projectName, projects, sidebarId) {
   const projectBoxes = sidebar.getElementsByClassName('project-box');
   let targetIndex = -1;
 
-  // Find the target project box by name
   for (let i = 0; i < projectBoxes.length; i++) {
     if (projectBoxes[i].getAttribute('name') === projectName) {
       targetIndex = i;

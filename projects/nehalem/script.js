@@ -1,4 +1,3 @@
- // Mapbox public access token
  mapboxgl.accessToken = 'pk.eyJ1IjoiaWZvcm1haGVyIiwiYSI6ImNsaHBjcnAwNDF0OGkzbnBzZmUxM2Q2bXgifQ.fIyIgSwq1WWVk9CKlXRXiQ';
 
  var cities = [
@@ -32,13 +31,13 @@
      cityBox.addEventListener('click', function() {
          mapInstance.flyTo({
              center: city.coordinates,
-             zoom: city.zoomLevel, // Use the zoomLevel attribute from the city variable
+             zoom: city.zoomLevel,
              essential: true 
          });
 
          setTimeout(function() {
             window.location.href = "../../" + city.link;
-          }, 2000); // Delay for 3 seconds to watch re-center and zoom animation
+          }, 2000);
 
 
      });
@@ -62,11 +61,9 @@
     scrollToCityBox(index, 'sidebar2');
   });
 
-  // Create a city box for Section 2 (function call)
   createCityBoxSection2(city, index, 'sidebar2', map2);
 });
 
- // Add scroll event listener to sidebar2 to update map center based on the top visible project box
  document.getElementById('sidebar2').addEventListener('scroll', function() {
      var sidebar = this;
      var cityBoxes = sidebar.getElementsByClassName('city-box');
