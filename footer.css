@@ -145,11 +145,6 @@
   .profile-section {
     gap: 1rem;
   }
-
-  .button-container {
-    grid-template-columns: 1fr;
-  }
-
 }
 .contact-footer {
   grid-column: span 2;

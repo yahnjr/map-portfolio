@@ -32,7 +32,7 @@ function spinGlobe() {
     map2.easeTo({center, duration: 1000, easing: (n) => n});
   }
 
-  setTimeout(spinGlobe, 1000);
+  requestAnimationFrame(spinGlobe);
 }
 
 map2.on('mousedown', () => {
