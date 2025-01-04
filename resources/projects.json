@@ -10,12 +10,12 @@
         "skills": ["data management", "application development", "data communication and visualization", "spatial analysis", "raster analysis", "Python", "conservation", "climate modelling", "stakeholder interactions", "ArcGIS Online", "ArcGIS Pro"]
     },
     {
-        "name": "Tallahassee",
-        "coordinates": [-84.2807, 30.4383],
+        "name": "Wewahitchka",
+        "coordinates": [-85.2, 30.114],
         "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/ppgis.png",
         "description": "Designing straight-forward apps for the collection of public input.",
         "title": "Application Development for Public Input",
-        "zoomLevel": 12,
+        "zoomLevel": 12.5,
         "link": "projects/ppgis",
         "skills": ["front-end development", "Javascript", "HTML", "application development", "public data collection", "policy recommendations", "ArcGIS Online"]
     },

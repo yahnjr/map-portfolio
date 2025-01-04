@@ -42,12 +42,6 @@
     transform: translateX(0);
 }
 
-.info-box.animate ul {
-    transition-delay: 0.8s;
-    opacity: 1;
-    transform: translateX(0);
-}
-
 .info-box.animate p:nth-child(4) {
     transition-delay: 1s;
     opacity: 1;
@@ -56,6 +50,26 @@
 
 .info-box.animate p:nth-child(5) {
     transition-delay: 1.2s;
+    opacity: 1;
+    transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.info-box.animate p:nth-child(6) {
+    transition-delay: 1.4s;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.info-box.animate p:nth-child(7) {
+    transition-delay: 1.6s;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.info-box.animate ul {
+    transition-delay: 1.8s;
     opacity: 1;
     transform: translateX(0);
 }
