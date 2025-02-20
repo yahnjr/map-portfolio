@@ -68,6 +68,24 @@
     transform: translateX(0);
 }
 
+.info-box.animate p:nth-child(8) {
+    transition-delay: 1.8s;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.info-box.animate p:nth-child(9) {
+    transition-delay: 2s;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.info-box.animate p:nth-child(10) {
+    transition-delay: 2.2s;
+    opacity: 1;
+    transform: translateX(0);
+}
+
 .info-box.animate ul {
     transition-delay: 1.8s;
     opacity: 1;
