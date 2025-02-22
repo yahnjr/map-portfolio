@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nehalem Basin</title>
-    <meta name="project-title" content="Nehalem Basin">
+    <title>Columbia Slough Watershed</title>
+    <meta name="project-title" content="Camping">
     <link rel="stylesheet" href="../headnav.css">
     <link rel="stylesheet" href="../infobox.css">
     <link rel="stylesheet" href="../../footer.css">
@@ -26,27 +26,6 @@
             width: 100%;
             height: 90vh;
             border: none;
-        }
-        #fullscreen-button {
-            position: absolute;
-            bottom: 35px;
-            left: 20px;
-            background-color: #333;
-            color: white;
-            border: none;
-            border-radius: 20%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 9999;
-            padding: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-        }
-        #fullscreen-button:hover {
-            background-color: #555;
         }
     </style>
 </head>
@@ -75,14 +54,14 @@
                     <a href="../ppgis">Wewahitchka</a>
                     <a href="../lakeoswego">Lake Oswego</a>
                     <a href="../columbia-slough/">Columbia Slough</a>
-                    <a href="../map2midi/">Map to Music</a>
+                    <a href="../map2midi">Map to Music</a>
                     <a href="../northcoast">North Coast</a>
-                    <a href="../camping">Camping</a>
                     <a href="../monterey">Monterey Bay</a>
                     <a href="../pccrockcreek">PCC Rock Creek</a>
                     <a href="../chiricahuas">Chiricahua Mountains</a>
                     <a href="../taiwan">Taiwan</a>
                     <a href="../europe">Europe</a>
+                    <a href="../world">Global</a>
                 </div>
             </li>
             </div>
@@ -95,31 +74,20 @@
     </div>
 
     <main>
-
         <div class="info-box" id="infoBox">
-            <h2>Protecting Coho Salmon in the Nehalem Watershed</h2>
+            <h2>Columbia Slough Watershed Nature Access Application</h2>
             <p>
                 <b>Skills used:</b>
                 <span id="skillsContainer"></span>
             </p>
-            <p>The Upper Nehalem Watershed Council, in partnership with a similar organization in the lower watershed, aims to implement the Nehalem Strategic Action Plan to protect the endangered "evolutionary unit" of Coho salmon living along the coast of Oregon. As an intern working with them, I worked alongside environmentalists and other GIS professionals from state government agencies and non-profits to collect, analyze, and summarize data about the watershed- from things like forest characteristics, environmental variables, human interactions, and private timber sales. I created an organized database to allow the data to be utilized and updated by future salmon conservationists in the area. I also worked with the data to produce usable products, including dam models, site maps, and a web map showing the breakdown of watershed characteristics into sub-basins. I also worked with Terrain Works' NetMap model, which is a set of water resource tools created for ArcMap.  </p>
-            <p>Several maps I created for the partnership include: </p>
-            <ul>
-                <li><a href="individualmaps/beaver.jpg">Beaver habitat analysis in "Beaver Enhancement Area"</a></li>
-                <li><a href="individualmaps/dams.jpg">Potential dam location modelling</a></li>
-                <li><a href="individualmaps/riparian.jpg">Riparian project site mapping</a></li>
-                <li><a href="individualmaps/wetland.jpg">Wetland re-connection flow line modelling</a></li>
-                <li><a href="individualmaps/rba.jpg">Rapid Bio Assessment (RBA) mapping</a></li>
-            </ul>
-            <p>My efforts, along with a  web application  for the viewing and querying of data, are presented in the story map below. </p>
+            <p>Created in partnership with the <a href="https://www.columbiaslough.org/" target="_blank"> Columbia Slough Watershed Council </a> and a supported by a federal grant, this application is intended to accompany <a href="https://columbiaslough.github.io/resources/NatureInTheCity_FINAL_en.pdf" target="_blank"> print maps </a> to give residents information about areas where they can enjoy the natural areas of the Columbia Slough. Accessibility and inclusivity are crucial to the functionality of this application. The application supports four language modes (English, Spanish, Ukranian and Russian) and allows for the filtering of locations based on accessibility features. </p>
+            <p>The full sized web app can be found <a href="https://columbiaslough.github.io/">here</a>. </p>
         </div>
         <button class="info-button" id="infoButton">
             <i class="fa fa-info-circle" style="font-size:24px;"></i>
         </button>
-        <div id="iframe-box">
-          <iframe src="https://yahnjr.github.io/mlogs/nehalem/" width="100%" height="700px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
-          <a href="https://yahnjr.github.io/mlogs/nehalem/" target="_blank"><div id="fullscreen-button"><img src="../../resources/pictures/icons/fullscreen.svg"></div></a>
-        </div>
+        <iframe src="https://columbiaslough.github.io/" width="100%" height="700px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
+
         <section id="about">
             <div class="profile-section">
               <div class="profile-section">
@@ -172,8 +140,7 @@
               </div>
             </div>
           </section>
-        
-        </main>
+    </main>
         
     <script src="../footer.js"></script>
     <script src="../script.js"></script>

@@ -17,7 +17,7 @@
         "title": "Application Development for Public Input",
         "zoomLevel": 12.5,
         "link": "projects/ppgis",
-        "skills": ["front-end development", "Javascript", "HTML", "application development", "public data collection", "policy recommendations", "ArcGIS Online"]
+        "skills": ["front-end development", "Javascript", "HTML", "application development", "public data collection", "policy recommendations", "ESRI Javascript", "ArcGIS Online", "accessibility"]
     },
     {
         "name": "Lake Oswego",
@@ -30,14 +30,24 @@
         "skills": ["spatial analysis", "suitability analysis", "raster analysis", "application development", "public data collection", "data communication and visualization", "conservation", "Mapbox", "ArcGIS Pro", "ArcGIS Online", "open source software"]
     },
     {
-        "name": "Map to Music",
-        "coordinates": [46.14179504389673, -21.054481726381894],
-        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/map2midi.png",
-        "description": "A simple app to turn geospatial data into (questionably) beautiful sounds.",
-        "title": "Turning Maps into Music",
-        "zoomLevel": 4,
-        "link": "projects/map2midi",
-        "skills": ["Python", "application development", "Javascript", "HTML", "front-end development", "back end development", "Mapbox", "open source software", "self-led project"]
+        "name": "Taiwan",
+        "coordinates": [120.9605, 23.6978],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/taiwan.png",
+        "description": "An analysis of changing temperatures in Taiwan and the role of environmental factors in this change. Presented at GIS in Action 2022.",
+        "title": "Slowing Down the Inevitable",
+        "zoomLevel": 7,
+        "link": "projects/taiwan",
+        "skills": ["data management", "raster analysis", "climate modelling", "Python", "data communication and visualization", "cartography", "ArcGIS Pro"]
+    },
+    {
+        "name": "Columbia Slough",
+        "coordinates": [-122.717, 45.617],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/columbiaslough.png",
+        "description": "An application to showcase nature access, with accesibility features and multiple language modes.",
+        "title": "Columba Slough Watershed Council Application",
+        "zoomLevel": 10,
+        "link": "projects/columbia-slough",
+        "skills": ["front-end development", "application development", "data management", "Javascript", "HTML", "Mapbox", "open source software", "remote sensing", "accessibility"]
     },
     {
         "name": "Monterey Bay",
@@ -70,16 +80,6 @@
         "skills": ["spatial analysis", "suitability analysis", "hotspot analysis", "self-led project", "policy recommendations", "conservation", "ArcGIS Pro"]
     },
     {
-        "name": "Chiricahua Mountains",
-        "coordinates": [-109.3425, 31.9452],
-        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/chiricahuas.jpg",
-        "description": "A map showcasing the fascinating biodiversity of the Chiricahua Mountains in Arizona.",
-        "title": "Fauntastic Chiricahua Mountains",
-        "zoomLevel": 9,
-        "link": "projects/chiricahuas",
-        "skills": ["cartography", "QGIS", "open source software", "self-led project"]
-    },
-    {
         "name": "Camping",
         "coordinates": [-120.718, 44.144],
         "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/camping.png",
@@ -90,14 +90,24 @@
         "skills": ["front-end development", "application development", "data management", "Javascript", "HTML", "Mapbox", "open source software", "remote sensing"]
     },
     {
-        "name": "Taiwan",
-        "coordinates": [120.9605, 23.6978],
-        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/taiwan.png",
-        "description": "An analysis of changing temperatures in Taiwan and the role of environmental factors in this change. Presented at GIS in Action 2022.",
-        "title": "Slowing Down the Inevitable",
-        "zoomLevel": 7,
-        "link": "projects/taiwan",
-        "skills": ["data management", "raster analysis", "climate modelling", "Python", "data communication and visualization", "cartography", "ArcGIS Pro"]
+        "name": "Chiricahua Mountains",
+        "coordinates": [-109.3425, 31.9452],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/chiricahuas.jpg",
+        "description": "A map showcasing the fascinating biodiversity of the Chiricahua Mountains in Arizona.",
+        "title": "Fauntastic Chiricahua Mountains",
+        "zoomLevel": 9,
+        "link": "projects/chiricahuas",
+        "skills": ["cartography", "QGIS", "open source software", "self-led project"]
+    },
+    {
+        "name": "Map to Music",
+        "coordinates": [46.14179504389673, -21.054481726381894],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/map2midi.png",
+        "description": "A simple app to turn geospatial data into (questionably) beautiful sounds.",
+        "title": "Turning Maps into Music",
+        "zoomLevel": 4,
+        "link": "projects/map2midi",
+        "skills": ["Python", "application development", "Javascript", "HTML", "front-end development", "back end development", "Mapbox", "open source software", "self-led project"]
     },
     {
         "name": "Europe",
