@@ -65,12 +65,12 @@
                 </div>
             </li>
             </div>
-        <a href="#about">
-            <button class="nav-button">
-                <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
-                <span class="text">About Me</span>
-            </button>
-        </a>
+
+          <button class="nav-button">
+              <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
+              <span class="text">About Me</span>
+          </button>
+          
     </div>
     <div class="info-box" id="infoBox">
         <h2>Potential Dive Sites in the Monterey Bay Area</h2>
@@ -85,60 +85,9 @@
     </button>
     <div id="map"></div>
 
-    <section id="about">
-        <div class="profile-section">
-          <div class="profile-section">
-            <div class="carousel">
-              <img id="current-image" src="../../resources/pictures/profile/profile1.jpg" alt="Profile" class="profile-image" />
-              <button class="carousel-button left-button" id="previous-image-button">&#9664;</button>
-              <button class="carousel-button right-button" id="next-image-button">&#9654;</button>
-            </div>
-          </div>
-      
-          <div class="button-container">
-            <a href="https://github.com/yahnjr" class="link-button" target="_blank" title="GitHub Profile">
-              <img src="../../resources/pictures/icons/github.png" alt="GitHub Icon" class="icon" />
-            </a>
-            <a href="https://soundcloud.com/snailzorz" class="link-button" target="_blank" title="SoundCloud">
-              <img src="../../resources/pictures/icons/soundcloud.png" alt="Soundcloud Icon" class="icon" />
-            </a>
-            <a href="https://iformaher.wixsite.com/yahnkui" class="link-button" target="_blank" title="Travel Blog">
-              <img src="../../resources/pictures/icons/plane.svg" alt="Plane Icon" class="icon" />
-            </a>
-            <a href="https://www.etsy.com/shop/Mappedoutshirts" class="link-button" target="_blank" title="Mapped Out Shirts">
-              <img src="../../resources/pictures/icons/etsy.webp" alt="Etsy Icon" class="icon" />
-            </a>
-            <a href="https://www.linkedin.com/in/ian-maher-012a72220/" class="link-button" target="_blank" title="LinkedIn Profile">
-              <img src="../../resources/pictures/icons/linkedin.png" alt="LinkedIn Icon" class="icon" />
-            </a>
-            <a href="../../resources/MaherResume.pdf" class="link-button" target="_blank" title="Resume">
-              <img src="../../resources/pictures/icons/file.svg" alt="Resume Icon" class="icon" />
-            </a>
-          </div>
-        </div>
-      
-        <div class="content-section">
-          <h2 class="about-header">About Me</h2>
-          <div class="about-content">
-            <p>
-              My name is Ian Maher. I am currently working as a GIS Technician with 3J Consulting, a Portland, Oregon-based
-              engineering and urban planning firm. I love making maps and analyzing spatial data. I believe all aspects of
-              bringing spatial data to people, including cartography, application development, and communication, are
-              important facets of what makes GIS special.
-            </p>
-            <p>
-              I love exploring the world at every scale. Some of my hobbies include scuba diving, coding, making music, hiking, reading, and traveling. I am passionate about animals and the environment, and I hope my work can one day bring about a better world. 
-            </p>
-            <footer class="contact-footer">
-              <p>Contact information</p>
-              <p><a href="mailto:iformaher@gmail.com" class="contact-link">iformaher@gmail.com</a></p>
-              <p><a href="tel:9713876991" class="contact-link">(971) 387-6991</a></p>
-            </footer>
-          </div>
-        </div>
-      </section>
+    <div id="footer"></div>
     
-    <script src="../footer.js"></script>  
+    <script src="../../footer.js"></script>  
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiaWZvcm1haGVyIiwiYSI6ImNsaHBjcnAwNDF0OGkzbnBzZmUxM2Q2bXgifQ.fIyIgSwq1WWVk9CKlXRXiQ';
         var map = new mapboxgl.Map({

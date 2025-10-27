@@ -17,7 +17,7 @@
         "title": "Application Development for Public Input",
         "zoomLevel": 12.5,
         "link": "projects/ppgis",
-        "skills": ["front-end development", "Javascript", "HTML", "application development", "public data collection", "policy recommendations", "ESRI Javascript", "ArcGIS Online", "accessibility"]
+        "skills": ["front-end development", "Javascript", "HTML", "application development", "public data collection", "policy recommendations", "ESRI Javascript", "ArcGIS Online", "accessibility", "urban planning"]
     },
     {
         "name": "Lake Oswego",
@@ -40,6 +40,16 @@
         "skills": ["data management", "raster analysis", "climate modelling", "Python", "data communication and visualization", "cartography", "ArcGIS Pro"]
     },
     {
+        "name": "Marion County",
+        "coordinates": [-86.1555, 39.7704],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/marioncounty.png",
+        "description": "Worked with city staff and the public to collect public feedback on future development of county and create scenarios. (3J Consulting project)",
+        "title": "Marion County, Indiana Comprehensive Plan Update",
+        "zoomLevel": 9.5,
+        "link": "projects/marion-county",
+        "skills": ["data management", "accessibility", "cartography", "public data collection", "urban planning", "data communication and visualization", "spatial analysis"]
+    },
+    {
         "name": "Columbia Slough",
         "coordinates": [-122.717, 45.617],
         "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/columbiaslough.png",
@@ -48,6 +58,16 @@
         "zoomLevel": 10,
         "link": "projects/columbia-slough",
         "skills": ["front-end development", "application development", "data management", "Javascript", "HTML", "Mapbox", "open source software", "remote sensing", "accessibility"]
+    },
+    {
+        "name": "Seaside",
+        "coordinates": [-123.922, 45.9927],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/seaside.png",
+        "description": "Completed project for the City of Seaside to update GIS data for and create new public zoning map. (3J Consulting project)",
+        "title": "Seaside Zoning Map",
+        "zoomLevel": 12,
+        "link": "projects/seaside",
+        "skills": ["data management", "data communication and visualization", "cartography", "ArcGIS Pro", "public data collection", "urban planning"]
     },
     {
         "name": "Monterey Bay",
