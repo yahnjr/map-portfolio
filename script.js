@@ -229,6 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
   map2.on('zoom', handleVisibility);
 
   handleVisibility();
+  populateNavbar();
 });
 
 document.getElementById("globe-button").addEventListener('click', () =>{
@@ -239,15 +240,27 @@ document.getElementById("globe-button").addEventListener('click', () =>{
   window.scrollTo(0, 0);
 });
 
-const profileImages = [
-  "resources/pictures/profile/profile1.jpg",
-  "resources/pictures/profile/profile2.jpg",
-  "resources/pictures/profile/profile3.jpg",
-  "resources/pictures/profile/profile4.jpg",
-  "resources/pictures/profile/profile5.jpg",
-];
-let currentIndex = 0;
-const imageElement = document.getElementById("current-image");
+async function populateNavbar() {
+    const jsonFile = "resources/projects.json";
+    const response = await fetch(jsonFile);
+    const projects = await response.json();
+    
+    const dropdownContent = document.querySelector('.dropdown-content');
+    
+    if (!dropdownContent) {
+        console.error("Dropdown content not found");
+        return;
+    }
+    
+    dropdownContent.innerHTML = '';
+    
+    projects.forEach(project => {
+      const link = document.createElement('a');
+      link.href = `../${project.link.split('/').pop()}`;
+      link.textContent = project.name;
+      dropdownContent.appendChild(link);     
+    });
+}
 
 function updateImage() {
   imageElement.src = profileImages[currentIndex];
@@ -262,8 +275,5 @@ function prevImage() {
   currentIndex = (currentIndex - 1 + profileImages.length) % profileImages.length;
   updateImage();
 }
-
-document.getElementById("previous-image-button").addEventListener("click", prevImage);
-document.getElementById("next-image-button").addEventListener("click", nextImage);
 
 setInterval(nextImage, 30000);

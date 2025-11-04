@@ -42,7 +42,7 @@
     {
         "name": "Marion County",
         "coordinates": [-86.1555, 39.7704],
-        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/marion-county.png",
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/marion-county.jpg",
         "description": "Worked with city staff and the public to collect public feedback on future development of county and create scenarios. (3J Consulting project)",
         "title": "Marion County, Indiana Comprehensive Plan Update",
         "zoomLevel": 9.5,
@@ -58,6 +58,16 @@
         "zoomLevel": 10,
         "link": "projects/columbia-slough",
         "skills": ["front-end development", "application development", "data management", "Javascript", "HTML", "Mapbox", "open source software", "remote sensing", "accessibility"]
+    },
+    {
+        "name": "Seaside",
+        "coordinates": [-123.922, 45.9927],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/seaside.png",
+        "description": "Completed project for the City of Seaside to update GIS data for and create new public zoning map. (3J Consulting project)",
+        "title": "Seaside Zoning Map",
+        "zoomLevel": 12,
+        "link": "projects/seaside",
+        "skills": ["data management", "data communication and visualization", "cartography", "ArcGIS Pro", "public data collection", "urban planning"]
     },
     {
         "name": "Monterey Bay",
