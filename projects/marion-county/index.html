@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marion County, IN</title>
+    <meta name="project-title" content="Europe">
+    <link rel="stylesheet" href="../../footer.css">
+    <link rel="stylesheet" href="../headnav.css">
+    <link rel="stylesheet" href="../infobox.css">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .section1 {
+            width: 100%;
+            height: 100vh;
+        }
+
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+        
+        #slide-buttons {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 1;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 90%;
+            padding: 15px;
+            background: rgba(50, 50, 50, 0.85);
+            border-radius: 8px;
+        }
+
+        .slide-button {
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .slide-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .slide-button.active {
+            background: white;
+            color: #333;
+            border-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header" id="header">
+        <div id="header-atmosphere"></div>
+        <div class="star-background"></div>
+        <div class="header-content">
+            <h1>Map Portfolio</h1>
+            <p>Ian Maher</p>
+        </div>
+    </div>
+    <div class="nav-bar">
+        <a href="../../index.html">
+            <button class="nav-button" id="globe-button">
+                <i class="fa fa-globe" style="font-size:36px;color:white"></i>
+                <span class="text">Globe</span>
+            </button>
+        </a>
+        <div class="projects-button">
+            <i class="fa fa-map" style="font-size:36px;color:white"></i>
+            <li class="dropdown">
+                <span class="text">Project Pages</span>
+                <div class="dropdown-content">
+                    <a href="../nehalem">Nehalem Basin</a>
+                    <a href="../ppgis">Wewahitchka</a>
+                    <a href="../lakeoswego">Lake Oswego</a>
+                    <a href="../columbia-slough/">Columbia Slough</a>
+                    <a href="../camping">Camping</a>
+                    <a href="../map2midi/">Map to Music</a>
+                    <a href="../northcoast">North Coast</a>
+                    <a href="../monterey">Monterey Bay</a>
+                    <a href="../pccrockcreek">PCC Rock Creek</a>
+                    <a href="../chiricahuas">Chiricahua Mountains</a>
+                    <a href="../taiwan">Taiwan</a>
+                    <a href="../world">Global</a>
+                </div>
+            </li>
+            </div>
+
+          <button class="nav-button">
+              <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
+              <span class="text">About Me</span>
+          </button>
+
+    </div>
+    <div class="info-box" id="infoBox">
+        <h2>Marion County Workshops Summary</h2>
+        <p>
+            <b>Skills used:</b>
+            <span id="skillsContainer"></span>
+        </p>
+        <p> While working with 3J Consulting as a GIS Technician, we undertook a large scale project to collect public input from the residents of the nine townships of Marion County, Indiana on how they wanted future development to be shaped by the county's Comprehensive Plan. Large, detailed print maps were created and workshops were set up to allow residents to place stickers belonging to development types around their respective townships. </p>
+        <p> Once all the workshop feedback was collected, maps were digitized and analyzed using GIS software and the Envision Tomorrow planner's toolbox. The results were synthesized into future land use scenarios and presented to both staff and the public to allow for conversations around the shape of things to come for Marion County. Patterns begin to emerge by exploring the data in different ways by exploring the slides on the bottom of the map.</p>
+    </div>
+    <button class="info-button" id="infoButton">
+        <i class="fa fa-info-circle" style="font-size:24px;"></i>
+    </button>
+
+    <div id="map">
+        <div id="slide-buttons">
+            <button class="slide-button active" id="highestdev" data-slide="highestdev">Highest Development</button>
+            <button class="slide-button" id="majority" data-slide="majority">Majority</button>
+            <button class="slide-button" id="hits" data-slide="hits">Hits</button>
+            <button class="slide-button" id="housingdensity" data-slide="housingdensity">Housing Density</button>
+            <button class="slide-button" id="employmentdensity" data-slide="employmentdensity">Employment Density</button>
+            <button class="slide-button" id="openspace" data-slide="openspace">Open Space</button>
+            <button class="slide-button" id="trails" data-slide="trails">Trails</button>
+            <button class="slide-button" id="transit" data-slide="transit">Transit</button>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+    
+    <script src="../../footer.js"></script>    
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiaWZvcm1haGVyIiwiYSI6ImNsaHBjcnAwNDF0OGkzbnBzZmUxM2Q2bXgifQ.fIyIgSwq1WWVk9CKlXRXiQ';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/satellite-v9',
+            zoom: 1,
+            bounds: [[-86.75, 40.03], [-85.90, 39.50]],
+            projection: 'mercator',
+        });
+
+        const coordinates = [
+            [-86.72, 39.95], // Top-left
+            [-85.93, 39.95],  // Top-right
+            [-85.93, 39.61], // Bottom-right
+            [-86.72, 39.61] // Bottom-left
+        ];
+
+        map.on('load', () => {
+            map.addSource('marion-county-map', {
+                'type': 'image',
+                'url': 'slides/highestdev.jpg',
+                'coordinates': coordinates
+            });
+            map.addLayer({
+                'id': 'marion-county-map',
+                'type': 'raster',
+                'source': 'marion-county-map',
+                'paint': {
+                    'raster-opacity': 0.8
+                }
+            });
+            
+            let opacity = 0;
+            function fadeIn() {
+                opacity += 0.01;
+                if (opacity <= 1) {
+                    map.setPaintProperty('marion-county-map', 'raster-opacity', opacity);
+                    requestAnimationFrame(fadeIn);
+                }
+            }
+            fadeIn();
+
+            const buttons = document.querySelectorAll('.slide-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const slideName = button.getAttribute('data-slide');
+                    
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    let currentOpacity = 0.8;
+                    function fadeOut() {
+                        currentOpacity -= 0.05;
+                        if (currentOpacity >= 0) {
+                            map.setPaintProperty('marion-county-map', 'raster-opacity', currentOpacity);
+                            requestAnimationFrame(fadeOut);
+                        } else {
+                            const source = map.getSource('marion-county-map');
+                            source.updateImage({
+                                url: `slides/${slideName}.jpg`,
+                                coordinates: coordinates
+                            });
+                            
+                            function fadeInNew() {
+                                currentOpacity += 0.05;
+                                if (currentOpacity <= 0.8) {
+                                    map.setPaintProperty('marion-county-map', 'raster-opacity', currentOpacity);
+                                    requestAnimationFrame(fadeInNew);
+                                }
+                            }
+                            fadeInNew();
+                        }
+                    }
+                    fadeOut();
+                });
+            });
+        });
+    </script>
+    <script src="../../stars.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html>

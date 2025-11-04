@@ -20,18 +20,25 @@ map2.on('style.load', () => {
 
 const secondsPerRevolution = 120;
 const maxSpinZoom = 3;
-
 let userInteraction = false;
 let spinEnabled = true;
+let lastTime = 0;
 
-function spinGlobe() {
+function spinGlobe(currentTime) {
+  if (!lastTime) lastTime = currentTime;
+  const deltaTime = currentTime - lastTime;
+  lastTime = currentTime;
+
   if (spinEnabled && !userInteraction && map2.getZoom() < maxSpinZoom) {
     let distancePerSecond = 360 / secondsPerRevolution;
+    let distance = distancePerSecond * (deltaTime / 1000);
+    
     const center = map2.getCenter();
-    center.lng -= distancePerSecond;
-    map2.easeTo({center, duration: 1000, easing: (n) => n});
+    center.lng -= distance;
+    
+    map2.jumpTo({center});
   }
-
+  
   requestAnimationFrame(spinGlobe);
 }
 
@@ -41,11 +48,11 @@ map2.on('mousedown', () => {
 
 map2.on('mouseup', () => {
   userInteraction = false;
-  spinGlobe();
+  requestAnimationFrame(spinGlobe);
 });
 
 map2.on('style.load', () => {
-  spinGlobe();
+  requestAnimationFrame(spinGlobe);
 });
 
 function createProjectBoxSection2(project, index, sidebarId, mapInstance) {
@@ -133,7 +140,7 @@ function flyToBoxCoord(sidebar, projects) {
       center: targetProject.coordinates,
       zoom: targetProject.zoomLevel,
       essential: true,
-      duration: 1500
+      duration: 2500
     });
   }
 }
