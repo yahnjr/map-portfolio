@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Europe</title>
     <meta name="project-title" content="Europe">
-    <link rel="stylesheet" href="../../footer.css">
-    <link rel="stylesheet" href="../headnav.css">
-    <link rel="stylesheet" href="../infobox.css">
+    <link rel="stylesheet" href="../../resources/styles/footer.css">
+    <link rel="stylesheet" href="../../resources/styles/headnav.css">
+    <link rel="stylesheet" href="../../resources/styles/infobox.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,7 +29,7 @@
         }        
     </style>
 </head>
-<body>
+<body class="subpage">
     <div class="header" id="header">
         <div id="header-atmosphere"></div>
         <div class="star-background"></div>
@@ -106,7 +106,7 @@
             });
             let opacity = 0;
             function fadeIn() {
-                opacity += 0.01;
+                opacity += 0.05;
                 if (opacity <= 1) {
                     map.setPaintProperty('europe-map', 'raster-opacity', opacity);
                     requestAnimationFrame(fadeIn);
@@ -115,7 +115,9 @@
             fadeIn();
         });
     </script>
-    <script src="../../stars.js"></script>
-    <script src="../script.js"></script>
+
+    <script src="../../resources/scripts/footer.js"></script>
+    <script src="../../resources/scripts/stars.js"></script>
+    <script src="../../resources/scripts/projects-script.js"></script>
 </body>
 </html>

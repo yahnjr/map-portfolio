@@ -17,6 +17,11 @@ body {
   display: flex;
   overflow: hidden;
   z-index: 1000;
+  opacity: 0;
+}
+
+.header.visible {
+  opacity: 1;
 }
 
 .star-background {
@@ -77,8 +82,19 @@ body {
   background: transparent;
   pointer-events: none;
   transform: translateY(-50%);
+  opacity: 0;
   transition: opacity 1s ease-in-out;
 }
+
+.nav-bar.fade-in {
+  opacity: 1;
+}
+
+.subpage .nav-bar,
+.subpage .header {
+  opacity: 1;
+}
+
 
 .nav-bar a {
   text-decoration: none;
@@ -178,7 +194,7 @@ body {
   .dropdown-content {
     grid-template-columns: 1fr;
     min-width: 160px;
-    top: -150%;
+    top: -200%;
     right: 80%;
     padding: 5px;
   }

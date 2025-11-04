@@ -1,7 +1,7 @@
 .modal {
   display: none; 
   position: fixed;
-  z-index: 999;
+  z-index: 10001;
   inset: 0; 
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
@@ -20,6 +20,7 @@
 }
 
 .close-button {
+  position: relative;
   color: #fff;
   float: right;
   font-size: 2rem;
@@ -164,6 +165,7 @@
 
   .profile-section {
     max-width: 400px;
+    flex-direction: column;
     margin: 0 auto;
   }
 

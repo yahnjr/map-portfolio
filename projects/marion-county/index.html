@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marion County, IN</title>
     <meta name="project-title" content="Marion County">
-    <link rel="stylesheet" href="../../footer.css">
-    <link rel="stylesheet" href="../headnav.css">
-    <link rel="stylesheet" href="../infobox.css">
+    <link rel="stylesheet" href="../../resources/styles/footer.css">
+    <link rel="stylesheet" href="../../resources/styles/headnav.css">
+    <link rel="stylesheet" href="../../resources/styles/infobox.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,6 +39,7 @@
             flex-wrap: wrap;
             justify-content: center;
             max-width: 90%;
+            min-width: 70%;
             padding: 15px;
             background: rgba(50, 50, 50, 0.85);
             border-radius: 8px;
@@ -57,6 +58,12 @@
             white-space: nowrap;
         }
 
+        @media (max-width: 768px) {
+            .slide-button {
+                font-size: 11px;
+            }
+        }
+
         .slide-button:hover {
             background: rgba(255, 255, 255, 0.1);
         }
@@ -68,7 +75,7 @@
         }
     </style>
 </head>
-<body>
+<body class="subpage">
     <div class="header" id="header">
         <div id="header-atmosphere"></div>
         <div class="star-background"></div>
@@ -106,7 +113,7 @@
             <span id="skillsContainer"></span>
         </p>
         <p> While working with 3J Consulting as a GIS Technician, we undertook a large scale project to collect public input from the residents of the nine townships of Marion County, Indiana on how they wanted future development to be shaped by the county's Comprehensive Plan. Large, detailed print maps were created and workshops were set up to allow residents to place stickers belonging to development types around their respective townships. </p>
-        <p> Once all the workshop feedback was collected, maps were digitized and analyzed using GIS software and the Envision Tomorrow planner's toolbox. The results were synthesized into future land use scenarios and presented to both staff and the public to allow for conversations around the shape of things to come for Marion County. Patterns begin to emerge by exploring the data in different ways by exploring the slides on the bottom of the map.</p>
+        <p> Once all the workshop feedback was collected, maps were digitized and analyzed using GIS software and the Envision Tomorrow planner's toolbox. The results were synthesized into future land use scenarios and presented to both staff and the public to allow for conversations around the shape of things to come for Marion County. Patterns begin to emerge by exploring the data in different ways; flip through the slides on the bottom of the map.</p>
     </div>
     <button class="info-button" id="infoButton">
         <i class="fa fa-info-circle" style="font-size:24px;"></i>
@@ -162,7 +169,7 @@
             
             let opacity = 0;
             function fadeIn() {
-                opacity += 0.01;
+                opacity += 0.05;
                 if (opacity <= 1) {
                     map.setPaintProperty('marion-county-map', 'raster-opacity', opacity);
                     requestAnimationFrame(fadeIn);
@@ -206,7 +213,9 @@
             });
         });
     </script>
-    <script src="../../stars.js"></script>
-    <script src="../script.js"></script>
+
+    <script src="../../resources/scripts/footer.js"></script>
+    <script src="../../resources/scripts/stars.js"></script>
+    <script src="../../resources/scripts/projects-script.js"></script>
 </body>
 </html>

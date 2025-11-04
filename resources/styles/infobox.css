@@ -1,7 +1,7 @@
 .info-box {
     position: fixed;
     left: 0;
-    top: 12vh;
+    top: 10vh;
     width: 33%;
     max-width: 500px;
     min-width: 250px;
@@ -110,12 +110,12 @@
 .info-button {
     position: fixed;
     top: 50%;
-    left: 0;
+    left: -8px;
     background-color: #3b3b3b;
     color: white;
     border: none;
     border-radius: 15px;
-    padding: 10px;
+    padding: 15px;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
     z-index: 999;

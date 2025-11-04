@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seaside</title>
     <meta name="project-title" content="Seaside">
-    <link rel="stylesheet" href="../../footer.css">
-    <link rel="stylesheet" href="../headnav.css">
-    <link rel="stylesheet" href="../infobox.css">
+    <link rel="stylesheet" href="../../resources/styles/footer.css">
+    <link rel="stylesheet" href="../../resources/styles/headnav.css">
+    <link rel="stylesheet" href="../../resources/styles/infobox.css">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.6.0/mapbox-gl.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,7 +29,7 @@
         }        
     </style>
 </head>
-<body>
+<body class="subpage">
     <div class="header" id="header">
         <div id="header-atmosphere"></div>
         <div class="star-background"></div>
@@ -65,7 +65,7 @@
             <b>Skills used:</b>
             <span id="skillsContainer"></span>
         </p>
-        <p>I created this map while working as a GIS Technician with 3J Consulting, as a part of a project in cooperation with the City of Seaside staff. Although the city has changed a lot in recent years, the planning department still relied on a hand-amended paper print out of a zoning map on the wall. </p>
+        <p>I created this map while working as a GIS Technician with 3J Consulting, as a part of a project in cooperation with the City of Seaside staff. Although the city has changed a lot in recent years, the planning department still relied on a hand-amended paper print zoning map on the wall. </p>
         <p> This project involved surveying the available data, perfoming clean up while cross referencing legal documenation and local experts, and creating custom color schemes and land and water symbology for a fresh zoning map that was not only more useful and accurate, but also pleasant to look at. A full sized, undistorted version of the map <a href="../../resources/pictures/seaside.png" target="_blank">can be found here</a></p>
     </div>
     <button class="info-button" id="infoButton">
@@ -115,17 +115,17 @@
             fadeIn();
 
             map.on('click', (e) => {
-                // Get the clicked coordinates
                 const lat = e.lngLat.lat;
                 const lng = e.lngLat.lng;
                 
-                // Log the coordinates to console
                 console.log(`Latitude: ${lat}, Longitude: ${lng}`);
 
             });
         });
     </script>
-    <script src="../../stars.js"></script>
-    <script src="../script.js"></script>
+    
+    <script src="../../resources/scripts/footer.js"></script>
+    <script src="../../resources/scripts/stars.js"></script>
+    <script src="../../resources/scripts/projects-script.js"></script>
 </body>
 </html>

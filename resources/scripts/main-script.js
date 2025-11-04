@@ -241,7 +241,7 @@ document.getElementById("globe-button").addEventListener('click', () =>{
 });
 
 async function populateNavbar() {
-    const jsonFile = "resources/projects.json";
+    const jsonFile = "../../resources/projects.json";
     const response = await fetch(jsonFile);
     const projects = await response.json();
     
@@ -256,24 +256,8 @@ async function populateNavbar() {
     
     projects.forEach(project => {
       const link = document.createElement('a');
-      link.href = `../${project.link.split('/').pop()}`;
+      link.href = `../projects/${project.link.split('/').pop()}`;
       link.textContent = project.name;
       dropdownContent.appendChild(link);     
     });
 }
-
-function updateImage() {
-  imageElement.src = profileImages[currentIndex];
-}
-
-function nextImage() {
-  currentIndex = (currentIndex + 1) % profileImages.length;
-  updateImage();
-}
-
-function prevImage() {
-  currentIndex = (currentIndex - 1 + profileImages.length) % profileImages.length;
-  updateImage();
-}
-
-setInterval(nextImage, 30000);
