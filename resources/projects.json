@@ -7,6 +7,7 @@
         "title": "Protecting Coho Salmon in the Nehalem Watershed",
         "zoomLevel": 10,
         "link": "projects/nehalem",
+        "cluster": "1",
         "skills": ["data management", "application development", "data communication and visualization", "spatial analysis", "raster analysis", "Python", "conservation", "climate modelling", "stakeholder interactions", "ArcGIS Online", "ArcGIS Pro"]
     },
     {
@@ -17,7 +18,8 @@
         "title": "Application Development for Public Input",
         "zoomLevel": 12.5,
         "link": "projects/ppgis",
-        "skills": ["front-end development", "Javascript", "HTML", "application development", "public data collection", "policy recommendations", "ESRI Javascript", "ArcGIS Online", "accessibility", "urban planning"]
+        "cluster": "",
+        "skills": ["front-end development", "Javascript", "application development", "public data collection", "policy recommendations", "ESRI Javascript", "ArcGIS Online", "accessibility", "urban planning"]
     },
     {
         "name": "Lake Oswego",
@@ -27,6 +29,7 @@
         "title": "Oregon White Oaks in Lake Oswego",
         "zoomLevel": 13,
         "link": "projects/lakeoswego",
+        "cluster": "1",
         "skills": ["spatial analysis", "suitability analysis", "raster analysis", "application development", "public data collection", "data communication and visualization", "conservation", "Mapbox", "ArcGIS Pro", "ArcGIS Online", "open source software"]
     },
     {
@@ -37,6 +40,7 @@
         "title": "Slowing Down the Inevitable",
         "zoomLevel": 7,
         "link": "projects/taiwan",
+        "cluster": "",
         "skills": ["data management", "raster analysis", "climate modelling", "Python", "data communication and visualization", "cartography", "ArcGIS Pro"]
     },
     {
@@ -47,6 +51,7 @@
         "title": "Marion County, Indiana Comprehensive Plan Update",
         "zoomLevel": 9.5,
         "link": "projects/marion-county",
+        "cluster": "",
         "skills": ["data management", "accessibility", "cartography", "public data collection", "urban planning", "data communication and visualization", "spatial analysis"]
     },
     {
@@ -57,7 +62,8 @@
         "title": "Columba Slough Watershed Council Application",
         "zoomLevel": 10,
         "link": "projects/columbia-slough",
-        "skills": ["front-end development", "application development", "data management", "Javascript", "HTML", "Mapbox", "open source software", "remote sensing", "accessibility"]
+        "cluster": "1",
+        "skills": ["front-end development", "application development", "data management", "Javascript", "Mapbox", "open source software", "remote sensing", "accessibility"]
     },
     {
         "name": "Seaside",
@@ -67,6 +73,7 @@
         "title": "Seaside Zoning Map",
         "zoomLevel": 12,
         "link": "projects/seaside",
+        "cluster": "1",
         "skills": ["data management", "data communication and visualization", "cartography", "ArcGIS Pro", "public data collection", "urban planning"]
     },
     {
@@ -77,7 +84,19 @@
         "title": "Potential Dive Sites in the Monterey Bay Area",
         "zoomLevel": 9,
         "link": "projects/monterey",
+        "cluster": "",
         "skills": ["spatial analysis", "suitability analysis", "raster analysis", "cartography", "data communication and visualization", "ArcGIS Pro"]
+    },
+    {
+        "name": "Washington County",
+        "coordinates": [-123.11627, 45.6174],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/washingtoncounty.png",
+        "description": "Developing custom widgets for public use in county government local survey data application.",
+        "title": "Survey Tools for Public Application",
+        "zoomLevel": 9,
+        "link": "projects/washington-county",
+        "cluster": "1",
+        "skills": ["data communication and visualization", "urban planning,", "Javascript", "application development"]
     },
     {
         "name": "PCC Rock Creek",
@@ -87,7 +106,8 @@
         "title": "Drone Mapping of PCC Rock Creek Learning Garden",
         "zoomLevel": 18,
         "link": "projects/pccrockcreek",
-        "skills": ["drone photography", "remote sensing", "data communication and visualization", "ArcGIS Pro", "DJI"]
+        "cluster": "1",
+        "skills": ["drone photography", "remote sensing", "data communication and visualization", "ArcGIS Pro"]
     },
     {
         "name": "Northern Oregon Coast",
@@ -97,6 +117,7 @@
         "title": "Wildlife Injuries in the North Coast",
         "zoomLevel": 9,
         "link": "projects/northcoast",
+        "cluster": "1",
         "skills": ["spatial analysis", "suitability analysis", "hotspot analysis", "self-led project", "policy recommendations", "conservation", "ArcGIS Pro"]
     },
     {
@@ -107,7 +128,8 @@
         "title": "Campview App",
         "zoomLevel": 6,
         "link": "projects/camping",
-        "skills": ["front-end development", "application development", "data management", "Javascript", "HTML", "Mapbox", "open source software", "remote sensing"]
+        "cluster": "1",
+        "skills": ["front-end development", "application development", "data management", "Javascript", "Mapbox", "open source software", "remote sensing"]
     },
     {
         "name": "Chiricahua Mountains",
@@ -117,6 +139,7 @@
         "title": "Fauntastic Chiricahua Mountains",
         "zoomLevel": 9,
         "link": "projects/chiricahuas",
+        "cluster": "",
         "skills": ["cartography", "QGIS", "open source software", "self-led project"]
     },
     {
@@ -127,7 +150,8 @@
         "title": "Turning Maps into Music",
         "zoomLevel": 4,
         "link": "projects/map2midi",
-        "skills": ["Python", "application development", "Javascript", "HTML", "front-end development", "back end development", "Mapbox", "open source software", "self-led project"]
+        "cluster": "",
+        "skills": ["Python", "application development", "Javascript", "front-end development", "back end development", "Mapbox", "open source software", "self-led project"]
     },
     {
         "name": "Europe",
@@ -137,6 +161,7 @@
         "title": "European Security Alert Summary",
         "zoomLevel": 4,
         "link": "projects/europe",
+        "cluster": "",
         "skills": ["data management", "hotspot analysis", "spatial analysis", "cartography", "data communication and visualization", "ArcGIS Pro"]
     },
     {
@@ -147,7 +172,7 @@
         "title": "Global Trust in Health Infographic",
         "zoomLevel": 2,
         "link": "projects/world",
+        "cluster": "",
         "skills": ["cartography", "data management", "data communication and visualization", "ArcGIS Pro"]
     }
-
 ]

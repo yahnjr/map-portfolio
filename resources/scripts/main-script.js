@@ -18,6 +18,7 @@ map2.on('style.load', () => {
   });
 });
 
+let projectsData = null;
 const secondsPerRevolution = 120;
 const maxSpinZoom = 3;
 let userInteraction = false;
@@ -55,6 +56,12 @@ map2.on('style.load', () => {
   requestAnimationFrame(spinGlobe);
 });
 
+map2.on('load', () => {
+  if (projectsData) {
+    initializeClustering(projectsData);
+  }
+});
+
 function createProjectBoxSection2(project, index, sidebarId, mapInstance) {
     var ProjectBox = document.createElement('div');
     ProjectBox.className = 'project-box';
@@ -68,29 +75,139 @@ function createProjectBoxSection2(project, index, sidebarId, mapInstance) {
     document.getElementById(sidebarId).appendChild(ProjectBox);
 }
 
+function initializeClustering(projects) {
+  map2.addSource('projects', {
+    type: 'geojson',
+    data: {
+      type: 'FeatureCollection',
+      features: []
+    },
+    cluster: true,
+    clusterMaxZoom: 6, 
+    clusterRadius: 40
+  });
+
+  map2.addLayer({
+    id: 'clusters',
+    type: 'circle',
+    source: 'projects',
+    filter: ['has', 'point_count'],
+    paint: {
+      'circle-color': '#38adca',
+      'circle-radius': 22
+    }
+  });
+
+  map2.addLayer({
+    id: 'cluster-count',
+    type: 'symbol',
+    source: 'projects',
+    filter: ['has', 'point_count'],
+    layout: {
+      'text-field': '{point_count_abbreviated}',
+      'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+      'text-size': 14
+    },
+    paint: {
+      'text-color': '#ffffff'
+    }
+  });
+
+  map2.addLayer({
+    id: 'unclustered-point',
+    type: 'circle',
+    source: 'projects',
+    filter: ['!', ['has', 'point_count']],
+    paint: {
+      'circle-color': '#f78247',
+      'circle-radius': 8,
+      'circle-stroke-width': 2,
+      'circle-stroke-color': '#fff'
+    }
+  });
+
+  // Click event for clusters - zoom in
+  // map2.on('click', 'clusters', (e) => {
+  //   const features = map2.queryRenderedFeatures(e.point, {
+  //     layers: ['clusters']
+  //   });
+  //   const clusterId = features[0].properties.cluster_id;
+  //   map2.getSource('projects').getClusterExpansionZoom(
+  //     clusterId,
+  //     (err, zoom) => {
+  //       if (err) return;
+
+  //       map2.easeTo({
+  //         center: features[0].geometry.coordinates,
+  //         zoom: zoom
+  //       });
+  //     }
+  //   );
+  // });
+
+  // Click event for individual points
+  map2.on('click', 'unclustered-point', (e) => {
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const properties = e.features[0].properties;
+    
+    scrollToProjectBox(properties.name, JSON.parse(properties.projectData), 'sidebar2');
+  });
+
+  // Change cursor on hover
+  // map2.on('mouseenter', 'clusters', () => {
+  //   map2.getCanvas().style.cursor = 'pointer';
+  // });
+  // map2.on('mouseleave', 'clusters', () => {
+  //   map2.getCanvas().style.cursor = '';
+  // });
+  map2.on('mouseenter', 'unclustered-point', () => {
+    map2.getCanvas().style.cursor = 'pointer';
+  });
+  map2.on('mouseleave', 'unclustered-point', () => {
+    map2.getCanvas().style.cursor = '';
+  });
+
+  const geojsonData = {
+    type: 'FeatureCollection',
+    features: projects.map(project => ({
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: project.coordinates
+      },
+      properties: {
+        name: project.name,
+        title: project.title,
+        cluster: project.cluster || 'default',
+        projectData: JSON.stringify(project)
+      }
+    }))
+  };
+
+  map2.getSource('projects').setData(geojsonData);
+}
+
 fetch('resources/projects.json')
   .then(response => response.json())
   .then(data => {
     const projects = data;
+    projectsData = projects;
+
+    if (map2.loaded()) {
+      initializeClustering(projects);
+    } else {
+      console.log("Map not loaded yet, waiting for load event.");
+    }
 
     projects.forEach(function(project, index) {
-      var marker = new mapboxgl.Marker()
-        .setLngLat(project.coordinates)
-        .addTo(map2);
-   
-      marker.getElement().addEventListener('click', function() {
-        scrollToProjectBox(project.name, projects, 'sidebar2');
-      });
-     
       createProjectBoxSection2(project, index, 'sidebar2', map2);
       
       document.getElementById('sidebar2').addEventListener('scroll', () => {
         flyToBoxCoord(document.getElementById('sidebar2'), projects);
         fadeInFadeOut(document.getElementById('sidebar2'));
       });
-
     });
-  })
+})
 
 function flyToBoxCoord(sidebar, projects) {
   var projectBoxes = sidebar.getElementsByClassName('project-box');

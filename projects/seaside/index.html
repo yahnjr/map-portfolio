@@ -86,6 +86,7 @@
             projection: 'mercator',
         });
         map.on('load', () => {
+            map.setBearing(290);
             map.addSource('seaside-map', {
                 'type': 'image',
                 'url': '../../resources/pictures/geomaps/seaside1.png',

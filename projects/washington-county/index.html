@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Columbia Slough Watershed</title>
-    <meta name="project-title" content="Camping">
+    <title>Washington County</title>
+    <meta name="project-title" content="Washington County">
     <link rel="stylesheet" href="../../resources/styles/headnav.css">
     <link rel="stylesheet" href="../../resources/styles/infobox.css">
     <link rel="stylesheet" href="../../resources/styles/footer.css">
@@ -62,18 +62,20 @@
 
     <main>
         <div class="info-box" id="infoBox">
-            <h2>Columbia Slough Watershed Nature Access Application</h2>
+            <h2>Custom Tools for Washington County Public  Survey Application</h2>
             <p>
                 <b>Skills used:</b>
                 <span id="skillsContainer"></span>
             </p>
-            <p>Created in partnership with the <a href="https://www.columbiaslough.org/" target="_blank"> Columbia Slough Watershed Council </a> and a supported by a federal grant, this application is intended to accompany <a href="https://columbiaslough.github.io/resources/NatureInTheCity_FINAL_en.pdf" target="_blank"> print maps </a> to give residents information about areas where they can enjoy the natural areas of the Columbia Slough. Accessibility and inclusivity are crucial to the functionality of this application. The application supports four language modes (English, Spanish, Ukranian and Russian) and allows for the filtering of locations based on accessibility features. </p>
-            <p>The full sized web app can be found at <a href="https://www.columbiaslough.org/recreation-guides-index" target="_blank">their website</a> (full page version <a href="https://columbiaslough.github.io/">here</a>). </p>
+            <p>While working with 3J Consulting and Washington County, OR, assisted in supporting the GIS division of the county Survey Department. A part of this support was modernizing and upgrading the "Survey Explorer" tool, which is used by county staff and the public to access county data. For this purpose, two widgets were created and added to the Experience Builder application hosted on the public facing website. </p>
+            <p><b>Incremental Measurements: </b>The first widget created was a custom measure widget, to extend the functionality of the "out of the box" measure widget. To use this, click the ruler icon below the search. It can be used to measure distances and areas. For distances, this creates labels and a table of each segment of measurement, as well as a bearing. It also includes several units of measurement used by surveyors, such as rods (66 feet). </p>
+            <p><b>Document Viewer </b>The second widget was designed to create a snapshot view of documents accessible via the application in a shareable format. It can be opened with the download icon below the search bar. The widget watches the number of features for activated layers visible in the current view, and when that crosses below a defined threshold, prompts the user to create a document view. This will automatically create a shareable HTML document that includes a map screenshot as well as embedded versions of all relevant documents. </p>
+            <p>The full sized web app can be found at <a href="https://webapps.washingtoncountyor.gov/surveyexplorer-dev/" target="_blank">the Washington County website</a>. </p>
         </div>
         <button class="info-button" id="infoButton">
             <i class="fa fa-info-circle" style="font-size:24px;"></i>
         </button>
-        <iframe src="https://www.columbiaslough.org/recreation-guides-index" width="100%" height="700px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
+        <iframe src="https://webapps.washingtoncountyor.gov/surveyexplorer-dev/" width="100%" height="700px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
 
         <div id="footer"></div>
     </main>

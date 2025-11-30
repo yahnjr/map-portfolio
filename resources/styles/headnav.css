@@ -95,7 +95,6 @@ body {
   opacity: 1;
 }
 
-
 .nav-bar a {
   text-decoration: none;
 }
@@ -157,51 +156,80 @@ body {
   display: inline-block;
 }
 
+.dropdown {
+  display: inline-block;
+  list-style: none;
+}
+
+.projects-button:hover .dropdown-content,
+.dropdown-content:hover {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
-  top: -50%;
-  right: 80%;
-  background-color: #3b3b3b;
-  border-radius: 15px;
-  border: 2px solid white;
-  border-radius: 15px;
-  padding: 0;
-  margin: 0;
-  min-width: 300px;
+  top: -200%;
+  right: calc(100% - 100px);
+  padding: 20px;
+  padding-left: 100px;
+  min-width: 400px;
   z-index: 1010;
-  grid-template-columns: 1fr 1fr;
-  gap: 5px;
-}
-
-.dropdown:hover .dropdown-content {
-  display: grid;
+  pointer-events: auto;
 }
 
 .dropdown-content a {
+  background-color: #3b3b3b;
+  border-radius: 15px;
+  border: 2px solid white;
   color: white;
   text-decoration: none;
-  padding: 12px;
-  display: block;
+  padding: 2px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   white-space: nowrap;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  min-height: 40px;
 }
 
 .dropdown-content a:hover {
   background-color: teal;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  border-color: #00ffff;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @media screen and (max-width: 768px) {
   .dropdown-content {
     grid-template-columns: 1fr;
-    min-width: 160px;
+    min-width: 200px;
     top: -200%;
-    right: 80%;
-    padding: 5px;
+    right: calc(100% - 60px);
+    padding: 15px;
+    padding-left: 80px;
   }
-
+  
   .dropdown-content a {
     font-size: 14px;
-    padding: 8px;
+    padding: 16px 12px;
     white-space: normal;
+    min-height: 50px;
   }
 }
