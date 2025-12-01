@@ -66,23 +66,17 @@
                 <span class="text">Globe</span>
             </button>
         </a>
-          <div class="projects-button">
-              <i class="fa fa-map" style="font-size:36px;color:white"></i>
-              <li class="dropdown">
-                <span class="text">Project Pages</span>
-                <div class="dropdown-content">
-                </div>
-              </li>
-            </div>
 
-          <button class="nav-button">
-              <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
-              <span class="text">About Me</span>
-          </button>
+        <div class="nav-button projects-button" id="projects-button">
+            <i class="fa fa-map" style="font-size:36px;color:white"></i>
+            <span class="text">Project Pages</span>
+        </div>
+
+        <button class="nav-button">
+            <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
+            <span class="text">About Me</span>
+        </button>
     </div>
-
-
-    
 
     <main>
         <div class="info-box" id="infoBox">
@@ -100,12 +94,20 @@
           <iframe src="https://storymaps.arcgis.com/stories/7ca19a53ac2b4a199bd1a54f28c6bf78"></iframe>
           <a href="https://storymaps.arcgis.com/stories/7ca19a53ac2b4a199bd1a54f28c6bf78" target="_blank"><div id="fullscreen-button"><img src="../../resources/pictures/icons/fullscreen.svg"></div></a>
         </div>
-      
+
+        <div id="projects-modal" class="projects-modal">
+            <div class="projects-modal-content">
+                <button class="projects-modal-close" id="close-projects">&times;</button>
+                <div class="projects-grid"></div>
+            </div>
+        </div>
+        
         <div id="footer"></div>
       
       </main>
+    <script src="../../resources/scripts/projects-script.js"></script>
+    <script src="../../resources/scripts/nav-bar.js"></script>
     <script src="../../resources/scripts/footer.js"></script>
     <script src="../../resources/scripts/stars.js"></script>
-    <script src="../../resources/scripts/projects-script.js"></script>
 </body>
 </html>

@@ -29,22 +29,20 @@
           </button>
         
         
-          <div class="projects-button">
+          <div class="nav-button projects-button" id="projects-button">
             <i class="fa fa-map" style="font-size:36px;color:white"></i>
-              <li class="dropdown">
-                <span class="text">Project Pages</span>
-                <div class="dropdown-content"></div>
-              </li>
+            <span class="text">Project Pages</span>
           </div>
-        
+
+          
           <button class="nav-button">
             <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
             <span class="text">About Me</span>
           </button>
-        
+          
       </div>
-
-    <section id="section2">     
+      
+      <section id="section2">     
         <div id="sidebar2" class="sidebar">
           <div id="welcome-box">
             <h1>Welcome to my map portfolio!</h1>
@@ -52,12 +50,22 @@
           </div>
         </div>
         <div id="map2" class="map-container"></div>
+        
+        <div id="projects-modal" class="projects-modal">
+          <div class="projects-modal-content">
+            <button class="projects-modal-close" id="close-projects">&times;</button>
+            <div class="projects-grid">
+            </div>
+          </div>
+        </div>
 
-      <div id="footer"></div>
-    </section>
+        <div id="footer"></div>
+        
+      </section>
 
-    <script src="resources/scripts/footer.js"></script>
     <script type="module" src="resources/scripts/main-script.js"></script>
+    <script src="resources/scripts/footer.js"></script>
+    <script src="resources/scripts/nav-bar.js"></script>
     <script src="resources/scripts/stars.js"></script>
 </body>
 </html>

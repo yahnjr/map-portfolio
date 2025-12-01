@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camping</title>
-    <meta name="project-title" content="Camping">
+    <title>Washington County</title>
+    <meta name="project-title" content="Washington County">
     <link rel="stylesheet" href="../../resources/styles/headnav.css">
     <link rel="stylesheet" href="../../resources/styles/infobox.css">
     <link rel="stylesheet" href="../../resources/styles/footer.css">
@@ -45,42 +45,50 @@
                 <span class="text">Globe</span>
             </button>
         </a>
-        <div class="projects-button">
+
+        <div class="nav-button projects-button" id="projects-button">
             <i class="fa fa-map" style="font-size:36px;color:white"></i>
-            <li class="dropdown">
-                <span class="text">Project Pages</span>
-                <div class="dropdown-content">
-                </div>
-            </li>
-            </div>
+            <span class="text">Project Pages</span>
+        </div>
 
-          <button class="nav-button">
-              <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
-              <span class="text">About Me</span>
-          </button>
-
-      </div>
+        <button class="nav-button">
+            <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
+            <span class="text">About Me</span>
+        </button>
+    </div>
 
     <main>
         <div class="info-box" id="infoBox">
-            <h2>Campview: A New Way To View Campsites Before Booking</h2>
-            <p>
-                <b>Skills used:</b>
-                <span id="skillsContainer"></span>
-            </p>
-            <p>Born from a perhaps overly ambitious project to create a 3D model of all the Northwest Area campsites, this application allows users to view a photosphere style (think Google Street View) image of their campsite before deciding where to pitch a tent. I learned a lot about application development, data storage, and the time consuming act of data collection while working on this project, and I also got to spend some time in the great outdoors.  </p>
-            <p>The full sized web app can be found <a href="https://yahnjr.github.io/campingapp/">here</a>. </p>
+            <div class="info-box" id="infoBox">
+                <h2>Campview: A New Way To View Campsites Before Booking</h2>
+                <p>
+                    <b>Skills used:</b>
+                    <span id="skillsContainer"></span>
+                </p>
+                <p>Born from a perhaps overly ambitious project to create a 3D model of all the Northwest Area campsites, this application allows users to view a photosphere style (think Google Street View) image of their campsite before deciding where to pitch a tent. I learned a lot about application development, data storage, and the time consuming act of data collection while working on this project, and I also got to spend some time in the great outdoors.  </p>
+                <p>The full sized web app can be found <a href="https://yahnjr.github.io/campingapp/">here</a>. </p>
+            </div>
         </div>
+
         <button class="info-button" id="infoButton">
             <i class="fa fa-info-circle" style="font-size:24px;"></i>
         </button>
+        
         <iframe src="https://yahnjr.github.io/campingapp/" width="100%" height="700px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
+
+        <div id="projects-modal" class="projects-modal">
+            <div class="projects-modal-content">
+                <button class="projects-modal-close" id="close-projects">&times;</button>
+                <div class="projects-grid"></div>
+            </div>
+        </div>
 
         <div id="footer"></div>
     </main>
-
-    <script src="../../resources/scripts/footer.js"></script>
+        
     <script src="../../resources/scripts/projects-script.js"></script>
+    <script src="../../resources/scripts/nav-bar.js"></script>
+    <script src="../../resources/scripts/footer.js"></script>
     <script src="../../resources/scripts/stars.js"></script>
 </body>
 </html>

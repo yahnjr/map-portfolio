@@ -50,31 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-async function populateNavbar() {
-    const jsonFile = "../../resources/projects.json";
-    const response = await fetch(jsonFile);
-    const projects = await response.json();
-    
-    const projectTitle = document.querySelector('meta[name="project-title"]').content;
-    const dropdownContent = document.querySelector('.dropdown-content');
-    
-    if (!dropdownContent) {
-        console.error("Dropdown content not found");
-        return;
-    }
-    
-    dropdownContent.innerHTML = '';
-    
-    projects.forEach(project => {
-        if (project.name !== projectTitle) {
-            const link = document.createElement('a');
-            link.href = `../${project.link.split('/').pop()}`;
-            link.textContent = project.name;
-            dropdownContent.appendChild(link);
-        }
-    });
-}
-
 async function populateSkills() {
     const jsonFile = "../../resources/projects.json";
     const response = await fetch(jsonFile);
@@ -143,5 +118,4 @@ function hidePopup(popup) {
 
 document.addEventListener("DOMContentLoaded", () => {
     populateSkills();
-    populateNavbar();
 });

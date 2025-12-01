@@ -18,11 +18,6 @@
             overflow-x: hidden;
         }
 
-        .section1 {
-            width: 100%;
-            height: 100vh;
-        }
-
         #map {
             width: 100%;
             height: 100vh;
@@ -45,19 +40,16 @@
                 <span class="text">Globe</span>
             </button>
         </a>
-        <div class="projects-button">
-            <i class="fa fa-map" style="font-size:36px;color:white"></i>
-            <li class="dropdown">
-                <span class="text">Project Pages</span>
-                <div class="dropdown-content">
-                </div>
-            </li>
-            </div>
 
-            <button class="nav-button">
-                <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
-                <span class="text">About Me</span>
-            </button>
+        <div class="nav-button projects-button" id="projects-button">
+            <i class="fa fa-map" style="font-size:36px;color:white"></i>
+            <span class="text">Project Pages</span>
+        </div>
+
+        <button class="nav-button">
+            <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
+            <span class="text">About Me</span>
+        </button>
 
     </div>
     <div class="info-box" id="infoBox">
@@ -73,9 +65,15 @@
     </button>
     <div id="map"></div>
 
+    <div id="projects-modal" class="projects-modal">
+        <div class="projects-modal-content">
+            <button class="projects-modal-close" id="close-projects">&times;</button>
+            <div class="projects-grid"></div>
+        </div>
+    </div>
+
     <div id="footer"></div>
     
-    <script src="../../footer.js"></script>  
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiaWZvcm1haGVyIiwiYSI6ImNsaHBjcnAwNDF0OGkzbnBzZmUxM2Q2bXgifQ.fIyIgSwq1WWVk9CKlXRXiQ';
         var map = new mapboxgl.Map({
@@ -116,8 +114,9 @@
         });
     </script>
 
+    <script src="../../resources/scripts/projects-script.js"></script>
+    <script src="../../resources/scripts/nav-bar.js"></script>
     <script src="../../resources/scripts/footer.js"></script>
     <script src="../../resources/scripts/stars.js"></script>
-    <script src="../../resources/scripts/projects-script.js"></script>
 </body>
 </html>

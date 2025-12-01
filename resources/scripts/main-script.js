@@ -126,26 +126,37 @@ function initializeClustering(projects) {
     }
   });
 
-  // Click event for clusters - zoom in
-  // map2.on('click', 'clusters', (e) => {
-  //   const features = map2.queryRenderedFeatures(e.point, {
-  //     layers: ['clusters']
-  //   });
-  //   const clusterId = features[0].properties.cluster_id;
-  //   map2.getSource('projects').getClusterExpansionZoom(
-  //     clusterId,
-  //     (err, zoom) => {
-  //       if (err) return;
+  map2.addLayer({
+    id: 'highlighted-point',
+    type: 'circle',
+    source: 'projects',
+    filter: ['==', ['get', 'name'], ''],
+    paint: {
+      'circle-color': '#ffff00',
+      'circle-radius': 12,
+      'circle-stroke-width': 3,
+      'circle-stroke-color': '#000'
+    }
+  });
 
-  //       map2.easeTo({
-  //         center: features[0].geometry.coordinates,
-  //         zoom: zoom
-  //       });
-  //     }
-  //   );
-  // });
+  map2.on('click', 'clusters', (e) => {
+    const features = map2.queryRenderedFeatures(e.point, {
+      layers: ['clusters']
+    });
+    const clusterId = features[0].properties.cluster_id;
+    map2.getSource('projects').getClusterExpansionZoom(
+      clusterId,
+      (err, zoom) => {
+        if (err) return;
 
-  // Click event for individual points
+        map2.easeTo({
+          center: features[0].geometry.coordinates,
+          zoom: zoom
+        });
+      }
+    );
+  });
+
   map2.on('click', 'unclustered-point', (e) => {
     const coordinates = e.features[0].geometry.coordinates.slice();
     const properties = e.features[0].properties;
@@ -153,13 +164,12 @@ function initializeClustering(projects) {
     scrollToProjectBox(properties.name, JSON.parse(properties.projectData), 'sidebar2');
   });
 
-  // Change cursor on hover
-  // map2.on('mouseenter', 'clusters', () => {
-  //   map2.getCanvas().style.cursor = 'pointer';
-  // });
-  // map2.on('mouseleave', 'clusters', () => {
-  //   map2.getCanvas().style.cursor = '';
-  // });
+  map2.on('mouseenter', 'clusters', () => {
+    map2.getCanvas().style.cursor = 'pointer';
+  });
+  map2.on('mouseleave', 'clusters', () => {
+    map2.getCanvas().style.cursor = '';
+  });
   map2.on('mouseenter', 'unclustered-point', () => {
     map2.getCanvas().style.cursor = 'pointer';
   });
@@ -251,6 +261,9 @@ function flyToBoxCoord(sidebar, projects) {
 
   if (mapCenterIndex !== -1) {
     const targetProject = projects[mapCenterIndex];
+    const targetProjectName = targetProject.name;
+
+    map2.setFilter('highlighted-point', ['==', ['get', 'name'], targetProjectName]);
     
     map2.stop();
     map2.flyTo({
@@ -346,7 +359,6 @@ document.addEventListener('DOMContentLoaded', () => {
   map2.on('zoom', handleVisibility);
 
   handleVisibility();
-  populateNavbar();
 });
 
 document.getElementById("globe-button").addEventListener('click', () =>{
@@ -356,25 +368,3 @@ document.getElementById("globe-button").addEventListener('click', () =>{
   sidebar.scrollLeft = 0;
   window.scrollTo(0, 0);
 });
-
-async function populateNavbar() {
-    const jsonFile = "../../resources/projects.json";
-    const response = await fetch(jsonFile);
-    const projects = await response.json();
-    
-    const dropdownContent = document.querySelector('.dropdown-content');
-    
-    if (!dropdownContent) {
-        console.error("Dropdown content not found");
-        return;
-    }
-    
-    dropdownContent.innerHTML = '';
-    
-    projects.forEach(project => {
-      const link = document.createElement('a');
-      link.href = `../projects/${project.link.split('/').pop()}`;
-      link.textContent = project.name;
-      dropdownContent.appendChild(link);     
-    });
-}
