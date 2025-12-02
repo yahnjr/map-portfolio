@@ -121,8 +121,20 @@ body {
   border: 2px solid white;
 }
 
-.nav-button:hover {
-  transform: translateX(40%);
+@media (hover: hover) and (pointer: fine) {
+  .nav-button:hover {
+    transform: translateX(40%);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .nav-button {
+    transform: translateX(40%);
+  }
+  
+  .nav-button:active {
+    transform: translateX(35%) scale(0.98);
+  }
 }
 
 .fa {
@@ -223,7 +235,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-
 
 .nav-project-box::after {
   content: '';

@@ -31,7 +31,6 @@ async function populateNavbar() {
             navProjectBox.style.backgroundImage = `url(${project.imageUrl})`;
             navProjectBox.appendChild(projectTitle);
             navProjectBox.appendChild(projectDescription);
-
             navProjectBox.className = 'nav-project-box';
         }
     });
@@ -39,43 +38,26 @@ async function populateNavbar() {
 
 document.addEventListener("DOMContentLoaded", () => {
     populateNavbar();
-
     const projectsModal = document.getElementById('projects-modal');
     const projectsButton = document.querySelector('.projects-button');
     const closeButton = document.getElementById('close-projects');
     
-     const openModal = (e) => {
+    const openModal = (e) => {
         e.preventDefault();
         projectsModal.classList.add('show');
         document.body.style.overflow = 'hidden';
     };
-    
-    projectsButton.addEventListener('click', openModal);
-    projectsButton.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        openModal(e);
-    });
     
     const closeModal = () => {
         projectsModal.classList.remove('show');
         document.body.style.overflow = 'auto';
     };
     
+    projectsButton.addEventListener('click', openModal);
     closeButton.addEventListener('click', closeModal);
-    closeButton.addEventListener('touchend', (e) => {
-        e.preventDefault();
-        closeModal();
-    });
     
     projectsModal.addEventListener('click', (e) => {
         if (e.target === projectsModal) {
-            closeModal();
-        }
-    });
-    
-    projectsModal.addEventListener('touchend', (e) => {
-        if (e.target === projectsModal) {
-            e.preventDefault();
             closeModal();
         }
     });
