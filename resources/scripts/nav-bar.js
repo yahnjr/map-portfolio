@@ -44,21 +44,39 @@ document.addEventListener("DOMContentLoaded", () => {
     const projectsButton = document.querySelector('.projects-button');
     const closeButton = document.getElementById('close-projects');
     
-    projectsButton.addEventListener('click', (e) => {
+     const openModal = (e) => {
         e.preventDefault();
         projectsModal.classList.add('show');
         document.body.style.overflow = 'hidden';
+    };
+    
+    projectsButton.addEventListener('click', openModal);
+    projectsButton.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        openModal(e);
     });
     
-    closeButton.addEventListener('click', () => {
+    const closeModal = () => {
         projectsModal.classList.remove('show');
         document.body.style.overflow = 'auto';
+    };
+    
+    closeButton.addEventListener('click', closeModal);
+    closeButton.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        closeModal();
     });
     
     projectsModal.addEventListener('click', (e) => {
         if (e.target === projectsModal) {
-        projectsModal.classList.remove('show');
-        document.body.style.overflow = 'auto';
+            closeModal();
+        }
+    });
+    
+    projectsModal.addEventListener('touchend', (e) => {
+        if (e.target === projectsModal) {
+            e.preventDefault();
+            closeModal();
         }
     });
 });
