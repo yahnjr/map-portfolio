@@ -129,24 +129,6 @@ body {
   margin-right: 30px;
 }
 
-/* .projects-button {
-  text-decoration: none;
-  position: relative;
-  background-color: #3b3b3b;
-  display: flex;
-  align-items: center;
-  max-width: 300px;
-  color: white;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 7px;
-  margin: 50px;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-  border-color: white;
-  pointer-events: auto;
-} */
-
 .projects-modal {
   display: none;
   position: fixed;
@@ -259,12 +241,11 @@ body {
   position: relative;
   z-index: 1;
   margin: 0;
-  padding: 5px;
+  padding: 3px;
 }
 
 .nav-project-box h3 {
   font-size: 1rem;
-  margin-bottom: 5px;
 }
 
 .nav-project-box p {
@@ -281,9 +262,5 @@ body {
   
   .projects-modal-content {
     padding: 5px;
-  }
-  
-  .projects-modal h2 {
-    font-size: 1.5rem;
   }
 }

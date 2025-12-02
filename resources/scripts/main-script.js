@@ -121,7 +121,7 @@ function initializeClustering(projects) {
     paint: {
       'circle-color': '#f78247',
       'circle-radius': 8,
-      'circle-stroke-width': 2,
+      'circle-stroke-width': 0.5,
       'circle-stroke-color': '#fff'
     }
   });
