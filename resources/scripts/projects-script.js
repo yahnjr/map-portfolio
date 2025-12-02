@@ -48,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    populateSkills();
 });
 
 async function populateSkills() {
@@ -115,7 +117,3 @@ function positionPopup(event, popup) {
 function hidePopup(popup) {
     popup.style.display = 'none';
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    populateSkills();
-});

@@ -80,7 +80,7 @@ body {
   top: 50%;
   right: 20px;
   background: transparent;
-  pointer-events: none;
+  visibility: hidden;
   transform: translateY(-50%);
   opacity: 0;
   transition: opacity 1s ease-in-out;
@@ -88,10 +88,12 @@ body {
 
 .nav-bar.fade-in {
   opacity: 1;
+  visibility: visible;
 }
 
 .subpage .nav-bar,
 .subpage .header {
+  visibility: visible;
   opacity: 1;
 }
 
@@ -127,13 +129,9 @@ body {
   }
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .nav-button {
-    transform: translateX(40%);
-  }
-  
+@media (hover: none) and (pointer: coarse) {  
   .nav-button:active {
-    transform: translateX(35%) scale(0.98);
+    transform: translateX(40%);
   }
 }
 
