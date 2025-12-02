@@ -272,4 +272,12 @@ body {
   .projects-modal-content {
     padding: 5px;
   }
+
+  .nav-project-box {
+    height: 90px;
+  }
+
+  .nav-project-box p {
+    font-size: 0.8rem;
+  }
 }
