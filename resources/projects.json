@@ -8,7 +8,8 @@
         "zoomLevel": 10,
         "link": "projects/nehalem",
         "cluster": "1",
-        "skills": ["data management", "application development", "data communication and visualization", "spatial analysis", "raster analysis", "Python", "conservation", "climate modelling", "stakeholder interactions", "ArcGIS Online", "ArcGIS Pro"]
+        "skills": ["environmental", "data management", "application development", "data communication and visualization", "spatial analysis", "raster analysis", "Python", "conservation", "climate modelling", "stakeholder interactions", "ArcGIS Online", "ArcGIS Pro"],
+        "location": ["Oregon", "USA"]
     },
     {
         "name": "Wewahitchka",
@@ -19,18 +20,8 @@
         "zoomLevel": 12.5,
         "link": "projects/ppgis",
         "cluster": "",
-        "skills": ["front-end development", "Javascript", "application development", "public data collection", "policy recommendations", "ESRI Javascript", "ArcGIS Online", "accessibility", "urban planning"]
-    },
-    {
-        "name": "Lake Oswego",
-        "coordinates": [-122.69132, 45.41107],
-        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/lakeo.png",
-        "description": "A look at Oregon white oaks, a keystone species, in the area.",
-        "title": "Oregon White Oaks in Lake Oswego",
-        "zoomLevel": 13,
-        "link": "projects/lakeoswego",
-        "cluster": "1",
-        "skills": ["spatial analysis", "suitability analysis", "raster analysis", "application development", "public data collection", "data communication and visualization", "conservation", "Mapbox", "ArcGIS Pro", "ArcGIS Online", "open source software"]
+        "skills": ["front-end development", "Javascript", "application development", "public data collection", "policy recommendations", "ArcGIS Online", "accessibility", "urban planning"],
+        "location": ["Florida", "USA"]
     },
     {
         "name": "Taiwan",
@@ -41,29 +32,20 @@
         "zoomLevel": 7,
         "link": "projects/taiwan",
         "cluster": "",
-        "skills": ["data management", "raster analysis", "climate modelling", "Python", "data communication and visualization", "cartography", "ArcGIS Pro"]
+        "skills": ["environental", "data management", "raster analysis", "climate modelling", "Python", "data communication and visualization", "cartography", "ArcGIS Pro"],
+        "location": ["Taiwan", "Asia", "Outside USA"]
     },
     {
-        "name": "Marion County",
-        "coordinates": [-86.1555, 39.7704],
-        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/marion-county.jpg",
-        "description": "Worked with city staff and the public to collect public feedback on future development of county and create scenarios. (3J Consulting project)",
-        "title": "Marion County, Indiana Comprehensive Plan Update",
-        "zoomLevel": 9.5,
-        "link": "projects/marion-county",
-        "cluster": "",
-        "skills": ["data management", "accessibility", "cartography", "public data collection", "urban planning", "data communication and visualization", "spatial analysis"]
-    },
-    {
-        "name": "Columbia Slough",
-        "coordinates": [-122.717, 45.617],
-        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/columbiaslough.png",
-        "description": "An application to showcase nature access, with accesibility features and multiple language modes.",
-        "title": "Columba Slough Watershed Council Application",
-        "zoomLevel": 10,
-        "link": "projects/columbia-slough",
+        "name": "Lake Oswego",
+        "coordinates": [-122.69132, 45.41107],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/lakeo.png",
+        "description": "A look at Oregon white oaks, a keystone species, in the area.",
+        "title": "Oregon White Oaks in Lake Oswego",
+        "zoomLevel": 13,
+        "link": "projects/lakeoswego",
         "cluster": "1",
-        "skills": ["front-end development", "application development", "data management", "Javascript", "Mapbox", "open source software", "remote sensing", "accessibility"]
+        "skills": ["environmental", "spatial analysis", "suitability analysis", "raster analysis", "application development", "public data collection", "data communication and visualization", "conservation", "Mapbox", "ArcGIS Pro", "ArcGIS Online", "open source software"],
+        "location": ["Oregon", "USA"]
     },
     {
         "name": "Seaside",
@@ -74,7 +56,20 @@
         "zoomLevel": 12,
         "link": "projects/seaside",
         "cluster": "1",
-        "skills": ["data management", "data communication and visualization", "cartography", "ArcGIS Pro", "public data collection", "urban planning"]
+        "skills": ["data management", "data communication and visualization", "cartography", "ArcGIS Pro", "public data collection", "urban planning"],
+        "location": ["Oregon", "USA"]
+    },
+    {
+        "name": "Columbia Slough",
+        "coordinates": [-122.717, 45.617],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/columbiaslough.png",
+        "description": "An application to showcase nature access, with accesibility features and multiple language modes.",
+        "title": "Columba Slough Watershed Council Application",
+        "zoomLevel": 10,
+        "link": "projects/columbia-slough",
+        "cluster": "1",
+        "skills": ["environemental", "front-end development", "application development", "data management", "Javascript", "Mapbox", "open source software", "remote sensing", "accessibility"],
+        "location": ["Oregon", "USA"]
     },
     {
         "name": "Monterey Bay",
@@ -85,7 +80,8 @@
         "zoomLevel": 9,
         "link": "projects/monterey",
         "cluster": "",
-        "skills": ["spatial analysis", "suitability analysis", "raster analysis", "cartography", "data communication and visualization", "ArcGIS Pro"]
+        "skills": ["environmental","spatial analysis", "suitability analysis", "raster analysis", "cartography", "data communication and visualization", "ArcGIS Pro"],
+        "location": ["California", "USA"]
     },
     {
         "name": "Washington County",
@@ -96,7 +92,20 @@
         "zoomLevel": 9,
         "link": "projects/washington-county",
         "cluster": "1",
-        "skills": ["data communication and visualization", "urban planning,", "Javascript", "application development"]
+        "skills": ["data communication and visualization", "urban planning", "Javascript", "application development"],
+        "location": ["Oregon", "USA"]
+    },
+    {
+        "name": "Marion County",
+        "coordinates": [-86.1555, 39.7704],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/marion-county.jpg",
+        "description": "Worked with city staff and the public to collect public feedback on future development of county and create scenarios. (3J Consulting project)",
+        "title": "Marion County, Indiana Comprehensive Plan Update",
+        "zoomLevel": 9.5,
+        "link": "projects/marion-county",
+        "cluster": "",
+        "skills": ["data management", "accessibility", "cartography", "public data collection", "urban planning", "data communication and visualization", "spatial analysis"],
+        "location": ["Indiana", "USA"]
     },
     {
         "name": "PCC Rock Creek",
@@ -107,7 +116,8 @@
         "zoomLevel": 18,
         "link": "projects/pccrockcreek",
         "cluster": "1",
-        "skills": ["drone photography", "remote sensing", "data communication and visualization", "ArcGIS Pro"]
+        "skills": ["drone photography", "remote sensing", "data communication and visualization", "ArcGIS Pro"],
+        "location": ["Oregon", "USA"]
     },
     {
         "name": "Northern Oregon Coast",
@@ -118,18 +128,8 @@
         "zoomLevel": 9,
         "link": "projects/northcoast",
         "cluster": "1",
-        "skills": ["spatial analysis", "suitability analysis", "hotspot analysis", "self-led project", "policy recommendations", "conservation", "ArcGIS Pro"]
-    },
-    {
-        "name": "Camping",
-        "coordinates": [-120.718, 44.144],
-        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/camping.png",
-        "description": "A new way to view campsites before you choose your nature getaway.",
-        "title": "Campview App",
-        "zoomLevel": 6,
-        "link": "projects/camping",
-        "cluster": "1",
-        "skills": ["front-end development", "application development", "data management", "Javascript", "Mapbox", "open source software", "remote sensing"]
+        "skills": ["environmental","spatial analysis", "suitability analysis", "hotspot analysis", "self-led project", "policy recommendations", "conservation", "ArcGIS Pro"],
+        "location": ["Oregon", "USA"]
     },
     {
         "name": "Chiricahua Mountains",
@@ -140,18 +140,20 @@
         "zoomLevel": 9,
         "link": "projects/chiricahuas",
         "cluster": "",
-        "skills": ["cartography", "QGIS", "open source software", "self-led project"]
+        "skills": ["environmental","cartography", "QGIS", "open source software", "self-led project"],
+        "location": ["Arizona", "USA"]
     },
     {
-        "name": "Map to Music",
-        "coordinates": [46.14179504389673, -21.054481726381894],
-        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/map2midi.png",
-        "description": "A simple app to turn geospatial data into (questionably) beautiful sounds.",
-        "title": "Turning Maps into Music",
-        "zoomLevel": 4,
-        "link": "projects/map2midi",
-        "cluster": "",
-        "skills": ["Python", "application development", "Javascript", "front-end development", "back end development", "Mapbox", "open source software", "self-led project"]
+        "name": "Camping",
+        "coordinates": [-120.718, 44.144],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/camping.png",
+        "description": "A new way to view campsites before you choose your nature getaway.",
+        "title": "Campview App",
+        "zoomLevel": 6,
+        "link": "projects/camping",
+        "cluster": "1",
+        "skills": ["front-end development", "application development", "data management", "Javascript", "Mapbox", "open source software", "remote sensing"],
+        "location": ["Oregon", "USA"]
     },
     {
         "name": "Europe",
@@ -162,7 +164,20 @@
         "zoomLevel": 4,
         "link": "projects/europe",
         "cluster": "",
-        "skills": ["data management", "hotspot analysis", "spatial analysis", "cartography", "data communication and visualization", "ArcGIS Pro"]
+        "skills": ["data management", "hotspot analysis", "spatial analysis", "cartography", "data communication and visualization", "ArcGIS Pro"],
+        "location": ["Europe", "Outside USA"]
+    },
+    {
+        "name": "Map to Music",
+        "coordinates": [46.14179504389673, -21.054481726381894],
+        "imageUrl": "https://yahnjr.github.io/map-portfolio/resources/pictures/map2midi.png",
+        "description": "A simple app to turn geospatial data into (questionably) beautiful sounds.",
+        "title": "Turning Maps into Music",
+        "zoomLevel": 4,
+        "link": "projects/map2midi",
+        "cluster": "",
+        "skills": ["Python", "application development", "Javascript", "front-end development", "back end development", "Mapbox", "open source software", "self-led project"],
+        "location": ["Africa", "Europe", "Asia", "South America", "Outside USA", "USA", "Global"]
     },
     {
         "name": "Global",
@@ -173,6 +188,7 @@
         "zoomLevel": 2,
         "link": "projects/world",
         "cluster": "",
-        "skills": ["cartography", "data management", "data communication and visualization", "ArcGIS Pro"]
+        "skills": ["cartography", "data management", "data communication and visualization", "ArcGIS Pro"],
+        "location": ["Global", "Outside USA"]
     }
 ]
