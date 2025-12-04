@@ -151,9 +151,11 @@ function initializeModalEventListeners() {
     
     const openModal = (e) => {
         e.preventDefault();
+        e.stopPropagation();
         projectsModal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     };
+
     
     const closeModal = () => {
         projectsModal.style.display = 'none';
@@ -161,7 +163,8 @@ function initializeModalEventListeners() {
         document.querySelectorAll('.filter-dropdown').forEach(d => d.remove());
     };
     
-    projectsButton.addEventListener('click', openModal);
+    projectsButton.addEventListener('click', openModal, { passive: false });
+    projectsButton.addEventListener('touchend', openModal, { passive: false });
     closeButton.addEventListener('click', closeModal);
     
     projectsModal.addEventListener('click', (e) => {
