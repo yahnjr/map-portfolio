@@ -5,6 +5,28 @@ let currentFilters = {
     tag: null
 };
 
+function createProjectsModal() {
+    const modalHTML = `
+        <div class="projects-modal-content">
+            <button class="projects-modal-close" id="close-projects">&times;</button>
+            <div class="projects-header">
+                <input type="text" id="projects-search" placeholder="Search projects...">
+                <div id="filters-box">
+                    <div id="search-geographic" class="search-filter">Geographic Area</div>
+                    <div id="search-tags" class="search-filter">Tags</div>
+                </div>
+                <div id="clear-filters" class="search-filter">Clear Filters</div>
+            </div>
+            <div class="projects-grid-container">
+                <div class="projects-grid">
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.getElementById('projects-modal').innerHTML = modalHTML;
+}
+
 async function populateNavbar() {
     const projectTitle = document.querySelector('meta[name="project-title"]') ? document.querySelector('meta[name="project-title"]').content : null;
     const jsonFile = (projectTitle == "Map Portfolio") ? "resources/projects.json" : "../../resources/projects.json";
@@ -118,28 +140,23 @@ function createFilterDropdown(items, type) {
     return dropdown;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        populateNavbar();
-    }, 100);
-    
+function initializeModalEventListeners() {
     const projectsModal = document.getElementById('projects-modal');
     const projectsButton = document.querySelector('.projects-button');
     const closeButton = document.getElementById('close-projects');
     const searchInput = document.getElementById('projects-search');
-    const searchButton = document.getElementById('search-button');
     const clearButton = document.getElementById('clear-filters');
     const geographicButton = document.getElementById('search-geographic');
     const tagsButton = document.getElementById('search-tags');
     
     const openModal = (e) => {
         e.preventDefault();
-        projectsModal.classList.add('show');
+        projectsModal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     };
     
     const closeModal = () => {
-        projectsModal.classList.remove('show');
+        projectsModal.style.display = 'none';
         document.body.style.overflow = 'auto';
         document.querySelectorAll('.filter-dropdown').forEach(d => d.remove());
     };
@@ -155,11 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     searchInput.addEventListener('input', (e) => {
         currentFilters.text = e.target.value;
-        filterProjects();
-    });
-    
-    searchButton.addEventListener('click', () => {
-        currentFilters.text = searchInput.value;
         filterProjects();
     });
     
@@ -200,4 +212,17 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll('.filter-dropdown').forEach(d => d.remove());
         }
     });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Create the modal HTML first
+    createProjectsModal();
+    
+    // Initialize event listeners
+    initializeModalEventListeners();
+    
+    // Populate the navbar with projects
+    setTimeout(() => {
+        populateNavbar();
+    }, 100);
 });

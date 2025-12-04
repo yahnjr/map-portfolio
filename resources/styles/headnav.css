@@ -145,24 +145,23 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
-.projects-modal.show {
-  display: flex;
 }
 
 .projects-modal-content {
   padding: 20px;
-  max-width: 70%;
+  max-width: 1000px;
   width: 90%;
-  max-height: 80vh;
-  overflow-y: auto;
-  position: relative;
+  height: 80vh;
+  overflow-y: hidden;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 10vh;
 }
 
 .projects-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
   font-size: 35px;
   font-weight: bold;
   color: white;
@@ -237,6 +236,10 @@ body {
     background-color: teal;
     color: white;
     border-color: #00ffff;
+}
+
+#filters-box {
+  display: flex;
 }
 
 #clear-filters {
@@ -398,11 +401,7 @@ body {
   }
 
   #filters-box {
-    display:flex;
-  }
-
-  .search-input-wrapper {
-    display: flex;
+    flex-direction: column;
   }
 
   .search-filter {
