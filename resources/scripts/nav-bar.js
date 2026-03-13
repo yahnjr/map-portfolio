@@ -70,8 +70,10 @@ function displayProjects(projects, currentProjectTitle) {
         link.href = `https://yahnjr.github.io/map-portfolio/projects/${project.link.split('/').pop()}`;
         projectTitle.textContent = project.name;
         projectDescription.textContent = project.description;
+
+        const thumbnailUrl = `https://yahnjr.github.io/map-portfolio/resources/pictures/thumbs/${project.imageUrl.split('/').pop()}`;
         
-        navProjectBox.style.backgroundImage = `url(${project.imageUrl})`;
+        navProjectBox.style.backgroundImage = `url(${thumbnailUrl})`;
         navProjectBox.appendChild(projectTitle);
         navProjectBox.appendChild(projectDescription);
         navProjectBox.className = 'nav-project-box';
