@@ -32,6 +32,15 @@ window.addEventListener('DOMContentLoaded', () => {
               <a href="https://yahnjr.github.io/map-portfolio/resources/MaherResume.pdf" class="link-button" target="_blank" title="Resume">
                 <img src="https://yahnjr.github.io/map-portfolio/resources/pictures/icons/file.svg" alt="Resume Icon" class="icon" />
               </a>
+              <a href="https://yahnjr.github.io/wildlife-photos/pages" class="link-button" target="_blank" title="Wildlife Photos">
+                <img src="../../resources/pictures/icons/binoculars.svg" alt="Wildlife Photos Icon" class="icon" />
+              </a>
+              <a href="https://alltrails.com/members/ian-maher-19" class="link-button" target="_blank" title="AllTrails Profile">
+                <img src="../../resources/pictures/icons/mountain.svg" alt="AllTrails Icon" class="icon" />
+              </a>
+              <a href="https://yahnjr.github.io/gis-game" class="link-button" target="_blank" title="GIS Game">
+                <img src="../../resources/pictures/icons/gamepad.svg" alt="GIS Game Icon" class="icon" />
+              </a>
             </div>
           </div>
 
