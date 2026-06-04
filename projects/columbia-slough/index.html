@@ -34,29 +34,37 @@
         <div id="header-atmosphere"></div>
         <div class="star-background"></div>
         <div class="header-content">
-            <h1>Map Portfolio</h1>
-            <p>Ian Maher</p>
+            <div class="header-text">
+                <h1>Map Portfolio</h1>
+                <p>Ian Maher</p>
+            </div>
+            <div class="nav-bar">
+                <a href="../../index.html">
+                    <button class="nav-button" id="globe-button">
+                        <i class="fa fa-globe" style="font-size:36px;color:white"></i>
+                        <span class="text">Globe</span>
+                    </button>
+                </a>
+
+                <button class="nav-button projects-button" id="projects-button">
+                    <i class="fa fa-map" style="font-size:36px;color:white"></i>
+                    <span class="text">Project Pages</span>
+                </button>
+
+                <button class="nav-button" id="infoButton">
+                    <i class="fa fa-info-circle" style="font-size:36px;color:white"></i>
+                    <span class="text">Info</span>
+                </button>
+
+                <button class="nav-button">
+                    <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
+                    <span class="text">About Me</span>
+                </button>
+            </div>
         </div>
     </div>
-    <div class="nav-bar">
-        <a href="../../index.html">
-            <button class="nav-button" id="globe-button">
-                <i class="fa fa-globe" style="font-size:36px;color:white"></i>
-                <span class="text">Globe</span>
-            </button>
-        </a>
 
-        <button class="nav-button projects-button" id="projects-button">
-            <i class="fa fa-map" style="font-size:36px;color:white"></i>
-            <span class="text">Project Pages</span>
-        </button>
-
-        <button class="nav-button">
-            <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
-            <span class="text">About Me</span>
-        </button>
-    </div>
-
+    <main>
     <main>
         <div class="info-box" id="infoBox">
             <h2>Columbia Slough Watershed Nature Access Application</h2>
@@ -67,9 +75,6 @@
             <p>Created in partnership with the <a href="https://www.columbiaslough.org/" target="_blank"> Columbia Slough Watershed Council </a> and a supported by a federal grant, this application is intended to accompany <a href="https://columbiaslough.github.io/resources/NatureInTheCity_FINAL_en.pdf" target="_blank"> print maps </a> to give residents information about areas where they can enjoy the natural areas of the Columbia Slough. Accessibility and inclusivity are crucial to the functionality of this application. The application supports four language modes (English, Spanish, Ukranian and Russian) and allows for the filtering of locations based on accessibility features. </p>
             <p>The full sized web app can be found at <a href="https://www.columbiaslough.org/recreation-guides-index" target="_blank">their website</a> (full page version <a href="https://columbiaslough.github.io/">here</a>). </p>
         </div>
-        <button class="info-button" id="infoButton">
-            <i class="fa fa-info-circle" style="font-size:24px;"></i>
-        </button>
         <iframe src="https://www.columbiaslough.org/recreation-guides-index" width="100%" height="700px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
 
         <div id="projects-modal" class="modal"></div>

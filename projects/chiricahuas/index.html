@@ -18,6 +18,10 @@
             overflow-x: hidden;
         }
 
+        main {
+            margin-top: 10vh;
+        }
+
         #map {
             width: 100%;
             height: 100vh;
@@ -29,30 +33,38 @@
         <div id="header-atmosphere"></div>
         <div class="star-background"></div>
         <div class="header-content">
-            <h1>Map Portfolio</h1>
-            <p>Ian Maher</p>
+            <div class="header-text">
+                <h1>Map Portfolio</h1>
+                <p>Ian Maher</p>
+            </div>
+            <div class="nav-bar">
+                <a href="../../index.html">
+                    <button class="nav-button" id="globe-button">
+                        <i class="fa fa-globe" style="font-size:36px;color:white"></i>
+                        <span class="text">Globe</span>
+                    </button>
+                </a>
+
+                <button class="nav-button projects-button" id="projects-button">
+                    <i class="fa fa-map" style="font-size:36px;color:white"></i>
+                    <span class="text">Project Pages</span>
+                </button>
+
+                <button class="nav-button" id="infoButton">
+                    <i class="fa fa-info-circle" style="font-size:36px;color:white"></i>
+                    <span class="text">Info</span>
+                </button>
+
+                <button class="nav-button">
+                    <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
+                    <span class="text">About Me</span>
+                </button>
+            </div>
         </div>
     </div>
-    <div class="nav-bar">
-        <a href="../../index.html">
-            <button class="nav-button" id="globe-button">
-                <i class="fa fa-globe" style="font-size:36px;color:white"></i>
-                <span class="text">Globe</span>
-            </button>
-        </a>
 
-        <button class="nav-button projects-button" id="projects-button">
-            <i class="fa fa-map" style="font-size:36px;color:white"></i>
-            <span class="text">Project Pages</span>
-        </button>
-
-        <button class="nav-button">
-            <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
-            <span class="text">About Me</span>
-        </button>
-    </div>
-
-    <div class="info-box" id="infoBox">
+    <main>
+        <div class="info-box" id="infoBox">
         <h2>Fauntastic Chiricahua Mountains</h2>
         <p>
             <b>Skills used:</b>
@@ -60,14 +72,12 @@
         </p>
         <p>In the summer of 2016, I completed a three month internship at the Southwest Research Station, operated by the Smithsonian Museum, in the Chiricahua Mountains of southeastern Arizona. I found one of the most fascinating places I had ever been to. This mountain range, which juts suddenly out of the surrounding Sonoran Desert, creates a so-called "sky island" which attracts animals from several of the surrounding ecoregions together into one of the most biodiverse places in the contiguous United States. I decided to create a map to show just how special this place is, especially for avid birders for whom the spot is often near the top of their "must go" list. I wanted to experiment with different mapping software, and I chose QGIS to create this map as I am a supporter of their open-source model. The data used is compiled from confirmed species observations made on the iNaturalist platform, which is widely used by both visitors to and inhabitants of the mountains, many of whom are retired professors. A full sized, undistorted version of the map <a href="../../resources/pictures/chiricahuas.jpg" target="_blank">can be found here</a></p>
     </div>
-    <button class="info-button" id="infoButton">
-        <i class="fa fa-info-circle" style="font-size:24px;"></i>
-    </button>
     <div id="map"></div>
 
     <div id="projects-modal" class="modal"></div>
     
     <div id="footer"></div>
+    </main>
     
     <script src="../../footer.js"></script>
     <script>

@@ -18,6 +18,10 @@
             overflow-x: hidden;
         }
 
+        main {
+            margin-top: 10vh;
+        }
+
         .section1 {
             width: 100%;
             height: 100vh;
@@ -80,42 +84,46 @@
         <div id="header-atmosphere"></div>
         <div class="star-background"></div>
         <div class="header-content">
-            <h1>Map Portfolio</h1>
-            <p>Ian Maher</p>
+            <div class="header-text">
+                <h1>Map Portfolio</h1>
+                <p>Ian Maher</p>
+            </div>
+            <div class="nav-bar">
+                <a href="../../index.html">
+                    <button class="nav-button" id="globe-button">
+                        <i class="fa fa-globe" style="font-size:36px;color:white"></i>
+                        <span class="text">Globe</span>
+                    </button>
+                </a>
+
+                <button class="nav-button projects-button" id="projects-button">
+                    <i class="fa fa-map" style="font-size:36px;color:white"></i>
+                    <span class="text">Project Pages</span>
+                </button>
+
+                <button class="nav-button" id="infoButton">
+                    <i class="fa fa-info-circle" style="font-size:36px;color:white"></i>
+                    <span class="text">Info</span>
+                </button>
+
+                <button class="nav-button">
+                    <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
+                    <span class="text">About Me</span>
+                </button>
+            </div>
         </div>
     </div>
-    <div class="nav-bar">
-        <a href="../../index.html">
-            <button class="nav-button" id="globe-button">
-                <i class="fa fa-globe" style="font-size:36px;color:white"></i>
-                <span class="text">Globe</span>
-            </button>
-        </a>
 
-        <button class="nav-button projects-button" id="projects-button">
-            <i class="fa fa-map" style="font-size:36px;color:white"></i>
-            <span class="text">Project Pages</span>
-        </button>
-
-        <button class="nav-button">
-            <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
-            <span class="text">About Me</span>
-        </button>
-
-    </div>
-
-    <div class="info-box" id="infoBox">
-        <h2>Marion County Workshops Summary</h2>
-        <p>
-            <b>Skills used:</b>
-            <span id="skillsContainer"></span>
-        </p>
-        <p> While working with 3J Consulting as a GIS Technician, we undertook a large scale project to collect public input from the residents of the nine townships of Marion County, Indiana on how they wanted future development to be shaped by the county's Comprehensive Plan. Large, detailed print maps were created and workshops were set up to allow residents to place stickers belonging to development types around their respective townships. </p>
-        <p> Once all the workshop feedback was collected, maps were digitized and analyzed using GIS software and the Envision Tomorrow planner's toolbox. The results were synthesized into future land use scenarios and presented to both staff and the public to allow for conversations around the shape of things to come for Marion County. Patterns begin to emerge by exploring the data in different ways; flip through the slides on the bottom of the map.</p>
-    </div>
-    <button class="info-button" id="infoButton">
-        <i class="fa fa-info-circle" style="font-size:24px;"></i>
-    </button>
+    <main>
+            <div class="info-box" id="infoBox">
+            <h2>Marion County Workshops Summary</h2>
+            <p>
+                <b>Skills used:</b>
+                <span id="skillsContainer"></span>
+            </p>
+            <p> While working with 3J Consulting as a GIS Technician, we undertook a large scale project to collect public input from the residents of the nine townships of Marion County, Indiana on how they wanted future development to be shaped by the county's Comprehensive Plan. Large, detailed print maps were created and workshops were set up to allow residents to place stickers belonging to development types around their respective townships. </p>
+            <p> Once all the workshop feedback was collected, maps were digitized and analyzed using GIS software and the Envision Tomorrow planner's toolbox. The results were synthesized into future land use scenarios and presented to both staff and the public to allow for conversations around the shape of things to come for Marion County. Patterns begin to emerge by exploring the data in different ways; flip through the slides on the bottom of the map.</p>
+        </div>
 
     <div id="map">
         <div id="slide-buttons">
@@ -132,7 +140,8 @@
 
     <div id="projects-modal" class="modal"></div>
 
-    <div id="footer"></div>
+        <div id="footer"></div>
+    </main>
     
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiaWZvcm1haGVyIiwiYSI6ImNsaHBjcnAwNDF0OGkzbnBzZmUxM2Q2bXgifQ.fIyIgSwq1WWVk9CKlXRXiQ';

@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 body {
-  font-family: Verdana, Tahoma, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #121212;
@@ -112,18 +114,20 @@ body {
 
 .project-box {
   position: relative;
-  border: 1px solid #333;
+  border: 1px solid rgba(100, 200, 255, 0.2);
   width: 100%;
   height: 400px;
   margin-bottom: 200px;
-  background-color: #3a3a3a;
+  background-color: rgba(200, 200, 200, 0.5);
   overflow: hidden;
   border-radius: 10px;
+  backdrop-filter: blur(10px);
 }
 
 .project-box:hover {
-  background-color: #90a4ae;
-  border-color: rgb(152, 197, 182);
+  background-color: rgba(144, 164, 174, 0.5);
+  backdrop-filter: blur(5px);
+  border-color: rgba(100, 200, 255, 0.5);
   border-width: 2px;
 }
 

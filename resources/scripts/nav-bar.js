@@ -219,9 +219,47 @@ function initializeModalEventListeners() {
     });
 }
 
+function initializeNavbarToggle() {
+    const navButtons = document.querySelectorAll('.nav-button');
+    
+    // Check if we're on a touch device
+    const isTouchDevice = () => {
+        return window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    };
+    
+    navButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            if (isTouchDevice()) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Remove active class from all other buttons
+                navButtons.forEach(btn => {
+                    if (btn !== button) {
+                        btn.classList.remove('active');
+                    }
+                });
+                
+                // Toggle active class on clicked button
+                button.classList.toggle('active');
+            }
+        });
+    });
+    
+    // Close expanded button when clicking outside
+    document.addEventListener('click', (e) => {
+        if (isTouchDevice() && !e.target.closest('.nav-button') && !e.target.closest('.nav-bar')) {
+            navButtons.forEach(btn => btn.classList.remove('active'));
+        }
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     // Create the modal HTML first
     createProjectsModal();
+    
+    // Initialize navbar toggle behavior
+    initializeNavbarToggle();
     
     // Initialize event listeners
     initializeModalEventListeners();

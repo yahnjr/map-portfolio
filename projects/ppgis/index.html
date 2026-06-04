@@ -35,32 +35,37 @@
         <div id="header-atmosphere"></div>
         <div class="star-background"></div>
         <div class="header-content">
-            <h1>Map Portfolio</h1>
-            <p>Ian Maher</p>
+            <div class="header-text">
+                <h1>Map Portfolio</h1>
+                <p>Ian Maher</p>
+            </div>
+            <div class="nav-bar">
+                <a href="../../index.html">
+                    <button class="nav-button" id="globe-button">
+                        <i class="fa fa-globe" style="font-size:36px;color:white"></i>
+                        <span class="text">Globe</span>
+                    </button>
+                </a>
+
+                <button class="nav-button projects-button" id="projects-button">
+                    <i class="fa fa-map" style="font-size:36px;color:white"></i>
+                    <span class="text">Project Pages</span>
+                </button>
+
+                <button class="nav-button" id="infoButton">
+                    <i class="fa fa-info-circle" style="font-size:36px;color:white"></i>
+                    <span class="text">Info</span>
+                </button>
+
+                <button class="nav-button">
+                    <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
+                    <span class="text">About Me</span>
+                </button>
+            </div>
         </div>
-    </div>
-    <div class="nav-bar">
-        <a href="../../index.html">
-            <button class="nav-button" id="globe-button">
-                <i class="fa fa-globe" style="font-size:36px;color:white"></i>
-                <span class="text">Globe</span>
-            </button>
-        </a>
-
-        <button class="nav-button projects-button" id="projects-button">
-            <i class="fa fa-map" style="font-size:36px;color:white"></i>
-            <span class="text">Project Pages</span>
-        </button>
-
-        <button class="nav-button">
-            <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
-            <span class="text">About Me</span>
-        </button>
-
     </div>
 
     <main>
-        
         <div class="info-box" id="infoBox">
             <h2>Application Development for Public Input</h2>
             <p>
@@ -76,9 +81,6 @@
             <p><a href="https://yahnjr.github.io/mlogs/ppgis/report-management" target="_blank"><b>Public Report Management</b></a> One part of a possible pair of applications, this one sits on the city staff side and serves as a portal to view, manage, and develop reports about public requests for actions on public works issues.</p>
             <p><a href="https://yahnjr.github.io/mlogs/ppgis/data-editor" target="_blank"><b>Focused Data Editor</b></a> A focused application that allows for easy batch editing of data. By allowing users to input certain values for their editing input, they simply click features they want to apply it to. Includes an information and apply mode so data can be updated and explored with ease. </p>
         </div>
-        <button class="info-button" id="infoButton">
-            <i class="fa fa-info-circle" style="font-size:24px;"></i>
-        </button>
         <iframe src="https://yahnjr.github.io/mlogs/ppgis"></iframe>
 
         <div id="projects-modal" class="modal"></div>

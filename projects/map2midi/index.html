@@ -55,27 +55,34 @@
         <div id="header-atmosphere"></div>
         <div class="star-background"></div>
         <div class="header-content">
-            <h1>Map Portfolio</h1>
-            <p>Ian Maher</p>
+            <div class="header-text">
+                <h1>Map Portfolio</h1>
+                <p>Ian Maher</p>
+            </div>
+            <div class="nav-bar">
+                <a href="../../index.html">
+                    <button class="nav-button" id="globe-button">
+                        <i class="fa fa-globe" style="font-size:36px;color:white"></i>
+                        <span class="text">Globe</span>
+                    </button>
+                </a>
+
+                <button class="nav-button projects-button" id="projects-button">
+                    <i class="fa fa-map" style="font-size:36px;color:white"></i>
+                    <span class="text">Project Pages</span>
+                </button>
+
+                <button class="nav-button" id="infoButton">
+                    <i class="fa fa-info-circle" style="font-size:36px;color:white"></i>
+                    <span class="text">Info</span>
+                </button>
+
+                <button class="nav-button">
+                    <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
+                    <span class="text">About Me</span>
+                </button>
+            </div>
         </div>
-    </div>
-    <div class="nav-bar">
-        <a href="../../index.html">
-            <button class="nav-button" id="globe-button">
-                <i class="fa fa-globe" style="font-size:36px;color:white"></i>
-                <span class="text">Globe</span>
-            </button>
-        </a>
-
-        <button class="nav-button projects-button" id="projects-button">
-            <i class="fa fa-map" style="font-size:36px;color:white"></i>
-            <span class="text">Project Pages</span>
-        </button>
-
-        <button class="nav-button">
-            <i class="fa fa-address-card" style="font-size:36px;color:white"></i>
-            <span class="text">About Me</span>
-        </button>
     </div>
 
     <main>
@@ -89,9 +96,6 @@
             <p>The full sized web app can be found <a href="https://yahnjr.github.io/map2midi/">here</a>. </p>
             <p>***features (soon to) come: file upload and addition, additinoal soundfonts, variable tempos, multitrack playing.***</p>
         </div>
-        <button class="info-button" id="infoButton">
-            <i class="fa fa-info-circle" style="font-size:24px;"></i>
-        </button>
         <div id="iframe-box">
           <iframe src="https://yahnjr.github.io/map2midi/" width="100%" height="700px" frameborder="0" allowfullscreen allow="geolocation"></iframe>
           <a href="https://yahnjr.github.io/map2midi/" target="_blank"><div id="fullscreen-button"><img src="../../resources/pictures/icons/fullscreen.svg"></div></a>

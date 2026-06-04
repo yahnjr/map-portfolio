@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #121212;
@@ -36,8 +38,13 @@ body {
 .header-content {
   position: relative;
   z-index: 3;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-top: 1px;
+  margin-left: 1px;
+  width: 100vw;
+}
+
+.header-text {
+  padding: 10px;
 }
 
 .header-content h1,
@@ -75,16 +82,18 @@ body {
 }
 
 .nav-bar {
-  position: fixed;
+  position: absolute;
   z-index: 10000;
   top: 50%;
   right: 20px;
-  background: transparent;
-  visibility: hidden;
   transform: translateY(-50%);
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  pointer-events: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-bar.fade-in {
@@ -103,39 +112,77 @@ body {
 }
 
 .nav-button {
-  background-color: #3b3b3b;
+  background-color: transparent;
   display: flex;
   align-items: center;
-  width: 300px;
-  height: 20px;
-  border-radius: 15px;
+  justify-content: center;
+  height: 50px;
+  width: 100px;
   color: white;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 7px;
-  margin: 50px;
   cursor: pointer;
   pointer-events: auto;
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(105%);
-  height: 20px;
-  border: 2px solid white;
+  transition: width 0.3s ease-in-out, padding 0.3s ease-in-out;
+  border: none;
+  border-right: 1px solid white;
+  padding: 0 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-button:last-child {
+  border-right: none;
+}
+
+.nav-button .text {
+  white-space: nowrap;
+  opacity: 0;
+  width: 0;
+  display: inline-block;
+  transition: opacity 0.3s ease-in-out 0.1s, width 0.3s ease-in-out;
+  margin-left: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.nav-button .fa {
+  flex-shrink: 0;
+  margin-right: 0;
+  font-size: 36px !important;
+  transition: margin-right 0.3s ease-in-out 0.1s;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .nav-button:hover {
-    transform: translateX(40%);
+    width: auto;
+    padding: 0 15px;
+  }
+
+  .nav-button:hover .text {
+    opacity: 1;
+    width: auto;
+    margin-left: 10px;
+  }
+
+  .nav-button:hover .fa {
+    margin-right: 0;
   }
 }
 
 @media (hover: none) and (pointer: coarse) {  
-  .nav-button:active {
-    transform: translateX(40%);
+  .nav-button.active {
+    width: auto;
+    padding: 0 15px;
+  }
+
+  .nav-button.active .text {
+    opacity: 1;
+    width: auto;
+    margin-left: 10px;
   }
 }
 
 .fa {
-  margin-right: 30px;
+  margin-right: 0;
 }
 
 .projects-modal {
@@ -369,6 +416,17 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .nav-button {
+    width: 50px;
+  }
+  
+  .nav-button .fa {
+    flex-shrink: 0;
+    margin-right: 0;
+    font-size: 20px !important;
+    transition: margin-right 0.3s ease-in-out 0.1s;
+  }
+  
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 10px;
